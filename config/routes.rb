@@ -1,16 +1,41 @@
 Rails.application.routes.draw do
-  # 会員用
-  # URL /members/sign_in ...
+  
+  # 管理者用(URLに/admin/を付与する為、namespace)
+  namespace :admin do
+    root 'homes#top'
+    resources :members, only: [:index, :update]
+    resources :categories, only: [:new, :create]
+  end
+  
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+  
+  
+  # 会員用(URLに/public/不要な為、scope module)
+  scope module: :public do
+    root 'homes#top'
+    get 'homes/about' => 'homes#about'
+    resources :members, only: [:show, :edit, :update]
+      get 'members/confirm' => 'members#confirm'
+      patch 'members/withdraw' => 'members#withdraw'
+      get 'members/follows' => 'members#follows'
+      get 'members/followers' => 'members#followers'
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+      get 'posts/index_pref' => 'posts#index_pref'
+      get 'posts/index_' => 'posts#index_'
+      get 'posts/index_pref_all' => 'posts#index_pref_all'
+    resources :post_comments, only: [:create, :destroy]
+    resources :post_likes, only: [:create, :destroy]
+    resources :relationships, only: [:create, :destroy]
+    resources :contacts, only: [:create]
+  end
+  
   devise_for :members, controllers: {
     registrations: "public/registrations",
     passwords: "public/passwords",
     sessions: 'public/sessions'
   }
-
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-  }
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
