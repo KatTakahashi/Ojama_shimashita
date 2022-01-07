@@ -9,6 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= link_to "LogOut", destroy_admin_session_path, method: :delete, class: "logo-font" %>
+
   <body>
     <%= yield %>
   </body>

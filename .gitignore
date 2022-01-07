@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#.envファイルをGitHubにアップしないため(.envは環境変数管理のgem "dotenv-rails"で使用)
+/.env
