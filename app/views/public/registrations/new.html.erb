@@ -24,17 +24,17 @@
     <tr>
       <th><%= f.label :性別 %></th>
       <th></th>
-      <th><%= f.number_field :gender %></th>
+      <th><%= f.select :gender, Member.genders_i18n.invert, {prompt: "選択してください"} %></th>
     </tr>
     <tr>
       <th><%= f.label :誕生日 %></th>
       <th></th>
-      <th><%= f.date_select :birthday %></th>
+      <th><%= f.date_select :birthday, start_year: (Time.now.year - 100), default: Date.new(1995, 1, 1) %></th>
     </tr>
     <tr>
       <th><%= f.label :居住地 %></th>
       <th></th>
-      <th><%= f.number_field :living_prefecture, placeholder: "大阪" %></th>
+      <th><%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %></th>
     </tr>
     <tr>
       <th><%= f.label :メールアドレス %></th>
