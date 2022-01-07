@@ -1,5 +1,25 @@
 <h2>Log in</h2>
 
+<%= form_with model: @member,url: member_session_path, local: true do |f| %>
+  <table>
+    <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examole.com",:size => "40" %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :パスワード %></th>
+        <td><%= f.password_field :password, autocomplete: "current-password",:size => "40" %></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+    </tr>
+  </table>
+<% end %>
+
+
+
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

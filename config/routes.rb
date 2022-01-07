@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
-  
+
   # 管理者用(URLに/admin/を付与する為、namespace)
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+
   namespace :admin do
     root 'homes#top'
     resources :members, only: [:index, :update]
     resources :categories, only: [:new, :create]
   end
-  
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-  }
-  
-  
+
+
   # 会員用(URLに/public/不要な為、scope module)
+  devise_for :members, controllers: {
+  registrations: 'public/registrations',
+  passwords: 'public/passwords',
+  sessions: 'public/sessions'
+  }
+
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'
@@ -30,12 +36,6 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     resources :contacts, only: [:create]
   end
-  
-  devise_for :members, controllers: {
-    registrations: "public/registrations",
-    passwords: "public/passwords",
-    sessions: 'public/sessions'
-  }
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
