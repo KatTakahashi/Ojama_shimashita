@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get 'members/followers' => 'members#followers'
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
       get 'posts/index_pref' => 'posts#index_pref'
-      get 'posts/index_' => 'posts#index_'
+      get 'posts/index_all' => 'posts#index_all'
       get 'posts/index_pref_all' => 'posts#index_pref_all'
     resources :post_comments, only: [:create, :destroy]
     resources :post_likes, only: [:create, :destroy]
