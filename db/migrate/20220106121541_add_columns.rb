@@ -10,8 +10,8 @@ class AddColumns < ActiveRecord::Migration[5.2]
     add_column :members, :birthday, :date
     add_column :members, :living_prefecture, :integer
     add_column :members, :favorite_word, :string
-    add_column :members, :profile_image, :string
-    add_column :members, :background_image, :string
+    add_column :members, :profile_image_id, :string
+    add_column :members, :background_image_id, :string
     add_column :members, :is_deleted, :boolean
 
     #postsテーブル
@@ -27,6 +27,7 @@ class AddColumns < ActiveRecord::Migration[5.2]
 
     #post_imagesテーブル
     add_column :post_images, :post_id, :integer
+    add_column :post_images, :post_image_id, :integer
 
     #post_commentsテーブル
     add_column :post_comments, :member_id, :integer

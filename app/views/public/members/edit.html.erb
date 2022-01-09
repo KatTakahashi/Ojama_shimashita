@@ -1,1 +1,61 @@
-edit.html.erb
+members_controller/edit.html.erb
+
+<%= form_with model: @member, url: member_path, local: true do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :背景画像 %></th>
+      <th></th>
+      <td><%= f.attachment_field :background_image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :プロフィール画像 %></th>
+      <th></th>
+      <td><%= f.attachment_field :profile_image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :好きな旅の言葉 %></th>
+      <th></th>
+      <td><%= f.text_field :favorite_word, autocomplete: "favorite_word", autofocus: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :名前 %></th>
+      <th><%= f.label :（姓）%></th>
+      <td><%= f.text_field :last_name, autocomplete: "last_name" %></td>
+      <th><%= f.label :（名） %></th>
+      <td><%= f.text_field :first_name, autocomplete: "first_name" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :フリガナ %></th>
+      <th><%= f.label :（セイ） %></th>
+      <td><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %></td>
+      <th><%= f.label :（メイ） %></th>
+      <td><%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :ユーザーネーム %></th>
+      <th></th>
+      <td><%= f.text_field :user_name, autocomplete: "user_name" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :居住地 %></th>
+      <th></th>
+      <td><%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <th></th>
+      <td><%= f.email_field :email, autocomplete: "email", placeholder: "sakuragi@kenji.co.jp" %></td>
+    </tr>
+    <tr>
+      <th><!-- 会員ステータス --></th>
+      <th></th>
+      <td><%= f.hidden_field :is_deleted %></td>
+    </tr>
+
+    <tr>
+      <th></th>
+      <td><%= f.submit"編集内容を保存", class: "btn btn-success" %></td>
+      <td><%= link_to "退会する", members_confirm_path, data: {confirm: "本当に退会してもよろしいでしょうか。"}, class: "btn btn-danger" %></td>
+    </tr>
+  </table>
+<%end%>

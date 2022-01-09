@@ -12,8 +12,8 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
     change_column_null :members, :living_prefecture, false
     #change_column_null :members, :encrypted_password, false
     #change_column_null :members, :favorite_word, false
-    #change_column_null :members, :profile_image, false
-    #change_column_null :members, :background_image, false
+    #change_column_null :members, :profile_image_id, false
+    #change_column_null :members, :background_image_id, false
     change_column_null :members, :is_deleted, false
     
     #postsテーブル
@@ -29,6 +29,7 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
     
     #post_imagesテーブル
     change_column_null :post_images, :post_id, false
+    change_column_null :post_images, :post_image_id, false
     
     #post_commentsテーブル
     change_column_null :post_comments, :member_id, false
@@ -65,8 +66,8 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
     change_column_null :members, :living_prefecture, true
     #change_column_null :members, :encrypted_password, true
     #change_column_null :members, :favorite_word, true
-    #change_column_null :members, :profile_image, true
-    #change_column_null :members, :background_image, true
+    #change_column_null :members, :profile_image_id, true
+    #change_column_null :members, :background_image_id, true
     change_column_null :members, :is_deleted, true
     
     #postsテーブル
@@ -82,6 +83,7 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
     
     #post_imagesテーブル
     change_column_null :post_images, :post_id, true
+    change_column_null :post_images, :post_image_id, true
     
     #post_commentsテーブル
     change_column_null :post_comments, :member_id, true

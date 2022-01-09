@@ -4,6 +4,10 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #gem refile(画像アップロード)用
+  attachment :profile_image
+  attachment :background_image
+
   #アソシエーション
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy

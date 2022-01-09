@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2022_01_06_124530) do
     t.date "birthday", null: false
     t.integer "living_prefecture", null: false
     t.string "favorite_word"
-    t.string "profile_image"
-    t.string "background_image"
+    t.string "profile_image_id"
+    t.string "background_image_id"
     t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
@@ -73,14 +73,13 @@ ActiveRecord::Schema.define(version: 2022_01_06_124530) do
   create_table "post_images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "PostId"
     t.integer "post_id", null: false
+    t.integer "post_image_id", null: false
   end
 
   create_table "post_likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "post_image"
     t.integer "member_id", null: false
     t.string "post_image_id", null: false
   end
