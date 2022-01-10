@@ -12,7 +12,7 @@ class Member < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
-  has_many :folloed_id, dependent: :destroy
+  has_many :followed_id, dependent: :destroy
   has_many :follower_id, dependent: :destroy
 
   #バリデーション
