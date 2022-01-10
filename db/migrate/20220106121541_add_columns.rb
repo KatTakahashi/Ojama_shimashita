@@ -27,7 +27,7 @@ class AddColumns < ActiveRecord::Migration[5.2]
 
     #post_imagesテーブル
     add_column :post_images, :post_id, :integer
-    add_column :post_images, :post_image_id, :integer
+    add_column :post_images, :image_id, :string
 
     #post_commentsテーブル
     add_column :post_comments, :member_id, :integer
@@ -36,7 +36,7 @@ class AddColumns < ActiveRecord::Migration[5.2]
 
     #post_likesテーブル
     add_column :post_likes, :member_id, :integer
-    add_column :post_likes, :post_image_id, :string
+    add_column :post_likes, :post_image_id, :integer
 
     #categoriesテーブル
     add_column :categories, :category, :string

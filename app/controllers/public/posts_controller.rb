@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at )
+    params.require(:post).permit(:prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at, :image, post_images_images: [] )
   end
 
 end
