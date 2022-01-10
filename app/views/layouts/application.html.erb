@@ -9,8 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= link_to "Admin_LogOut", destroy_admin_session_path, method: :delete, class: "logo-font" %><br>
-  <%= link_to "Member_LogOut", destroy_member_session_path, method: :delete, class: "logo-font" %>
+  <%= link_to "Admin_Log_in", new_admin_session_path %><br>
+  <%= link_to "Member_sign_up", new_member_registration_path %><br>
+  <%= link_to "Member_Log_in", new_member_session_path %><br>
+
+  <% if member_signed_in? %>
+    名：<%= current_member.last_name %><br>
+    ID:<%= current_member.id %><br>
+    <%= link_to "Member_Log_out", destroy_member_session_path, method: :delete %><br><br>
+  <% elsif admin_signed_in? %>
+    <%= link_to "Admin_Log_out", destroy_admin_session_path, method: :delete %><br><br>
+  <% end %>
+  <br>
 
   <body>
     <%= yield %>
