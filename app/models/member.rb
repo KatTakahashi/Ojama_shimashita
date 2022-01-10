@@ -12,8 +12,7 @@ class Member < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
-  has_many :followed_id, dependent: :destroy
-  has_many :follower_id, dependent: :destroy
+  #フォロー機能との
 
   #バリデーション
   validates :last_name, presence: true
