@@ -7,46 +7,50 @@ posts_controller/show.html.erb<br>
   <% end %>
 <% end %>
 
-<%= @post.prefecture_i18n %><br>
-<%= @post.city %><br>
-<%= @post.spot_name %><br>
-<%= @post.body %><br><br>
+都道府県　：　<%= @post.prefecture_i18n %><br>
+市町村　　：　<%= @post.city %><br>
+スポット名：　<%= @post.spot_name %><br>
+旅のメモ　：　<%= @post.body %><br><br>
 
-<%= link_to "編集する",edit_post_path(@post.id) %>
+<!-- admin と current_member のみ[編集]と[削除]を表示 -->
+<% if member_signed_in? && current_member.id == @post.member_id || admin_signed_in? %>
+  <%= link_to "編集する",edit_post_path(@post.id) %>
+  <%= link_to "削除する", post_path(@post.id), method: :delete %><br><br>
+<% end %>
 
-<%= link_to "削除する", post_path(@post.id), method: :delete %>
-
-<p>コメント</p>
-<p>コメント件数：<%= @post.post_comments.count %></p>
+<!-- コメント機能　ここから　※ログイン中会員のみ コメント可 -->
+コメント件数：<%= @post.post_comments.count %><br>
 <% @post.post_comments.each do |post_comment| %>
-  <%= post_comment.member.user_name %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.body %>
+  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+  <%= post_comment.member.user_name %><br>
+  <%= post_comment.body %><br><br>
   <% if post_comment.member == current_member %>
-  <div>
-    <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-  </div>
+    <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
   <% end %>
 <% end %>
-</div>
-<div>
-<%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-  <%= f.text_area :body, placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
+
+<% if member_signed_in? && current_member.id == @post.member_id %>
+  <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+    <%= f.text_area :body, placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
 <% end %>
-</div>
+<!-- コメント機能　ここまで -->
 
-
-<p>いいね</p>
+<!-- いいね機能　ここから　※ログイン中会員のみ いいね可 -->
+<% if member_signed_in? && current_member.id == @post.member_id %>
+  <!-- いいね削除機能 -->
   <% if @post.liked_by?(current_member) %>
-    <p>
-      <%= link_to post_post_likes_path(@post), method: :delete do %>
-        ♥<%= @post.post_likes.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_post_likes_path(@post), method: :post do %>
-        ♡<%= @post.post_likes.count %> いいね
-      <% end %>
-    </p>
+    <%= link_to post_post_likes_path(@post), method: :delete do %>
+      ♥<%= @post.post_likes.count %> いいね
+    <% end %>
+  <!-- いいね機能 -->
+  <% else %>
+    <%= link_to post_post_likes_path(@post), method: :post do %>
+      ♡<%= @post.post_likes.count %> いいね
+    <% end %>
   <% end %>
+<% else %>
+  ♡<%= @post.post_likes.count %> いいね
+<% end %>
+<!-- いいね機能　ここまで -->
