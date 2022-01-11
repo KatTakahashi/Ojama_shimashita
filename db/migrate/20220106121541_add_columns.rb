@@ -36,8 +36,8 @@ class AddColumns < ActiveRecord::Migration[5.2]
     add_column :categories, :category, :string
 
     #relationshipsテーブル
-    add_column :relationships, :follows_id, :integer
-    add_column :relationships, :followers_id, :integer
+    add_column :relationships, :follow_id, :integer
+    add_column :relationships, :followed_id, :integer
 
     #contactsテーブル
     add_column :contacts, :name, :string

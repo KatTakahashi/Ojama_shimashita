@@ -1,1 +1,39 @@
 members_controller/show.html.erb
+
+<p><%= "アカウント名: #{@member.user_name}" %></p>
+<p><%= "フォロー数　: #{@member.follow.count}" %></p>
+<p><%= "フォロワー数: #{@member.followed.count}" %></p>
+<% unless member_signed_in? && current_member == @member || admin_signed_in?  %>
+  <% if current_member.following?(@member) %>
+    <%= link_to 'フォロー外す', unfollow_path(@member.id), method: :POST %>
+  <% else %>
+    <%= link_to 'フォローする', follows_path(@member.id), method: :POST %>
+  <% end %>
+<% end %>
+
+<br><br>
+
+<p>フォロー一覧</p>
+ <% @member.following_member.each do |member| %>
+    <%= link_to member.user_name, member_path(member) %>
+    <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
+      <% if current_member.following?(member) %>
+        <%= link_to 'フォロー外す', unfollow_path(member.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follows_path(member.id), method: :POST %>
+      <% end %>
+    <% end %>
+ <% end %>
+
+<p>フォロワー一覧</p>
+<% @member.follower_member.each do |member| %>
+    <%= link_to member.user_name, member_path(member) %>
+    <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
+      <% if current_member.following?(member) %>
+        <%= link_to 'フォロー外す', unfollow_path(member.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follows_path(member.id), method: :POST %>
+      <% end %>
+    <% end %>
+<% end %>
+

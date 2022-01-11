@@ -8,7 +8,27 @@ class Member < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments
   has_many :post_likes
-  # フォロー機能とのアソシエーション別途追加
+  #フォローする人(=follow)
+  has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
+  #フォローされる人(=followed)
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  #自分がフォローしている会員(=following_member)
+  has_many :following_member, through: :follow, source: :followed
+  #自分をフォローしている会員(follower_member)
+  has_many :follower_member, through: :followed, source: :follow
+  
+  # フォローする機能
+  def follows(member_id)
+   follow.create(followed_id: member_id)
+  end
+  # フォローを外す機能
+  def unfollow(member_id)
+   follow.find_by(followed_id: member_id).destroy
+  end
+  # フォロー確認をおこなう機能
+  def following?(member)
+   following_member.include?(member)
+  end
 
   #active strage(画像アップロード)用
   has_one_attached :profile_image
