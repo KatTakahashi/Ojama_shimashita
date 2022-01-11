@@ -34,3 +34,19 @@ posts_controller/show.html.erb<br>
   <%= f.submit "送信する" %>
 <% end %>
 </div>
+
+
+<p>いいね</p>
+  <% if @post.liked_by?(current_member) %>
+    <p>
+      <%= link_to post_post_likes_path(@post), method: :delete do %>
+        ♥<%= @post.post_likes.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_post_likes_path(@post), method: :post do %>
+        ♡<%= @post.post_likes.count %> いいね
+      <% end %>
+    </p>
+  <% end %>

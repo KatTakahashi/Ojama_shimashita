@@ -30,6 +30,7 @@ class AddColumns < ActiveRecord::Migration[5.2]
 
     #post_likesテーブル
     add_column :post_likes, :member_id, :integer
+    add_column :post_likes, :post_id, :integer
 
     #categoriesテーブル
     add_column :categories, :category, :string

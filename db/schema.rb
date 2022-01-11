@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "member_id"
+    t.integer "post_id"
   end
 
   create_table "posts", force: :cascade do |t|
