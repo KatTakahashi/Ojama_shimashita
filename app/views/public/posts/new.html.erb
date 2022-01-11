@@ -1,12 +1,12 @@
 posts_controller/new.html.erb
 
-<%= form_with mode: @post, url: posts_path, local: true do |f| %>
+<%= form_with model: @post, url: posts_path, local: true do |f| %>
   <table>
-    <!-- エラー -->
-    <!--<tr>-->
-    <!--  <th><%#= f.label :投稿写真 %></th>-->
-    <!--  <td><%#= f.attachment_field :post_image_image %></td>-->
-    <!--</tr>-->
+     エラー
+    <tr>
+      <th><%= f.label :投稿写真 %></th>
+      <td><%= f.file_field :images, multiple: true %></td>
+    </tr>
     <tr>
       <th><%= f.label :撮影日 %></th>
       <td><%= f.date_field :taken_at %></td>

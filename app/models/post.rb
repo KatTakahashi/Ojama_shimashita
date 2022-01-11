@@ -1,20 +1,18 @@
 class Post < ApplicationRecord
 
-  #gem refile(画像アップロード)用
-  accepts_attachments_for :post_images, attachment: :image
-
   #アソシエーション
   belongs_to :member
   belongs_to :category
-  has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+
+  #active strage(画像アップロード)用
+  has_many_attached :images
 
   #バリデーション
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :spot_name, presence: true
   validates :taken_at, presence: true
-
 
   #enum 都道府県
   enum prefecture: {

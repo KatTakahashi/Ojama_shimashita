@@ -5,12 +5,12 @@ members_controller/edit.html.erb
     <tr>
       <th><%= f.label :背景画像 %></th>
       <th></th>
-      <td><%= f.attachment_field :background_image %></td>
+      <td><%= f.file_field :background_image %></td>
     </tr>
     <tr>
       <th><%= f.label :プロフィール画像 %></th>
       <th></th>
-      <td><%= f.attachment_field :profile_image %></td>
+      <td><%= f.file_field :profile_image %></td>
     </tr>
     <tr>
       <th><%= f.label :好きな旅の言葉 %></th>

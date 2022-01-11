@@ -31,7 +31,7 @@ class Public::PostsController < ApplicationController
     @member = Member.find(current_member.id)
     @post = Post.new(post_params)
     @post.member_id = current_member.id
-    if @book.save
+    if @post.save
       redirect_to post_path(@post)
     else
       redirect_to new_post_path
@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at, :image, post_images_images: [] )
+    params.require(:post).permit(:prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at, images: [] )
   end
 
 end

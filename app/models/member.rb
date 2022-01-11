@@ -4,15 +4,15 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #gem refile(画像アップロード)用
-  attachment :profile_image
-  attachment :background_image
-
   #アソシエーション
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
-  #フォロー機能との
+  #フォロー機能とのアソシエーション別途追加
+  
+  #active strage(画像アップロード)用
+  has_one_attached :profile_image
+  has_one_attached :background_image
 
   #バリデーション
   validates :last_name, presence: true
