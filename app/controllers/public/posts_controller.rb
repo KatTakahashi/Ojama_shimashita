@@ -28,10 +28,9 @@ class Public::PostsController < ApplicationController
 
   #新規投稿機能
   def create
-    @member = Member.find(current_member.id)
     @post = Post.new(post_params)
     @post.member_id = current_member.id
-    if @post.save
+    if @post.save(post_params)
       redirect_to post_path(@post)
     else
       redirect_to new_post_path
@@ -40,10 +39,18 @@ class Public::PostsController < ApplicationController
 
   #投稿編集画面
   def edit
+    @post = Post.find(params[:id])
   end
 
   #投稿内容更新機能
   def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    if @post.update
+      redirect_to post_path(@post)
+    else
+      redirect_to new_post_path
+    end
   end
 
   #投稿削除機能

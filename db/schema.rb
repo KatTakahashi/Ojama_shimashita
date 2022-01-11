@@ -48,15 +48,15 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "category", null: false
+    t.string "category"
   end
 
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.string "email", null: false
-    t.text "message", null: false
+    t.string "name"
+    t.string "email"
+    t.text "message"
   end
 
   create_table "members", force: :cascade do |t|
@@ -67,16 +67,16 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "user_name", null: false
-    t.integer "gender", null: false
-    t.date "birthday", null: false
-    t.integer "living_prefecture", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "user_name"
+    t.integer "gender"
+    t.date "birthday"
+    t.integer "living_prefecture"
     t.string "favorite_word"
-    t.boolean "is_deleted", default: false, null: false
+    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -84,29 +84,29 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
   create_table "post_comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "member_id", null: false
-    t.integer "post_id", null: false
-    t.text "body", null: false
+    t.integer "member_id"
+    t.integer "post_id"
+    t.text "body"
   end
 
   create_table "post_likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "member_id", null: false
+    t.integer "member_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "member_id", null: false
-    t.integer "category_id", null: false
-    t.integer "prefecture", null: false
-    t.string "city", null: false
-    t.string "spot_name", null: false
+    t.integer "member_id"
+    t.integer "category_id"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "spot_name"
     t.text "body"
     t.float "latitude"
     t.float "longitude"
-    t.date "taken_at", null: false
+    t.date "taken_at"
   end
 
   create_table "relationships", force: :cascade do |t|

@@ -6,8 +6,8 @@ class Member < ApplicationRecord
 
   #アソシエーション
   has_many :posts, dependent: :destroy
-  has_many :post_comments, dependent: :destroy
-  has_many :post_likes, dependent: :destroy
+  # has_many :post_comments, dependent: :destroy
+  # has_many :post_likes, dependent: :destroy
   #フォロー機能とのアソシエーション別途追加
   
   #active strage(画像アップロード)用

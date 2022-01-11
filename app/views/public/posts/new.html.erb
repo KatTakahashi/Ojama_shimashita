@@ -1,8 +1,7 @@
 posts_controller/new.html.erb
 
-<%= form_with model: @post, url: posts_path, local: true do |f| %>
+<%= form_with model: @post, local: true do |f| %>
   <table>
-     エラー
     <tr>
       <th><%= f.label :投稿写真 %></th>
       <td><%= f.file_field :images, multiple: true %></td>

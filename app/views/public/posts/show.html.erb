@@ -1,0 +1,12 @@
+posts_controller/show.html.erb
+
+<% if @post.images.attached? %>
+  <% @post.images.each do |image| %>
+    <%= image_tag image %> <br>
+  <% end %>
+<% end %>
+
+<%= @post.prefecture %>
+<%= @post.city %>
+<%= @post.spot_name %>
+<%= @post.body %>
