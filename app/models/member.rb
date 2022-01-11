@@ -6,7 +6,7 @@ class Member < ApplicationRecord
 
   #アソシエーション
   has_many :posts, dependent: :destroy
-  # has_many :post_comments, dependent: :destroy
+  has_many :post_comments
   # has_many :post_likes, dependent: :destroy
   #フォロー機能とのアソシエーション別途追加
   

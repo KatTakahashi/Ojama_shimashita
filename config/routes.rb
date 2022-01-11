@@ -27,11 +27,12 @@ Rails.application.routes.draw do
       patch 'members/withdraw' => 'members#withdraw'
       get 'members/follows' => 'members#follows'
       get 'members/followers' => 'members#followers'
-    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
       get 'posts/index_pref' => 'posts#index_pref'
       get 'posts/index_all' => 'posts#index_all'
       get 'posts/index_pref_all' => 'posts#index_pref_all'
-    resources :post_comments, only: [:create, :destroy]
     resources :post_likes, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
     resources :contacts, only: [:create]

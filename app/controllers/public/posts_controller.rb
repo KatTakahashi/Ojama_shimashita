@@ -19,6 +19,7 @@ class Public::PostsController < ApplicationController
   #投稿詳細画面
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   #新規投稿画面

@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   #アソシエーション
   belongs_to :member
   # belongs_to :category
-  # has_many :post_comments, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   #active strage(画像アップロード)用
   has_many_attached :images
