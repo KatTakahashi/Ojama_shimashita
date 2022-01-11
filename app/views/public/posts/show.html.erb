@@ -1,12 +1,15 @@
-posts_controller/show.html.erb
+posts_controller/show.html.erb<br>
 
+<!-- 投稿画像を表示 -->
 <% if @post.images.attached? %>
   <% @post.images.each do |image| %>
-    <%= image_tag image %> <br>
+    <%= image_tag image, size: "150x150" %> <br>
   <% end %>
 <% end %>
 
-<%= @post.prefecture %>
-<%= @post.city %>
-<%= @post.spot_name %>
-<%= @post.body %>
+<%= @post.prefecture %><br>
+<%= @post.city %><br>
+<%= @post.spot_name %><br>
+<%= @post.body %><br><br>
+
+<%= link_to "編集する",edit_post_path(@post.id) %>

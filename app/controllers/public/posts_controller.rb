@@ -45,8 +45,7 @@ class Public::PostsController < ApplicationController
   #投稿内容更新機能
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    if @post.update
+    if @post.update(post_params)
       redirect_to post_path(@post)
     else
       redirect_to new_post_path

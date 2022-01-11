@@ -1,1 +1,34 @@
 posts_controller/edit.html.erb
+
+<%= form_with model: @post, local: true do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :投稿写真 %></th>
+      <td><% f.file_field :images, multiple: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :撮影日 %></th>
+      <td><%= f.date_field :taken_at %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :都道府県 %></th>
+      <td><%= f.select :prefecture, Post.prefectures_i18n.invert, {prompt: "選択してください"} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :市町村 %></th>
+      <td><%= f.text_field :city %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :スポット名 %></th>
+      <td><%= f.text_field :spot_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :旅のメモ %></th>
+      <td><%= f.text_area :body %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= f.submit "変更を保存", class: "btn btn-primary" %></td>
+    </tr>
+  </table>
+<% end %>
