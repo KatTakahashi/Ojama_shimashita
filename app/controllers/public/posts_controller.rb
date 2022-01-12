@@ -2,6 +2,7 @@ class Public::PostsController < ApplicationController
 
   #個人の投稿一覧画面
   def index
+    @posts = Post.all
   end
 
   #個人の投稿一覧画面(都道府県別)
@@ -58,6 +59,13 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to new_post_path
+  end
+
+  #検索機能
+  def search
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "search"
   end
 
   private

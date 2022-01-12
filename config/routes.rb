@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get 'posts/index_pref' => 'posts#index_pref'
       get 'posts/index_all' => 'posts#index_all'
       get 'posts/index_pref_all' => 'posts#index_pref_all'
+      get 'search' => 'posts#search'
     post 'follows/:id' => 'relationships#follow', as: 'follows'
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
     resources :contacts, only: [:create]

@@ -2,7 +2,6 @@ class Post < ApplicationRecord
 
   #アソシエーション
   belongs_to :member
-  # belongs_to :category
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
 
@@ -19,6 +18,12 @@ class Post < ApplicationRecord
   validates :city, presence: true
   validates :spot_name, presence: true
   validates :taken_at, presence: true
+
+  #検索機能用メソッド
+  def self.search(keyword)
+    #city, spot_name, bodyカラムの部分一致
+    where(["city like? OR spot_name like? OR body like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+  end
 
   #enum 投稿用(都道府県)
   enum prefecture: {
