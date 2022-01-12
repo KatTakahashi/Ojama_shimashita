@@ -1,15 +1,23 @@
 posts_controller/search.html.erb<br>
 
-  <% @posts.each do |post| %>
-    <% if post.images.attached? %>
-      <% post.images.each do |image| %>
-        <%= image_tag image, size: "150x150" %> <br>
-      <% end %>
-    <% end %>
+<!-- 検索フォーム -->
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword, value: @keyword %>
+  <%= f.submit "検索" %>
+<% end %>
 
-    カテゴリー：　<%= post.category_i18n %><br>
-    都道府県　：　<%= post.prefecture_i18n %><br>
-    市町村　　：　<%= post.city %><br>
-    スポット名：　<%= post.spot_name %><br>
-    旅のメモ　：　<%= post.body %><br><br>
+<br>
+
+<!-- 検索結果 -->
+<% @posts.each do |post| %>
+  <% if post.images.attached? %>
+    <% post.images.each do |image| %>
+      <%= image_tag image, size: "150x150" %> <br>
+    <% end %>
   <% end %>
+  カテゴリー：　<%= post.category_i18n %><br>
+  都道府県　：　<%= post.prefecture_i18n %><br>
+  市町村　　：　<%= post.city %><br>
+  スポット名：　<%= post.spot_name %><br>
+  旅のメモ　：　<%= post.body %><br><br>
+<% end %>
