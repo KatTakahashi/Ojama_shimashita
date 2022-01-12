@@ -24,7 +24,7 @@
     <tr>
       <th><%= f.label :性別 %></th>
       <th></th>
-      <th><%= f.select :gender, Member.genders_i18n.invert, {prompt: "選択してください"} %></th>
+      <th><%= f.collection_radio_buttons :gender, Member.genders_i18n, :first, :last %></th>
     </tr>
     <tr>
       <th><%= f.label :誕生日 %></th>
