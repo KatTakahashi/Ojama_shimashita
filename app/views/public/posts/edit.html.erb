@@ -11,6 +11,10 @@ posts_controller/edit.html.erb
       <td><%= f.date_field :taken_at %></td>
     </tr>
     <tr>
+      <th><%= f.label :カテゴリー %></th>
+      <td><%= f.select :category, Post.categories_i18n.invert, {prompt: "選択してください"} %></td>
+    </tr>
+    <tr>
       <th><%= f.label :都道府県 %></th>
       <td><%= f.select :prefecture, Post.prefectures_i18n.invert, {prompt: "選択してください"} %></td>
     </tr>

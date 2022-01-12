@@ -14,7 +14,7 @@ class AddColumns < ActiveRecord::Migration[5.2]
 
     #postsテーブル
     add_column :posts, :member_id, :integer
-    add_column :posts, :category_id, :integer
+    add_column :posts, :category, :integer
     add_column :posts, :prefecture, :integer
     add_column :posts, :city, :string
     add_column :posts, :spot_name, :string
@@ -31,9 +31,6 @@ class AddColumns < ActiveRecord::Migration[5.2]
     #post_likesテーブル
     add_column :post_likes, :member_id, :integer
     add_column :post_likes, :post_id, :integer
-
-    #categoriesテーブル
-    add_column :categories, :category, :string
 
     #relationshipsテーブル
     add_column :relationships, :follow_id, :integer

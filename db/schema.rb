@@ -45,12 +45,6 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "category"
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_042724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "member_id"
-    t.integer "category_id"
+    t.integer "category"
     t.integer "prefecture"
     t.string "city"
     t.string "spot_name"
