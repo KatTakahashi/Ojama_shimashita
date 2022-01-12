@@ -59,7 +59,7 @@ class Member < ApplicationRecord
 
   #enum 会員登録用(都道府県)
   enum living_prefecture: {
-    Secret:0,
+    Private:0,
     #北海道・東北地方
     Hokkaido:1, Aomori:2, Iwate:3, Miyagi:4, Akita:5, Yamagata:6, Fukushima:7,
     #関東地方
@@ -73,7 +73,7 @@ class Member < ApplicationRecord
     Tottori:31, Shimane:32, Okayama:33, Hiroshima:34, Yamaguchi:35,
     #四国地方
     Tokushima:36, Kagawa:37, Ehime:38, Kochi:39,
-    #九州・沖縄
+    #九州・沖縄地方
     Fukuoka:40, Saga:41, Nagasaki:42, Kumamoto:43, Oita:44, Miyazaki:45, Kagoshima:46,
     Okinawa:47
   }

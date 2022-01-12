@@ -14,7 +14,7 @@ ja:
         Secret: "秘密"
 
       living_prefecture: #living_prefectureカラム
-        Secret: "非公開"
+        Private: "非公開"
         Hokkaido: "北海道"
         Aomori: "青森県"
         Iwate: "岩手県"
