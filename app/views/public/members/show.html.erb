@@ -37,3 +37,18 @@ members_controller/show.html.erb
     <% end %>
 <% end %>
 
+<!-- マップ　ここから -->
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<%= javascript_include_tag 'jquery.japan-map.min.js' %>
+  <script>
+  $(function(){
+    $("#map-container").japanMap({
+        width:600,
+        onSelect : function(data){
+            alert(data.name);
+        }
+      });
+  });
+  </script>
+  <div id="map-container"></div>
+<!-- マップ　ここまで -->

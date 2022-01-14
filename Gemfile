@@ -82,7 +82,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'enum_help'
 #Viewのアイコン用
   gem 'font-awesome-sass', '~> 5.13'
-#japanmap用
+#japan_map用
   gem 'jcanvas-rails', '~> 0.1.0'
 #google map API用(緯度経度の情報からピンを刺す)
   gem 'gmaps4rails'

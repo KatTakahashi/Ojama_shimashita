@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// jQuery用
+//= require jquery
+//= require jquery_ujs
+//= require jcanvas
