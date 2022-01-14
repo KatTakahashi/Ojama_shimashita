@@ -50,5 +50,81 @@ members_controller/show.html.erb
       });
   });
   </script>
+
+<!-- 訪問済み色分け -->
+<script type="text/javascript">
+$(function(){
+    var areas = [
+{code : 1, color: "#7f7eda", hoverColor: "#b3b2ee", prefectures: [1]},
+{code : 2, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [2]},
+{code : 3, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [3]},
+{code : 4, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [4]},
+{code : 5, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [5]},
+{code : 6, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [6]},
+{code : 7, color: "#759ef4", hoverColor: "#98b9ff", prefectures: [7]},
+{code : 8, color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [8]},
+{code : 9, color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [9]},
+{code : 10,color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [10]},
+{code : 11,color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [11]},
+{code : 12, color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [12]},
+{code : 13, color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [13]},
+{code : 14, color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [14]},
+{code : 15, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [15]},
+{code : 16, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [16]},
+{code : 17, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [17]},
+{code : 18, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [18]},
+{code : 19, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [19]},
+{code : 20, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [20]},
+{code : 21, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [21]},
+{code : 22, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [22]},
+{code : 23, color: "#7cdc92", hoverColor: "#aceebb", prefectures: [23]},
+{code : 24, color: "#ffe966", hoverColor: "#fff19c", prefectures: [24]},
+{code : 25, color: "#ffe966", hoverColor: "#fff19c", prefectures: [25]},
+{code : 26, color: "#ffe966", hoverColor: "#fff19c", prefectures: [26]},
+{code : 27, color: "#ffe966", hoverColor: "#fff19c", prefectures: [27]},
+{code : 28, color: "#ffe966", hoverColor: "#fff19c", prefectures: [28]},
+{code : 29, color: "#ffe966", hoverColor: "#fff19c", prefectures: [29]},
+{code : 30, color: "#ffe966", hoverColor: "#fff19c", prefectures: [30]},
+{code : 31, color: "#ffcc66", hoverColor: "#ffe0a3", prefectures: [31]},
+{code : 32, color: "#ffcc66", hoverColor: "#ffe0a3", prefectures: [32]},
+{code : 33, color: "#ffcc66", hoverColor: "#ffe0a3", prefectures: [33]},
+{code : 34, color: "#ffcc66", hoverColor: "#ffe0a3", prefectures: [34]},
+{code : 35, color: "#ffcc66", hoverColor: "#ffe0a3", prefectures: [35]},
+{code : 36, color: "#fb9466", hoverColor: "#ffbb9c", prefectures: [36]},
+{code : 37, color: "#fb9466", hoverColor: "#ffbb9c", prefectures: [37]},
+{code : 38, color: "#fb9466", hoverColor: "#ffbb9c", prefectures: [38]},
+{code : 39, color: "#fb9466", hoverColor: "#ffbb9c", prefectures: [39]},
+{code : 40, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [40]},
+{code : 41, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [41]},
+{code : 42, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [42]},
+{code : 43, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [43]},
+{code : 44, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [44]},
+{code : 45, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [45]},
+{code : 46, color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [46]},
+{code : 47, color: "#eb98ff", hoverColor: "#f5c9ff", prefectures: [47]},
+    ];
+
+    $("#map-container").japanMap({
+        width: 730,  //表示幅
+        selection: "area",
+        areas: areas,
+        backgroundColor : "transparent",  //背景色
+        borderLineColor: "gray",   //県境の線(色)
+        borderLineWidth : 0.25,  //枠線の太さ
+        lineColor : "black",  //枠線線(色)
+        lineWidth: 1,  //枠線線の太さ
+        drawsBoxLine: true,
+        showsPrefectureName: true,
+        prefectureNameType: "short",
+        movesIslands : true,
+        fontSize : 11,  //都道府県の文字サイズ
+        fontShadowColor : "#fff",  //都道府県の文字の影(色)
+        onSelect : function(data){
+            alert(data.name);
+        }
+    });
+});
+</script>
+
   <div id="map-container"></div>
 <!-- マップ　ここまで -->

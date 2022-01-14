@@ -2,6 +2,12 @@ class Public::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    # japan_map用
+    if @member.Post.find_by(prefecture: 'Hokkaido').exists?
+      @color = black
+    else
+      @color = white
+    end
   end
 
   def edit
