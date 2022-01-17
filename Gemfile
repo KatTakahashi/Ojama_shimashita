@@ -86,7 +86,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'jcanvas-rails', '~> 0.1.0'
 #google map API用(緯度経度の情報からピンを刺す)
   gem 'gmaps4rails'
-#google mao API用(住所の情報から緯度経度を数値に変換)
+#google map API用(住所の情報から緯度経度を数値に変換)
   gem 'geocoder'
 #GitHubにAPI keyなどの個人情報をアップしない用
   gem 'dotenv-rails'
+
+#デプロイ(本番環境)用　※開発時はSQLiteを利用していたが、本番環境ではMySQLを利用
+  group :production do
+    gem 'mysql2'
+  end
