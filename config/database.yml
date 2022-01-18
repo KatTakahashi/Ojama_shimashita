@@ -20,7 +20,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-#デプロイ用(sqlite3 ⇒ mysql12)
+#デプロイ用(sqlite3 ⇒ mysql2)
 production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
