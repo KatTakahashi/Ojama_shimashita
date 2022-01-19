@@ -16,7 +16,7 @@ class Member < ApplicationRecord
   has_many :following_member, through: :follow, source: :followed
   #自分をフォローしている会員(follower_member)
   has_many :follower_member, through: :followed, source: :follow
-  
+
   # フォローする機能
   def follows(member_id)
    follow.create(followed_id: member_id)
@@ -77,4 +77,5 @@ class Member < ApplicationRecord
     Fukuoka:40, Saga:41, Nagasaki:42, Kumamoto:43, Oita:44, Miyazaki:45, Kagoshima:46,
     Okinawa:47
   }
+
 end

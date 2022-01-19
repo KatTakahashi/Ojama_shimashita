@@ -41,8 +41,7 @@ class Post < ApplicationRecord
     #四国地方
     Tokushima:36, Kagawa:37, Ehime:38, Kochi:39,
     #九州・沖縄地方
-    Fukuoka:40, Saga:41, Nagasaki:42, Kumamoto:43, Oita:44, Miyazaki:45, Kagoshima:46,
-    Okinawa:47
+    Fukuoka:40, Saga:41, Nagasaki:42, Kumamoto:43, Oita:44, Miyazaki:45, Kagoshima:46, Okinawa:47
   }
 
   #enum 投稿用(カテゴリー)
@@ -58,4 +57,5 @@ class Post < ApplicationRecord
     #その他
     Other:41
   }
+  
 end
