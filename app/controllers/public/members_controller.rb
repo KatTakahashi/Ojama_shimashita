@@ -3,9 +3,13 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @post = Post.find(params[:id])
-    
+    # Postテーブルのprefectureカラムにある都道府県を配列にして代入
     # @hairetu #[1,3,4,6]
-    # @hairetu = @member.Post.where.....  #distinct
+    # @hairetu = @member.Post.where.....  #distinct ※重複レコードを1つにまとめるメソッド
+
+    # @member の Postテーブルにある prefectureカラムのデータを配列にする
+    # .order('prefecture') で配列を昇順に並び替え
+    @visited = Post.includes(:member).where(member_id: @member.id).select(:member_id, :prefecture).distinct.order('prefecture') #会員のPostデータを取得し、prefecture順(昇順)に並び替え
   end
 
   def edit
