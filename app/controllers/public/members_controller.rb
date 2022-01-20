@@ -7,9 +7,14 @@ class Public::MembersController < ApplicationController
     # @hairetu #[1,3,4,6]
     # @hairetu = @member.Post.where.....  #distinct ※重複レコードを1つにまとめるメソッド
 
-    # @member の Postテーブルにある prefectureカラムのデータを配列にする
-    # .order('prefecture') で配列を昇順に並び替え
-    @visited = Post.includes(:member).where(member_id: @member.id).select(:member_id, :prefecture).distinct.order('prefecture') #会員のPostデータを取得し、prefecture順(昇順)に並び替え
+    @visited = Post.where(member_id: @member.id).select(:member_id, :prefecture).distinct.order('prefecture')
+      #where(モデル名.where(条件)):条件に一致するレコードを配列で取得するメソッド
+        #Postモデル内のmember_idカラムのデータが@memberであるレコードを全て取得
+      #select(select(:取得したいカラム)):取得したいカラムを指定するメソッド
+        #whereで取得したデータのmember_idカラムとprefectureカラムのみに絞り込む
+      #distinct:重複したレコードを1つにするメソッド
+      #order('基準とするカラム'):配列の順番を並び替えるメソッド
+        #取得したデータをprefectureカラム基準(enumの番号順)で昇順に並び替え
   end
 
   def edit
