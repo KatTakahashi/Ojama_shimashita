@@ -3,7 +3,7 @@ posts_controller/show.html.erb<br>
 <!-- 投稿画像を表示 -->
 <% if @post.images.attached? %>
   <% @post.images.each do |image| %>
-    <%= image_tag image, size: "150x150" %> <br>
+    <%= image_tag image, :height => '200' %> <br>
   <% end %>
 <% end %>
 
@@ -61,35 +61,47 @@ posts_controller/show.html.erb<br>
 
 <!-- Google Maps機能　ここから -->
 
-<h2>gmap</h2>
-<!-- form_withはデフォルトでremote: trueの挙動になります -->
 
-<%= form_with url: map_request_path, method: :get do |f|%>
-  <%= f.text_field :city %>
-  <%= f.submit '地図表示' %>
-<% end %>
-
-<div id="map">
-</div>
+<div id='map'></div>
 
 <style>
-#map{
-  height: 400px;
+/*mapのサイズを指定*/
+#map {
+  height: 300px;
+  width: 400px;
 }
 </style>
 
 <script>
-  let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
+  let map
 
+  //mapを初期化
   function initMap(){
-    mapInstance = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    geocoder = new google.maps.Geocoder()
+    //変数spotに@postに格納されている投稿内容の緯度経度を代入
+    var spot ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+
+    //変数mapに{ }のビューに表示する情報を代入
+    map = new google.maps.Map(document.getElementById('map'), {
+      //地図の中心位置を変数spotに代入した位置に設定
+      center: spot,
+      //地図の表示倍率
+      zoom: 8,
+      //地図の種類の選択(false:選択不可)
+      mapTypeControl: false,
+      //ストリートビューの選択(false:選択不可)
+      streetViewControl: false
+    });
+
+    //ピンの位置を指定:変数markerに{ }の情報を代入
+    marker = new google.maps.Marker({
+      //変数spotに代入された位置にピンを設定
+      position:  spot,
+      map: map,
     });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api&/js?key=<%=ENV['GOOGLE_MAP_KEY']%>&callback=initMap" async defer></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_KEY']%>&callback=initMap" async defer></script>
 
 
 <!-- Google Maps機能　ここまで -->
