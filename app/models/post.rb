@@ -6,10 +6,10 @@ class Post < ApplicationRecord
   has_many :post_likes, dependent: :destroy
 
   #バリデーション
-  # validates :prefecture, presence: true
-  # validates :city, presence: true
-  # validates :spot_name, presence: true
-  # validates :taken_at, presence: true
+  validates :prefecture, presence: true
+  validates :city, presence: true
+  validates :spot_name, presence: true
+  validates :taken_at, presence: true
 
   #active strage(画像アップロード)用
   has_many_attached :images
@@ -29,7 +29,7 @@ class Post < ApplicationRecord
     #postテーブルのcityカラムとspot_nameカラムのデータから緯度経度算出
     geocoded_by :city&&:spot_name
     # #postテーブルの投稿内容変更時にも緯度経度算出
-    after_validation :geocode, :if => :city||:spot_name_changed? 
+    after_validation :geocode, :if => :city||:spot_name_changed?
 
   #enum 投稿用(都道府県)
   enum prefecture: {

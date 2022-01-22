@@ -3,13 +3,8 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @post = Post.find(params[:id])
-    # Postテーブルのprefectureカラムにある都道府県を配列にして代入
-    # @hairetu #[1,3,4,6]
-    # @hairetu = @member.Post.where.....  #distinct ※重複レコードを1つにまとめるメソッド
-
-    #gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture')
-
     gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
+    gon.living = Member.where(id: @member.id).select(:living_prefecture).distinct.order('living_prefecture').map { |i| Member.living_prefectures[i.living_prefecture] }
       #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
       #where(モデル名.where(条件)):条件に一致するレコードを配列で取得するメソッド
         #Postモデル内のmember_idカラムのデータが@memberであるレコードを全て取得
@@ -18,6 +13,8 @@ class Public::MembersController < ApplicationController
       #distinct:重複したレコードを1つにするメソッド
       #order('基準とするカラム'):配列の順番を並び替えるメソッド
         #取得したデータをprefectureカラム基準(enumの番号順)で昇順に並び替え
+      #map(map{|変数名|モデル名.カラム名}[変数名.カラム名]):各要素へ順に処理を実行するメソッド
+        #取得したデータがローマ字の都道府県なので、enumの数値に変換
   end
 
   def edit

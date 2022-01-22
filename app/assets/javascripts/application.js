@@ -9,13 +9,13 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+
+// jQuery用
+//= require jquery
+//= require jcanvas
+
 //
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-// jQuery用
-//= require jquery
-//= require jquery_ujs
-//= require jcanvas

@@ -9,8 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- gem 'gon用-->
     <%= include_gon %>
-    <%= javascript_include_tag "application" %>
-
+    <!-- japan_map用 -->
+    <%= javascript_include_tag 'jquery.japan-map.min.js' %>
   </head>
   <body>
     <%= link_to "Admin_Log_in", new_admin_session_path %><br>
