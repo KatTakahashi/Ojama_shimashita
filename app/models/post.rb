@@ -5,25 +5,31 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
 
-  #いいね機能用メソッド
-  def liked_by?(member)
-    post_likes.where(member_id: member.id).exists?
-  end
+  #バリデーション
+  # validates :prefecture, presence: true
+  # validates :city, presence: true
+  # validates :spot_name, presence: true
+  # validates :taken_at, presence: true
 
   #active strage(画像アップロード)用
   has_many_attached :images
 
-  #バリデーション
-  validates :prefecture, presence: true
-  validates :city, presence: true
-  validates :spot_name, presence: true
-  validates :taken_at, presence: true
+  #いいね機能用メソッド
+  def liked_by?(member)
+    post_likes.where(member_id: member.id).exists?
+  end
 
   #検索機能用メソッド
   def self.search(keyword)
     #city, spot_name, bodyカラムの部分一致
     where(["city like? OR spot_name like? OR body like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
+
+  #geocoding用
+    #postテーブルのcityカラムとspot_nameカラムのデータから緯度経度算出
+    geocoded_by :city&&:spot_name
+    # #postテーブルの投稿内容変更時にも緯度経度算出
+    after_validation :geocode, :if => :city||:spot_name_changed? 
 
   #enum 投稿用(都道府県)
   enum prefecture: {
@@ -57,5 +63,5 @@ class Post < ApplicationRecord
     #その他
     Other:41
   }
-  
+
 end

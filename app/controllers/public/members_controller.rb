@@ -8,10 +8,11 @@ class Public::MembersController < ApplicationController
     # @hairetu = @member.Post.where.....  #distinct ※重複レコードを1つにまとめるメソッド
 
     gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture')
+      #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
       #where(モデル名.where(条件)):条件に一致するレコードを配列で取得するメソッド
         #Postモデル内のmember_idカラムのデータが@memberであるレコードを全て取得
       #select(select(:取得したいカラム)):取得したいカラムを指定するメソッド
-        #whereで取得したデータのmember_idカラムとprefectureカラムのみに絞り込む
+        #whereで取得したデータのprefectureカラムのみに絞り込む
       #distinct:重複したレコードを1つにするメソッド
       #order('基準とするカラム'):配列の順番を並び替えるメソッド
         #取得したデータをprefectureカラム基準(enumの番号順)で昇順に並び替え

@@ -96,22 +96,26 @@ $(function(){
 {code : 47, color: "white", prefectures: [47]}, //沖縄
     ];
 
-//メンターからのヒント(1/20)
-// areas.forEach(area =>
+// //メンターからのヒント(1/20)
+areas.forEach(area =>
 
-//   //Postテーブルのprefectureカラムに都道府県データがあればtrue
-//   if (gon.visiteds.some(el => area.prefectures[0] === el.prefecture)) {
-//     console.log(area)
-//     //カラーの書き換え
-//   }
+  //Postテーブルのprefectureカラムに都道府県データがあればtrue
+  if (gon.visiteds.some(el => area.prefectures[0] === el.prefecture)) {
+    console.log(area)
+    //カラーの書き換え
+  }
 
-// }
-//   )
+}
+  )
 
-//     areas.foreach(el => console.log(el.prefectures))
-//     areas.some(v => v.prefectures[0] === 1)
+    areas.foreach(el => console.log(el.prefectures))
+    areas.some(v => v.prefectures[0] === 1)
 
-
+//メンター相談後メモ(1/20)
+//1. ■ まずはデフォルトで都道府県の色を白に設定
+//2. □ Postテーブルのprefectureカラムにデータがある都道府県をif文で抽出
+//      ■ membersコントローラ内でprefectureカラムのデータを変数visitedsに代入(jsでインスタンス変数使用のためgen gon使用)
+//3. □ 上記if文がtrueである場合、都道府県の色を黒に設定(上書き)
 
 
     //japan_mapの設定

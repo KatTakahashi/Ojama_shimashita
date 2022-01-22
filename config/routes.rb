@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :post_likes, only: [:create, :destroy]
     end
+      get '/map_request', to: 'maps#map', as: 'map_request'
       get 'posts/index_pref' => 'posts#index_pref'
       get 'posts/index_all' => 'posts#index_all'
       get 'posts/index_pref_all' => 'posts#index_pref_all'

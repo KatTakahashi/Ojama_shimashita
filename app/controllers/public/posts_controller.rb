@@ -21,6 +21,19 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    #Google Map Api用(gonはRailsからJSに変数を渡すためのgem)
+    gon.post = @post
+  end
+  
+  def map
+    results = Geocoder.search(params[:city])
+    @latlng = results.first.coordinates
+  # これでmap.js.erbで、経度緯度情報が入った@latlngを使える。
+    
+    # respond_to以下の記述によって、remote: trueのアクセスに対して、map.js.erbが変えるようになります。
+    respond_to do |format|
+      format.js
+    end
   end
 
   #新規投稿画面
