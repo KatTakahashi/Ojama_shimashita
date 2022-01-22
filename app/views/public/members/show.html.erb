@@ -43,58 +43,70 @@ members_controller/show.html.erb
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>　<!--不要?-->
 <%= javascript_include_tag 'jquery.japan-map.min.js' %>
 
+<!-- jsで設定したjapan_mapを表示 -->
+<div id="map-container"></div>
+
 <script type="text/javascript">
 $(function(){
-      var areas =[
 
-{code : 1, color: "white", prefectures: [1]}, //北海道
-{code : 2, color: "white", prefectures: [2]}, //青森
-{code : 3, color: "white", prefectures: [3]}, //岩手
-{code : 4, color: "white", prefectures: [4]}, //宮城
-{code : 5, color: "white", prefectures: [5]}, //秋田
-{code : 6, color: "white", prefectures: [6]}, //山形
-{code : 7, color: "white", prefectures: [7]}, //福島
-{code : 8, color: "white", prefectures: [8]}, //茨城
-{code : 9, color: "white", prefectures: [9]}, //栃木
-{code : 10,color: "white", prefectures: [10]}, //群馬
-{code : 11,color: "white", prefectures: [11]}, //埼玉
-{code : 12, color: "white", prefectures: [12]}, //千葉
-{code : 13, color: "white", prefectures: [13]}, //東京
-{code : 14, color: "white", prefectures: [14]}, //神奈川
-{code : 15, color: "white", prefectures: [15]}, //新潟
-{code : 16, color: "white", prefectures: [16]}, //富山
-{code : 17, color: "white", prefectures: [17]}, //石川
-{code : 18, color: "white", prefectures: [18]}, //福井
-{code : 19, color: "white", prefectures: [19]}, //山梨
-{code : 20, color: "white", prefectures: [20]}, //長野
-{code : 21, color: "white", prefectures: [21]}, //岐阜
-{code : 22, color: "white", prefectures: [22]}, //静岡
-{code : 23, color: "white", prefectures: [23]}, //愛知
-{code : 24, color: "white", prefectures: [24]}, //三重
-{code : 25, color: "white", prefectures: [25]}, //滋賀
-{code : 26, color: "white", prefectures: [26]}, //京都
-{code : 27, color: "white", prefectures: [27]}, //大阪
-{code : 28, color: "white", prefectures: [28]}, //兵庫
-{code : 29, color: "white", prefectures: [29]}, //奈良
-{code : 30, color: "white", prefectures: [30]}, //和歌山
-{code : 31, color: "white", prefectures: [31]}, //鳥取
-{code : 32, color: "white", prefectures: [32]}, //島根
-{code : 33, color: "white", prefectures: [33]}, //岡山
-{code : 34, color: "white", prefectures: [34]}, //広島
-{code : 35, color: "white", prefectures: [35]}, //山口
-{code : 36, color: "white", prefectures: [36]}, //徳島
-{code : 37, color: "white", prefectures: [37]}, //香川
-{code : 38, color: "white", prefectures: [38]}, //愛媛
-{code : 39, color: "white", prefectures: [39]}, //高知
-{code : 40, color: "white", prefectures: [40]}, //福岡
-{code : 41, color: "white", prefectures: [41]}, //佐賀
-{code : 42, color: "white", prefectures: [42]}, //長崎
-{code : 43, color: "white", prefectures: [43]}, //熊本
-{code : 44, color: "white", prefectures: [44]}, //大分
-{code : 45, color: "white", prefectures: [45]}, //宮崎
-{code : 46, color: "white", prefectures: [46]}, //鹿児島
-{code : 47, color: "white", prefectures: [47]}, //沖縄
-    ];
+      function pref_color(pref_n){
+        if (gon.visiteds.some(element => element === pref_n)) {
+          return "black"
+        }
+        else {
+          return "white"
+        }
+      }
+
+      var areas = [
+        {code : 1, color: pref_color(1), prefectures: [1]}, //北海道
+        {code : 2, color: "white", prefectures: [2]}, //青森
+        {code : 3, color: "white", prefectures: [3]}, //岩手
+        {code : 4, color: "white", prefectures: [4]}, //宮城
+        {code : 5, color: "white", prefectures: [5]}, //秋田
+        {code : 6, color: "white", prefectures: [6]}, //山形
+        {code : 7, color: "white", prefectures: [7]}, //福島
+        {code : 8, color: "white", prefectures: [8]}, //茨城
+        {code : 9, color: "white", prefectures: [9]}, //栃木
+        {code : 10,color: "white", prefectures: [10]}, //群馬
+        {code : 11,color: "white", prefectures: [11]}, //埼玉
+        {code : 12, color: "white", prefectures: [12]}, //千葉
+        {code : 13, color: "white", prefectures: [13]}, //東京
+        {code : 14, color: "white", prefectures: [14]}, //神奈川
+        {code : 15, color: "white", prefectures: [15]}, //新潟
+        {code : 16, color: "white", prefectures: [16]}, //富山
+        {code : 17, color: "white", prefectures: [17]}, //石川
+        {code : 18, color: "white", prefectures: [18]}, //福井
+        {code : 19, color: "white", prefectures: [19]}, //山梨
+        {code : 20, color: "white", prefectures: [20]}, //長野
+        {code : 21, color: "white", prefectures: [21]}, //岐阜
+        {code : 22, color: "white", prefectures: [22]}, //静岡
+        {code : 23, color: "white", prefectures: [23]}, //愛知
+        {code : 24, color: "white", prefectures: [24]}, //三重
+        {code : 25, color: "white", prefectures: [25]}, //滋賀
+        {code : 26, color: "white", prefectures: [26]}, //京都
+        {code : 27, color: "white", prefectures: [27]}, //大阪
+        {code : 28, color: "white", prefectures: [28]}, //兵庫
+        {code : 29, color: "white", prefectures: [29]}, //奈良
+        {code : 30, color: "white", prefectures: [30]}, //和歌山
+        {code : 31, color: "white", prefectures: [31]}, //鳥取
+        {code : 32, color: "white", prefectures: [32]}, //島根
+        {code : 33, color: "white", prefectures: [33]}, //岡山
+        {code : 34, color: "white", prefectures: [34]}, //広島
+        {code : 35, color: "white", prefectures: [35]}, //山口
+        {code : 36, color: "white", prefectures: [36]}, //徳島
+        {code : 37, color: "white", prefectures: [37]}, //香川
+        {code : 38, color: "white", prefectures: [38]}, //愛媛
+        {code : 39, color: "white", prefectures: [39]}, //高知
+        {code : 40, color: "white", prefectures: [40]}, //福岡
+        {code : 41, color: "white", prefectures: [41]}, //佐賀
+        {code : 42, color: "white", prefectures: [42]}, //長崎
+        {code : 43, color: "white", prefectures: [43]}, //熊本
+        {code : 44, color: "white", prefectures: [44]}, //大分
+        {code : 45, color: "white", prefectures: [45]}, //宮崎
+        {code : 46, color: "white", prefectures: [46]}, //鹿児島
+        {code : 47, color: "white", prefectures: [47]}, //沖縄
+      ];
 
 // //メンターからのヒント(1/20)
 // areas.forEach(area =>
@@ -127,9 +139,6 @@ $(function(){
     });
 });
 </script>
-
-<!-- jsで設定したjapan_mapを表示 -->
-<div id="map-container"></div>
 <!-- マップ　ここまで -->
 
 

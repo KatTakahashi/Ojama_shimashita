@@ -7,7 +7,9 @@ class Public::MembersController < ApplicationController
     # @hairetu #[1,3,4,6]
     # @hairetu = @member.Post.where.....  #distinct ※重複レコードを1つにまとめるメソッド
 
-    gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture')
+    #gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture')
+
+    gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
       #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
       #where(モデル名.where(条件)):条件に一致するレコードを配列で取得するメソッド
         #Postモデル内のmember_idカラムのデータが@memberであるレコードを全て取得
