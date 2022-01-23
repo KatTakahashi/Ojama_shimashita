@@ -15,7 +15,33 @@
  */
 
 
-element.style {
-  opacity: 1;
-  cursor: not-allowed;
+nav{
+  position: relative;
+}
+
+nav ul{
+position: absolute;
+left:10%;
+display: table;
+margin: 0 auto;
+padding: 0;
+width: 80%;
+text-align: center;
+}
+nav ul li{
+display: table-cell;
+min-width: 50px;
+padding: 0;
+}
+
+.icon {
+  height: 60px;
+}
+
+footer {
+
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
