@@ -1,3 +1,37 @@
-// Place all the styles related to the public/homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main_visual{
+  position: relative;
+  top: 0;
+  width: 100%;
+  line-height: 1;
+}
+
+.main_visual_img{
+  width: 100%;
+}
+
+nav{
+  margin-top: 90px;
+  position: relative;
+}
+
+nav ul{
+position: absolute;
+left:10%;
+display: table;
+margin: 0 auto;
+padding: 0;
+width: 80%;
+text-align: center;
+
+}
+
+nav ul li{
+display: table-cell;
+min-width: 50px;
+line-height:0;
+vertical-align: middle;
+}
+
+.icon {
+  height: 60px;
+}
