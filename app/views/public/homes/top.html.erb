@@ -3,26 +3,35 @@
 </div>
 
 <nav>
-  <ul>
-    <li>
-      <%= link_to image_tag("icon_1.png", class:"icon"), homes_about_path %><br>
+  <ul class="grid">
+    <li class="grid_item_A">
+      <%= link_to homes_about_path do %>
+        <i class="fas fa-book-open fa-3x faa-bounce animated-hover"></i><br>
+      <% end %>
       <%= link_to image_tag("nav_1.png"), homes_about_path %>
     </li>
-    <li>
-      <%= link_to image_tag("icon_2.png", class:"icon"), posts_index_all_path %><br>
+    <li class="grid_item_B">
+      <%= link_to posts_index_all_path do %>
+        <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
+      <% end %>
       <%= link_to image_tag("nav_2.png"), posts_index_all_path %>
     </li>
-    <li>
-      <%= link_to image_tag("logo_1.png", :size =>"200x200"), root_path %>
+    <li class="grid_item_C">
+      <%= link_to image_tag("logo_1.png", class:"logo"), root_path %>
     </li>
-    <li>
-      <%= link_to image_tag("icon_3.png", class:"icon"), new_member_registration_path %><br>
+    <li class="grid_item_D">
+      <%= link_to new_member_registration_path do %>
+        <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
+      <% end %>
       <%= link_to image_tag("nav_3.png"), new_member_registration_path %>
     </li>
-    <li>
-      <%= link_to image_tag("icon_4.png", class:"icon"), new_member_session_path %><br>
+    <li class="grid_item_E">
+      <%= link_to new_member_session_path do %>
+        <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
+      <% end %>
       <%= link_to image_tag("nav_4.png"), new_member_session_path %>
     </li>
   </ul>
 </nav>
+
 
