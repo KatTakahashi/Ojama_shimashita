@@ -1,31 +1,31 @@
-<div class="main_visual">
+<div class="top_main_visual">
   <%= image_tag 'main_visual_1.png', class:"main_visual_img" %>
 </div>
 
 <nav>
-  <ul class="grid">
-    <li class="grid_item_A">
+  <ul class="grid_top">
+    <li class="grid_top_A">
       <%= link_to homes_about_path do %>
         <i class="fas fa-book-open fa-3x faa-bounce animated-hover"></i><br>
       <% end %>
       <%= link_to image_tag("nav_1.png"), homes_about_path %>
     </li>
-    <li class="grid_item_B">
+    <li class="grid_top_B">
       <%= link_to posts_index_all_path do %>
         <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
       <% end %>
       <%= link_to image_tag("nav_2.png"), posts_index_all_path %>
     </li>
-    <li class="grid_item_C">
+    <li class="grid_top_C">
       <%= link_to image_tag("logo_1.png", class:"logo"), root_path %>
     </li>
-    <li class="grid_item_D">
+    <li class="grid_top_D">
       <%= link_to new_member_registration_path do %>
         <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
       <% end %>
       <%= link_to image_tag("nav_3.png"), new_member_registration_path %>
     </li>
-    <li class="grid_item_E">
+    <li class="grid_top_E">
       <%= link_to new_member_session_path do %>
         <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
       <% end %>

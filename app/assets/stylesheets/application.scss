@@ -47,8 +47,8 @@
     margin: 0 auto;
   }
 // fotter　ここまで
-// レスポンシブデザイン(スマホ)　ここから
-  @media screen and (max-width:425px) {
+// レスポンシブデザイン(タブレット縦)　ここから
+  @media screen and (max-width:768px) {
 // footer　ここから
     footer {
       width: 100%;
@@ -73,4 +73,4 @@
     }
 // fotter　ここまで
   }
-// レスポンシブデザイン(スマホ)　ここまで
+// レスポンシブデザイン(タブレット縦)　ここまで
