@@ -1,11 +1,12 @@
 class Public::HomesController < ApplicationController
   
+  # --------------- トップページ --------------
+
   def top
   end
   
+# --------------- 概要ページ --------------
   def about
-    #お問い合わせ機能用
-    @contact = Contact.new
   end
   
 end

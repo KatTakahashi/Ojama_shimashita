@@ -1,0 +1,61 @@
+/*=============== ヘッダー用CSS ===============*/
+/*--------------- ナビゲーションメニュー ---------------*/
+  $cor-1: black;
+  $cor-2: #8EB8FF;
+
+  .header {
+    width: 100%;
+    height: 45px;
+    background: $cor-1;
+  }
+
+  .nav {
+    margin: 0 auto;
+    background: $cor-1;
+    color: #f0f0f0;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    a {
+      display: block;
+      width: 150px;
+      // padding: 0 30px;
+      line-height: inherit;
+      cursor: pointer;
+    }
+     &_menu {
+       line-height: 45px;
+       font-weight: 700;
+       text-transform: uppercase;
+       &_item {
+         display: inline-block;
+         position: relative;
+
+         &:hover {
+           background-color: $cor-1;
+
+           .nav_submenu {
+             display: block;
+           }
+         }
+       }
+
+     }
+    &_submenu {
+      font-weight: 300;
+      text-transform: none;
+      display: none;
+      position: absolute;
+      width: 150px;
+      background-color: $cor-1;
+
+      &_item {
+        &:hover {
+          background: rgba( #000, 0.1 );
+        }
+      }
+    }
+  }

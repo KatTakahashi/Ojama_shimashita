@@ -1,5 +1,6 @@
 class Public::MembersController < ApplicationController
 
+# --------------- 会員詳細ページ --------------
   def show
     @member = Member.find(params[:id])
     @post = Post.find(params[:id])
@@ -17,39 +18,42 @@ class Public::MembersController < ApplicationController
         #取得したデータがローマ字の都道府県なので、enumの数値に変換
   end
 
+# --------------- 会員情報編集ページ --------------
   def edit
     @member = Member.find(params[:id])
   end
 
+# --------------- 会員情報更新機能 --------------
   def update
     @member = Member.find(current_member.id)
     @member.update(member_params)
     redirect_to root_path
   end
 
-  #退会確認画面
+# --------------- 退会確認ページ --------------
   def confirm
   end
 
-  #退会用アクション(PATCH(=論理削除))
+# --------------- 退会用アクション(PATCH(=論理削除)) --------------
   def withdraw
     @member = current_member
     # is_deletedカラムをtrue(=退会)にupdateする
-    @member.update(is_deleted: true)
+      @member.update(is_deleted: true)
     # session(ページ遷移しても以前入力した情報を保持する機能)をリセットし、ログアウト
-    reset_session
+      reset_session
     redirect_to root_path
   end
 
-  #フォロー一覧画面(GET)
+# --------------- フォロー一覧画面(GET) --------------
   def follows
   end
 
-  #フォロワー一覧画面(GET)
+# --------------- フォロワー一覧画面(GET) --------------
   def followers
   end
 
   private
+# --------------- ストロングパラメータ --------------
   def member_params
     params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :user_name,
       :gender, :birthday, :email, :living_prefecture, :favorite_word, :profile_image, :background_image, :is_deleted )

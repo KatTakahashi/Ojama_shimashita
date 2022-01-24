@@ -25,12 +25,12 @@ class Admin::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  # ログイン後の遷移先
+# --------------- 管理者：ログイン後の遷移先 --------------
   def after_sign_in_path_for(resouce)
     new_post_path
   end
 
-    #ログアウト後の遷移先
+# --------------- 管理者：ログアウト後の遷移先 --------------
   def after_sign_out_path_for(resouce)
     new_admin_session_path
   end
