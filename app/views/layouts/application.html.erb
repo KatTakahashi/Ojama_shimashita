@@ -21,8 +21,19 @@
     <!-- japan_map用 -->
       <%= javascript_include_tag 'jquery.japan-map.min.js' %>
   </head>
+<!-- =============== 共通：body =============== -->
   <body>
+<!-- --------------- ヘッダー：ナビゲーションメニュー -------------- -->
+    <!--ログイン中であれば表示-->
+    <% if member_signed_in? %>
+      <!--homes/top.html以外に適用-->
+      <% unless current_page?(root_path) %>
+        <%= render 'public/header' %>
+      <% end %>
+    <% end %>
+<!-- --------------- 各ビューファイルの内容 -------------- -->
     <%= yield %>
+<!-- --------------- フッター：コピーライト -------------- -->
     <footer>
       <p class="copyright">©おじゃましました All rights reserved</p>
     </footer>

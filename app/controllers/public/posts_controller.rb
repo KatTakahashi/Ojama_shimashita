@@ -10,11 +10,11 @@ class Public::PostsController < ApplicationController
   end
 
 # --------------- 全体：投稿一覧ページ --------------
-  def index_all
+  def index_everyone
   end
 
 # --------------- 全体：投稿一覧ページ(都道府県別) --------------
-  def index_pref_all
+  def index_pref_everyone
   end
 
 # --------------- 投稿詳細ページ --------------
@@ -23,6 +23,7 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
     #Google Map Api用(gonはRailsからJSに変数を渡すためのgem)
       gon.post = @post
+    @member = @post.member
   end
 
 # --------------- 新規投稿ページ --------------
@@ -63,7 +64,7 @@ class Public::PostsController < ApplicationController
     redirect_to new_post_path
   end
 
-# --------------- 検索機能 --------------
+# --------------- 検索ページ --------------
   def search
     @posts = Post.search(params[:keyword])
     @keyword = params[:keyword]

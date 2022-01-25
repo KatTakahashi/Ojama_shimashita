@@ -1,18 +1,19 @@
 /*=============== ヘッダー用CSS ===============*/
 /*--------------- ナビゲーションメニュー ---------------*/
   $cor-1: black;
-  $cor-2: #8EB8FF;
+  $cor-2: grey;
+  $cor-3: white;
 
   .header {
     width: 100%;
     height: 45px;
     background: $cor-1;
+    text-align: center;
   }
 
   .nav {
     margin: 0 auto;
     background: $cor-1;
-    color: #f0f0f0;
     ul {
       list-style: none;
       padding-left: 0;
@@ -25,6 +26,8 @@
       // padding: 0 30px;
       line-height: inherit;
       cursor: pointer;
+      text-decoration: none;
+      color: $cor-3;
     }
      &_menu {
        line-height: 45px;
@@ -54,7 +57,7 @@
 
       &_item {
         &:hover {
-          background: rgba( #000, 0.1 );
+          background: $cor-2;
         }
       }
     }

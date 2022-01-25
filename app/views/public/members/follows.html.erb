@@ -1,7 +1,7 @@
-<!-- =============== フォロワー会員一覧ページ =============== -->
+<!-- =============== フォロー会員一覧ページ =============== -->
 
-<p>フォロワー一覧</p>
-  <% @member.follower_member.each do |member| %>
+<p>フォロー一覧</p>
+  <% @member.following_member.each do |member| %>
     <%= link_to member.user_name, member_path(member) %>
     <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
       <% if current_member.following?(member) %>

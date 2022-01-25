@@ -1,37 +1,4 @@
-<!--□ハンバーガーメニュー：リロードしないと無効-->
-<!--□ハンバーガーメニュー：ホームとマイページに遷移しない-->
-
 <!-- =============== 概要ページ =============== -->
-<!-- --------------- ナビゲーションメニュー -------------- -->
-  <div class="header">
-    <div class="openbtn1"><span></span><span></span><span></span></div>
-    <nav class="nav">
-      <ul class="nav_menu">
-        <li class="nav_menu_item"><%= link_to "ホーム", root_path %>
-        <ul class="nav_submenu">
-            <div>
-            <li class="nav_submenu_item"><a>トップ画面</a></li>
-            <li class="nav_submenu_item"><a>概要</a></li>
-            </div>
-          </ul>
-        </li>
-        <li class="nav_menu_item"><a>マイページ</a>
-        <ul class="nav_submenu">
-            <div>
-            <li class="nav_submenu_item"><a>マイページ</a></li>
-            <li class="nav_submenu_item"><a>マイ写真</a></li>
-            <li class="nav_submenu_item"><a>新規投稿</a></li>
-            </div>
-          </ul>
-        </li>
-        <li class="nav_menu_item"><%= link_to "みんなの写真", new_contact_path %></li>
-        <li class="nav_menu_item"><%= link_to "お問い合わせ", new_contact_path %></li>
-      </ul>
-    </nav>
-  </div>
-
-
-
 
     <% if member_signed_in? %>
       名：<%= current_member.last_name %><br>

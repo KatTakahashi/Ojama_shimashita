@@ -14,23 +14,35 @@
         <%= link_to image_tag("nav_1.png"), homes_about_path %>
       </li>
       <li id="grid_top_B">
-        <%= link_to posts_index_all_path do %>
+        <%= link_to posts_index_everyone_posts_path do %>
           <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
         <% end %>
-        <%= link_to image_tag("nav_2.png"), posts_index_all_path %>
+        <%= link_to image_tag("nav_2.png"), posts_index_everyone_posts_path %>
       </li>
       <li id="grid_top_C">
         <%= link_to image_tag("logo_1.png", class:"logo"), root_path %>
       </li>
       <li id="grid_top_D">
-        <%= link_to new_member_registration_path do %>
-          <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
+        <% if member_signed_in? %>
+          <%= link_to member_path(current_member) do %>
+            <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
+          <% end %>
+        <% else %>
+          <%= link_to new_member_registration_path do %>
+            <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
+          <% end %>
         <% end %>
         <%= link_to image_tag("nav_3.png"), new_member_registration_path %>
       </li>
       <li id="grid_top_E">
-        <%= link_to new_member_session_path do %>
-          <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
+        <% if member_signed_in? %>
+          <%= link_to destroy_member_session_path, method: :delete do %>
+            <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
+          <% end %>
+        <% else %>
+          <%= link_to new_member_session_path do %>
+            <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
+          <% end %>
         <% end %>
         <%= link_to image_tag("nav_4.png"), new_member_session_path %>
       </li>

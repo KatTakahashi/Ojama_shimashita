@@ -1,7 +1,9 @@
+<!--□検索結果が全ての投稿が表示されている-->
+
 posts_controller/search.html.erb<br>
 
 <!-- 検索フォーム -->
-<%= form_with url: search_path, method: :get, local: true do |f| %>
+<%= form_with url: search_posts_path, method: :get, local: true do |f| %>
   <%= f.text_field :keyword, value: @keyword %>
   <%= f.submit "検索" %>
 <% end %>

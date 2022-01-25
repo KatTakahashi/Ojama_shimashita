@@ -1,9 +1,12 @@
 class Public::MembersController < ApplicationController
+  before_action :ensure_correct_member, only: [:edit, :update]
 
 # --------------- 会員詳細ページ --------------
   def show
     @member = Member.find(params[:id])
     @post = Post.find(params[:id])
+    @posts = @member.posts.all
+    @latest_posts = Post.where(member_id: @post.member_id).order('taken_at').limit(5)
     gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
     gon.living = Member.where(id: @member.id).select(:living_prefecture).distinct.order('living_prefecture').map { |i| Member.living_prefectures[i.living_prefecture] }
       #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
@@ -46,10 +49,12 @@ class Public::MembersController < ApplicationController
 
 # --------------- フォロー一覧画面(GET) --------------
   def follows
+    @member = Member.find(params[:id])
   end
 
 # --------------- フォロワー一覧画面(GET) --------------
   def followers
+    @member = Member.find(params[:id])
   end
 
   private
@@ -57,5 +62,13 @@ class Public::MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :user_name,
       :gender, :birthday, :email, :living_prefecture, :favorite_word, :profile_image, :background_image, :is_deleted )
+  end
+
+# --------------- ログイン中の会員を定義(before_action用) --------------
+  def ensure_correct_member
+    @member = Member.find(params[:id])
+    unless @member == current_member
+      redirect_to member_path(current_member)
+    end
   end
 end
