@@ -32,7 +32,7 @@ class Member < ApplicationRecord
 
   #active strage(画像アップロード)用
   has_one_attached :profile_image
-  has_one_attached :background_image
+  has_one_attached :header_image
 
   #バリデーション
   validates :last_name, presence: true

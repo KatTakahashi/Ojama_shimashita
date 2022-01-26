@@ -1,0 +1,7 @@
+
+
+<% @posts.each do |post| %>
+  <% post.images.each do |image| %>
+    <%= image_tag image, class:"image_size" %>
+  <% end %>
+<% end %>|

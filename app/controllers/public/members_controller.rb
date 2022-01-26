@@ -70,7 +70,7 @@ class Public::MembersController < ApplicationController
 # --------------- ストロングパラメータ --------------
   def member_params
     params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :user_name,
-      :gender, :birthday, :email, :living_prefecture, :favorite_word, :profile_image, :background_image, :is_deleted )
+      :gender, :birthday, :email, :living_prefecture, :favorite_word, :profile_image, :header_image, :is_deleted )
   end
 
 # --------------- ログイン中の会員を定義(before_action用) --------------

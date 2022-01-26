@@ -1,3 +1,99 @@
-// Place all the styles related to the public/members controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$margin-1: 30px;
+
+//--------------- 全体 ---------------
+body{
+  background-color: #f4f4f4;
+}
+
+.center_member_show {
+  width: 900px;
+  height: auto;
+  background-color: white;
+  margin: 0 auto;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.btn_gray{
+  width: 180px;
+  color: black;
+  background-color: #DDDDDD	;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+//--------------- 背景画像---------------
+.header_image{
+  width: 900px;
+  height: 300px;
+  margin: 0 auto;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+//--------------- メイン：CSS grid---------------
+.grid_member_show{
+  display: grid;  //CSS Grid に設定
+  justify-content: center;
+  justify-items: center; //アイテムの横方向の配置
+  align-items: center;  //アイテムの縦方向の配置
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 200px 300px auto;
+  margin: 250px 0 30px 0;
+}
+
+.grid_member_show_A{
+  grid-column: 1/2;   //横
+  grid-row: 1/2;  //縦
+  margin-bottom: $margin-1;
+  justify-self: end;
+  z-index: 2;
+}
+
+.grid_member_show_A .profile_image{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; //枠を円にする
+  border: solid 2px black; //円の輪郭線
+  background-color: white;
+}
+
+.grid_member_show_B{
+  grid-column: 2/3;   //横
+  grid-row: 1/2;  //縦
+  margin: 50px 0 $margin-1 ;
+}
+
+.grid_member_show_C{
+  grid-column: 3/4;   //横
+  grid-row: 1/2;  //縦
+  margin: 30px 0 $margin-1 40px;
+  justify-self: start;
+}
+
+.grid_member_show_D{
+  grid-column: 1/2;   //横
+  grid-row: 2/3;  //縦
+  margin-bottom: $margin-1;
+  justify-self: end;
+}
+
+.grid_member_show_E{
+  grid-column: 2/4;   //横
+  grid-row: 2/3;  //縦
+  margin-bottom: $margin-1;
+  justify-self: start;
+  margin-left: 100px;
+}
+
+.grid_member_show_F{
+  grid-column: 1/4;   //横
+  grid-row: 3/4;  //縦
+  margin-bottom: $margin-1;
+}

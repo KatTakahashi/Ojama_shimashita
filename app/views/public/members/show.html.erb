@@ -1,48 +1,70 @@
 <!-- =============== 会員詳細ページ =============== -->
-<!-- --------------- ページタイトル -------------- -->
-  <div class="page_title_member_image">
-    <% if @member.profile_image.attached? %>
-        <%= image_tag @member.profile_image, :height => '200' %> <br>
-    <% end %>
+<!-- --------------- 背景写真(member/background_image) -------------- -->
+  <div class="header_image">
+    <%= image_tag @member.header_image.variant(resize:'900x900',crop: "900x300+0+150").processed %>
   </div>
-  <div class="page_title_user_name">
-    <%= "#{@member.user_name}  ( #{@member.living_prefecture_i18n} ) " %>
-    <%= render 'public/members/follow', member: @member  %>
+  
+  <!-- --------------- grid -------------- -->
+  <div class="center_member_show">
+    <div class="grid_member_show">
+      
+<!-- --------------- grid：プロフィール写真(member/profile_image) -------------- -->
+      <div class="grid_member_show_A">
+        <div class="profile_image_frame">
+          <% if @member.profile_image.attached? %>
+              <%= image_tag @member.profile_image.variant(resize:'150x150').processed, class:"profile_image" %> <br>
+          <% end %>
+        </div>
+      </div>
+
+<!-- --------------- grid：プロフィール情報 -------------- -->
+      <div class="grid_member_show_B">
+        <h2><%= "#{@member.user_name}  ( #{@member.living_prefecture_i18n} ) " %></h2>
+        <%= "#{@member.favorite_word}" %><br><br>
+        <span>　</span>
+        <%= link_to "#{@member.follow.count} フォロー中　", follows_member_path %>
+        <span>　</span>
+        <%= link_to "#{@member.followed.count} フォロワー", followers_member_path %>
+      </div>
+
+<!-- --------------- grid：プロフィール編集/フォローボタン -------------- -->
+      <div class="grid_member_show_C">
+        <% if member_signed_in? && current_member == @member %>
+          <div class="btn_gray">
+            <span>　</span>
+            <i class="fas fa-pencil-alt"></i>
+            <%= link_to "プロフィール編集　", edit_member_path(@member) %>
+          </div>
+        <% elsif member_signed_in? && current_member != @member %>
+          <% if current_member.following?(@member) %>
+            <%= link_to '　フォロー外す　', unfollow_path(@member.id), method: :POST, class:"btn-blue" %>
+          <% else %>
+            <%= link_to '　フォローする　', follows_path(@member.id), method: :POST, class:"btn-blue" %>
+          <% end %>
+        <% elsif admin_signed_in? %>
+          強制退会ボタン
+        <% end %>
+      </div>
+
+<!-- --------------- grid：japan_map -------------- -->
+      <div class="grid_member_show_D">
+        <%= render '/public/members/visited_map' %>
+      </div>
+
+<!-- --------------- grid：投稿等の情報+投稿一覧へのリンク -------------- -->
+      <div class="grid_member_show_E">
+        おじゃました都道府県：○○/47<br>
+        これまで投稿した写真：○○枚<br><br>
+        <div class="btn_gray">
+          <span>　</span>
+          <i class="fas fa-camera"></i>
+          <%= link_to "　投稿写真 一覧　", post_index_member_path %>
+        </div>
+      </div>
+
+<!-- --------------- grid：投稿写真ギャラリー(post/images) -------------- -->
+      <div class="grid_member_show_F">
+        
+      </div>
+    </div>
   </div>
-  <div class="page_subtitle_favorite_word">
-    <%= "#{@member.favorite_word}" %>
-  </div>
-  <div>
-    <%= "#{@member.follow.count} フォロー中" %>
-    <%= "#{@member.followed.count} フォロワー" %>
-  </div>
-  <br>
-
-
-<!-- --------------- 左側：会員の情報 -------------- -->
-
-
-<!-- --------------- 右側：会員のメイン写真 -------------- -->
-
-
-<p><%= "アカウント名: #{@member.user_name}" %></p>
-
-<br><br>
-
-<!-- --------------- 訪問済み色分け地図機能 -------------- -->
-  <!-- japan_map.jsで設定したjapan_mapを表示 -->
-  <%= render '/public/members/visited_map' %>
-
-
-<!-- --------------- 最新の投稿(仮5件) -------------- -->
-
-<% @latest_posts.limit(5).each do |post| %>
-  <div class="slider">
-    <% post.images.each do |image| %>
-      <%= image_tag image, class:"image_size" %>
-    <% end %>
-  </div>
-  <%= post.taken_at %>
-  <%= post.city %>
-  <%= post.spot_name %>
-<% end %>
