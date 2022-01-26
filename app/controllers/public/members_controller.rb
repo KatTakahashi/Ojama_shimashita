@@ -4,10 +4,10 @@ class Public::MembersController < ApplicationController
 # --------------- 会員詳細ページ --------------
   def show
     @member = Member.find(params[:id])
-    @post = Post.find(params[:id])
-    @posts = @member.posts.all
-    @latest_posts = Post.where(member_id: params[:id]).order('taken_at')
-    gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
+    @posts = Post.where(member_id: params[:id]).order('taken_at')
+    @posts_count = Post.where(member_id: @member.id)
+    @visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
+    gon.visiteds = @visiteds
     gon.living = Member.where(id: @member.id).select(:living_prefecture).distinct.order('living_prefecture').map { |i| Member.living_prefectures[i.living_prefecture] }
       #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
       #where(モデル名.where(条件)):条件に一致するレコードを配列で取得するメソッド

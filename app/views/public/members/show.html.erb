@@ -3,11 +3,11 @@
   <div class="header_image">
     <%= image_tag @member.header_image.variant(resize:'900x900',crop: "900x300+0+150").processed %>
   </div>
-  
+
   <!-- --------------- grid -------------- -->
   <div class="center_member_show">
     <div class="grid_member_show">
-      
+
 <!-- --------------- grid：プロフィール写真(member/profile_image) -------------- -->
       <div class="grid_member_show_A">
         <div class="profile_image_frame">
@@ -53,8 +53,9 @@
 
 <!-- --------------- grid：投稿等の情報+投稿一覧へのリンク -------------- -->
       <div class="grid_member_show_E">
-        おじゃました都道府県：○○/47<br>
-        これまで投稿した写真：○○枚<br><br>
+        <h3><%= link_to "～　#{@member.user_name} の軌跡　～", post_index_member_path %></h3><br>
+        <%= "おじゃました都道府県： #{@visiteds.count} / 47" %><br>
+        <%= "　これまでの投稿数　： #{@posts.distinct.count} 件" %><br><br>
         <div class="btn_gray">
           <span>　</span>
           <i class="fas fa-camera"></i>
@@ -64,7 +65,13 @@
 
 <!-- --------------- grid：投稿写真ギャラリー(post/images) -------------- -->
       <div class="grid_member_show_F">
-        
+        <% @posts.limit(30).each do |post| %>
+          <% if post.images.attached? %>
+            <% post.images.each do |image| %>
+              <%= image_tag image, :height => '150' %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

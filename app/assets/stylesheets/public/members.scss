@@ -44,8 +44,9 @@ a{
   justify-items: center; //アイテムの横方向の配置
   align-items: center;  //アイテムの縦方向の配置
   grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 200px 300px auto;
+  grid-template-rows: 200px 250px auto;
   margin: 250px 0 30px 0;
+  background-color: #F8F8FF;
 }
 
 .grid_member_show_A{
@@ -80,7 +81,7 @@ a{
 .grid_member_show_D{
   grid-column: 1/2;   //横
   grid-row: 2/3;  //縦
-  margin-bottom: $margin-1;
+  margin: $margin-1 0;
   justify-self: end;
 }
 
@@ -96,4 +97,5 @@ a{
   grid-column: 1/4;   //横
   grid-row: 3/4;  //縦
   margin-bottom: $margin-1;
+  text-align: center;
 }
