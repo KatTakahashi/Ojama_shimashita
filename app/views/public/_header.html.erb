@@ -19,12 +19,12 @@
         <ul class="nav_submenu">
             <div>
             <li class="nav_submenu_item"><%= link_to "マイページ", member_path(current_member.id) %></li>
-            <li class="nav_submenu_item"><%= link_to "マイ写真", posts_path %></li>
+            <li class="nav_submenu_item"><%= link_to "マイ写真", post_index_member_path(current_member.id) %></li>
             <li class="nav_submenu_item"><%= link_to "新規投稿", new_post_path %></li>
             </div>
           </ul>
         </li>
-        <li class="nav_menu_item"><%= link_to "みんなの写真", posts_index_everyone_posts_path %></li>
+        <li class="nav_menu_item"><%= link_to "みんなの写真", posts_path %></li>
         <li class="nav_menu_item"><%= link_to "お問い合わせ", new_contact_path %></li>
       </ul>
     </nav>

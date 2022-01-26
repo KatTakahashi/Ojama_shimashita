@@ -21,9 +21,36 @@
 // google fonts用
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap');
 
+// slick用
+@import "slick-theme";
+@import "slick";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Noto Serif JP', serif; //google fonts
 }
+
+.slider {
+  width: 200px;
+  height: 126px;
+  padding: 0;
+}
+.slider img {
+  width: auto;
+  height: 126px;
+}
+.slider div {
+  margin: 5px;
+}
+
+// 画像上の左右ボタン
+// .slider .slick-next {
+//   right: 10px;
+//   z-index: 100;
+// }
+// .slider .slick-prev {
+//   left: 10px;
+//   z-index: 100;
+// }

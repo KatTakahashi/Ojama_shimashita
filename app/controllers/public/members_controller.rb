@@ -6,7 +6,7 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @post = Post.find(params[:id])
     @posts = @member.posts.all
-    @latest_posts = Post.where(member_id: @post.member_id).order('taken_at').limit(5)
+    @latest_posts = Post.where(member_id: params[:id]).order('taken_at')
     gon.visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
     gon.living = Member.where(id: @member.id).select(:living_prefecture).distinct.order('living_prefecture').map { |i| Member.living_prefectures[i.living_prefecture] }
       #gon(gon.変数名):RailsからJSに変数を渡すためのgem使用
@@ -56,6 +56,15 @@ class Public::MembersController < ApplicationController
   def followers
     @member = Member.find(params[:id])
   end
+
+# --------------- 個人：投稿一覧ページ --------------
+  def post_index
+  end
+
+# --------------- 個人：投稿一覧ページ(都道府県別) --------------
+  def post_index_pref
+  end
+
 
   private
 # --------------- ストロングパラメータ --------------

@@ -1,0 +1,818 @@
+<!-- =============== 部分テンプレート：都道府県別写真一覧 =============== -->
+<!--slick用-->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!--------------- 東北地方 --------------->
+  <div class="pref_1">
+    <% if post_1.presence %>
+    <%= link_to "北海道", index_pref_posts_path(), class:"pref_title" %>
+
+        <%# binding.pry %>
+          <%= link_to  index_pref_posts_path(post_1.ids) do %>
+          <%# form_with model: post_1 url: index_pref_posts_path do |f| %>
+        <div class="slider">
+          <% post_1.each do |post| %>
+            <% post.images.each do |image| %>
+              <%= image_tag image, class:"image_size" %>
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
+
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_2">
+    <%= link_to "青森", index_pref_posts_path, class:"pref_title" %>
+    <% if post_2.presence %>
+      <div class="slider">
+        <% post_2.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_3">
+    <%= link_to "岩手", index_pref_posts_path, class:"pref_title" %>
+    <% if post_3.presence %>
+      <div class="slider">
+        <% post_3.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_4">
+    <%= link_to "宮城", index_pref_posts_path, class:"pref_title" %>
+    <% if post_4.presence %>
+      <div class="slider">
+        <% post_4.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_5">
+    <%= link_to "秋田", index_pref_posts_path, class:"pref_title" %>
+    <% if post_5.presence %>
+      <div class="slider">
+        <% post_5.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_6">
+    <%= link_to "山形", index_pref_posts_path, class:"pref_title" %>
+    <% if post_6.presence %>
+      <div class="slider">
+        <% post_6.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_7">
+    <%= link_to "福島", index_pref_posts_path, class:"pref_title" %>
+    <% if post_7.presence %>
+      <div class="slider">
+        <% post_7.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 関東地方 --------------->
+  <div class="pref_8">
+    <%= link_to "茨城", index_pref_posts_path, class:"pref_title" %>
+    <% if post_8.presence %>
+      <div class="slider">
+        <% post_8.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_9">
+    <%= link_to "栃木", index_pref_posts_path, class:"pref_title" %>
+    <% if post_9.presence %>
+      <div class="slider">
+        <% post_9.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_10">
+    <%= link_to "群馬", index_pref_posts_path, class:"pref_title" %>
+    <% if post_10.presence %>
+      <div class="slider">
+        <% post_10.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_11">
+    <%= link_to "埼玉", index_pref_posts_path, class:"pref_title" %>
+    <% if post_11.presence %>
+      <div class="slider">
+        <% post_11.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_12">
+    <%= link_to "千葉", index_pref_posts_path, class:"pref_title" %>
+    <% if post_12.presence %>
+      <div class="slider">
+        <% post_12.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_13">
+    <%= link_to "東京", index_pref_posts_path, class:"pref_title" %>
+    <% if post_13.presence %>
+      <div class="slider">
+        <% post_13.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_14">
+    <%= link_to "神奈川", index_pref_posts_path, class:"pref_title" %>
+    <% if post_14.presence %>
+      <div class="slider">
+        <% post_14.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 中部地方 --------------->
+  <div class="pref_15">
+    <%= link_to "新潟", index_pref_posts_path, class:"pref_title" %>
+    <% if post_15.presence %>
+      <div class="slider">
+        <% post_15.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_16">
+    <%= link_to "富山", index_pref_posts_path, class:"pref_title" %>
+    <% if post_16.presence %>
+      <div class="slider">
+        <% post_16.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_17">
+    <%= link_to "石川", index_pref_posts_path, class:"pref_title" %>
+    <% if post_17.presence %>
+      <div class="slider">
+        <% post_17.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_18">
+    <%= link_to "福井", index_pref_posts_path, class:"pref_title" %>
+    <% if post_18.presence %>
+      <div class="slider">
+        <% post_18.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_19">
+    <%= link_to "山梨", index_pref_posts_path, class:"pref_title" %>
+    <% if post_19.presence %>
+      <div class="slider">
+        <% post_19.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_20">
+    <%= link_to "長野", index_pref_posts_path, class:"pref_title" %>
+    <% if post_20.presence %>
+      <div class="slider">
+        <% post_20.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_21">
+    <%= link_to "岐阜", index_pref_posts_path, class:"pref_title" %>
+    <% if post_21.presence %>
+      <div class="slider">
+        <% post_21.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_22">
+    <%= link_to "静岡", index_pref_posts_path, class:"pref_title" %>
+    <% if post_22.presence %>
+      <div class="slider">
+        <% post_22.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_23">
+    <%= link_to "愛知", index_pref_posts_path, class:"pref_title" %>
+    <% if post_23.presence %>
+      <div class="slider">
+        <% post_23.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_24">
+    <%= link_to "三重", index_pref_posts_path, class:"pref_title" %>
+    <% if post_24.presence %>
+      <div class="slider">
+        <% post_24.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 近畿地方 --------------->
+  <div class="pref_25">
+    <%= link_to "滋賀", index_pref_posts_path, class:"pref_title" %>
+    <% if post_25.presence %>
+      <div class="slider">
+        <% post_25.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_26">
+    <%= link_to "京都", index_pref_posts_path, class:"pref_title" %>
+    <% if post_26.presence %>
+      <div class="slider">
+        <% post_26.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_27">
+    <%= link_to "大阪", index_pref_posts_path, class:"pref_title" %>
+    <% if post_27.presence %>
+      <div class="slider">
+        <% post_27.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_28">
+    <%= link_to "兵庫", index_pref_posts_path, class:"pref_title" %>
+    <% if post_28.presence %>
+      <div class="slider">
+        <% post_28.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_29">
+    <%= link_to "奈良", index_pref_posts_path, class:"pref_title" %>
+    <% if post_29.presence %>
+      <div class="slider">
+        <% post_29.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_30">
+    <%= link_to "和歌山", index_pref_posts_path, class:"pref_title" %>
+    <% if post_30.presence %>
+      <div class="slider">
+        <% post_30.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 中国地方 --------------->
+  <div class="pref_31">
+    <%= link_to "鳥取", index_pref_posts_path, class:"pref_title" %>
+    <% if post_31.presence %>
+      <div class="slider">
+        <% post_31.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_32">
+    <%= link_to "島根", index_pref_posts_path, class:"pref_title" %>
+    <% if post_32.presence %>
+      <div class="slider">
+        <% post_32.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_33">
+    <%= link_to "岡山", index_pref_posts_path, class:"pref_title" %>
+    <% if post_33.presence %>
+      <div class="slider">
+        <% post_33.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_34">
+    <%= link_to "広島", index_pref_posts_path, class:"pref_title" %>
+    <% if post_34.presence %>
+      <div class="slider">
+        <% post_34.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_35">
+    <%= link_to "山口", index_pref_posts_path, class:"pref_title" %>
+    <% if post_35.presence %>
+      <div class="slider">
+        <% post_35.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 四国地方 --------------->
+  <div class="pref_36">
+    <%= link_to "徳島", index_pref_posts_path, class:"pref_title" %>
+    <% if post_36.presence %>
+      <div class="slider">
+        <% post_36.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_37">
+    <%= link_to "香川", index_pref_posts_path, class:"pref_title" %>
+    <% if post_37.presence %>
+      <div class="slider">
+        <% post_37.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_38">
+    <%= link_to "愛媛", index_pref_posts_path, class:"pref_title" %>
+    <% if post_38.presence %>
+      <div class="slider">
+        <% post_38.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_39">
+    <%= link_to "高知", index_pref_posts_path, class:"pref_title" %>
+    <% if post_39.presence %>
+      <div class="slider">
+        <% post_39.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+<!--------------- 九州地方 --------------->
+
+  <div class="pref_40">
+    <%= link_to "福岡", index_pref_posts_path, class:"pref_title" %>
+    <% if post_40.presence %>
+      <div class="slider">
+        <% post_40.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_41">
+    <%= link_to "佐賀", index_pref_posts_path, class:"pref_title" %>
+    <% if post_41.presence %>
+      <div class="slider">
+        <% post_41.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_42">
+    <%= link_to "長崎", index_pref_posts_path, class:"pref_title" %>
+    <% if post_42.presence %>
+      <div class="slider">
+        <% post_42.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_43">
+    <%= link_to "熊本", index_pref_posts_path, class:"pref_title" %>
+    <% if post_43.presence %>
+      <div class="slider">
+        <% post_43.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_44">
+    <%= link_to "大分", index_pref_posts_path, class:"pref_title" %>
+    <% if post_44.presence %>
+      <div class="slider">
+        <% post_44.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_45">
+    <%= link_to "宮崎", index_pref_posts_path, class:"pref_title" %>
+    <% if post_45.presence %>
+      <div class="slider">
+        <% post_45.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_46">
+    <%= link_to "鹿児島", index_pref_posts_path, class:"pref_title" %>
+    <% if post_46.presence %>
+      <div class="slider">
+        <% post_46.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pref_47">
+    <%= link_to "沖縄", index_pref_posts_path, class:"pref_title" %>
+    <% if post_47.presence %>
+      <div class="slider">
+        <% post_47.each do |post| %>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class:"image_size" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag "noimage.png", class:"image_size" %>
+      </div>
+    <% end %>
+  </div>

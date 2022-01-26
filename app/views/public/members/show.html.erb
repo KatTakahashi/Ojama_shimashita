@@ -35,3 +35,14 @@
 
 
 <!-- --------------- 最新の投稿(仮5件) -------------- -->
+
+<% @latest_posts.limit(5).each do |post| %>
+  <div class="slider">
+    <% post.images.each do |image| %>
+      <%= image_tag image, class:"image_size" %>
+    <% end %>
+  </div>
+  <%= post.taken_at %>
+  <%= post.city %>
+  <%= post.spot_name %>
+<% end %>

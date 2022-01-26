@@ -23,23 +23,24 @@ Rails.application.routes.draw do
     get 'homes/about' => 'homes#about'
     resources :members, only: [:show, :edit, :update] do
       member do
-        get 'confirm' => 'members#confirm'
-        patch 'withdraw' => 'members#withdraw'
         get 'follows' => 'members#follows'
         get 'followers' => 'members#followers'
+        get 'post_index'
+        get 'post_index_pref'
+      end
+      collection do
+        get 'confirm' => 'members#confirm'
+        patch 'withdraw' => 'members#withdraw'
       end
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       collection do
-        get 'posts/index_pref'
-        get 'posts/index_everyone'
-        get 'posts/index_pref_everyone'
+        get 'index_pref'
         get 'search'
       end
       resources :post_comments, only: [:create, :destroy]
       resource :post_likes, only: [:create, :destroy]
     end
-
     post 'follows/:id' => 'relationships#follow', as: 'follows'
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
     resources :contacts, only: [:new, :create]
