@@ -14,7 +14,7 @@
         <%= link_to image_tag("nav_1.png"), homes_about_path %>
       </li>
       <li id="grid_top_B">
-        <%= link_to homes_about_path do %>
+        <%= link_to posts_path do %>
           <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
         <% end %>
         <%= link_to image_tag("nav_2.png"), posts_path %>
@@ -51,6 +51,6 @@
 
 <!-- --------------- フッター -------------- -->
   <div class="footer_top">
-    <%= image_tag 'footer_1.png', class:'footer_img' %>
+    <%= image_tag 'footer_1.png', :width => '100%' %>
   </div>
 

@@ -30,7 +30,7 @@ class Public::MembersController < ApplicationController
   def update
     @member = Member.find(current_member.id)
     @member.update(member_params)
-    redirect_to root_path
+    redirect_to member_path(current_member)
   end
 
 # --------------- 退会確認ページ --------------

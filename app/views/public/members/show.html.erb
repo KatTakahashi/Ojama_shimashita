@@ -1,3 +1,6 @@
+<!--□投稿写真のスクロール-->
+<!--□japan_mapの読み込み-->
+
 <!-- =============== 会員詳細ページ =============== -->
 <!-- --------------- 背景写真(member/background_image) -------------- -->
   <div class="header_image">
@@ -5,7 +8,7 @@
   </div>
 
   <!-- --------------- grid -------------- -->
-  <div class="center_member_show">
+  <div class="center_main">
     <div class="grid_member_show">
 
 <!-- --------------- grid：プロフィール写真(member/profile_image) -------------- -->
@@ -31,9 +34,10 @@
       <div class="grid_member_show_C">
         <% if member_signed_in? && current_member == @member %>
           <div class="btn_gray">
-            <span>　</span>
-            <i class="fas fa-pencil-alt"></i>
-            <%= link_to "プロフィール編集　", edit_member_path(@member) %>
+            <%= link_to edit_member_path(@member) do %>
+              <span>　</span>
+              <i class="fas fa-pencil-alt">　プロフィール編集　</i>
+            <% end %>
           </div>
         <% elsif member_signed_in? && current_member != @member %>
           <% if current_member.following?(@member) %>
@@ -57,9 +61,9 @@
         <%= "おじゃました都道府県： #{@visiteds.count} / 47" %><br>
         <%= "　これまでの投稿数　： #{@posts.distinct.count} 件" %><br><br>
         <div class="btn_gray">
-          <span>　</span>
-          <i class="fas fa-camera"></i>
-          <%= link_to "　投稿写真 一覧　", post_index_member_path %>
+          <%= link_to post_index_member_path do %>
+            <i class="fas fa-camera">　投稿写真一覧</i>
+            <% end %>
         </div>
       </div>
 
@@ -68,7 +72,9 @@
         <% @posts.limit(30).each do |post| %>
           <% if post.images.attached? %>
             <% post.images.each do |image| %>
-              <%= image_tag image, :height => '150' %>
+              <%= link_to post_path(post) do %>
+                <%= image_tag image, :height => '150' %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>

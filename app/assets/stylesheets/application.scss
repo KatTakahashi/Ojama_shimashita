@@ -33,8 +33,23 @@
 }
 
 body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #f4f4f4;
 }
+
+.center_main, .page_title {
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #F8F8FF;
+}
+
+.center_main{
+  min-height: 83vh;
+}
+
 
 //--------------- 文字の配置 ---------------
 .text_center{
@@ -70,10 +85,11 @@ a{
 
 //--------------- ボタン ---------------
 .btn_gray{
-  width: 180px;
+  width: 200px;
   background-color: #DDDDDD	;
   border-radius: 0.5rem;
   text-align: center;
+  line-height: 2;
 }
 
 .btn_green{
@@ -88,6 +104,32 @@ a{
   border-radius: 0.5rem;
   text-align: center;
 }
+
+//--------------- フォーム用テーブル ---------------
+.form_table{
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: left;
+}
+
+.form_table .form_element{
+  margin: 3px 0 18px 10px;
+}
+
+.form_table .btn_l{
+  text-align: right;
+  margin-right: 40px;
+}
+
+.form_table .btn_r{
+  text-align: left;
+}
+
+.form_table .btn_c{
+  text-align: center;
+}
+
+
 
 //--------------- slider ---------------
 .slider {
