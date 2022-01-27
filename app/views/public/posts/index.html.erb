@@ -1,5 +1,9 @@
-<h3> 全ユーザの投稿写真一覧ページ</h3>
-
-<div class="pref_photos">
-    <%= render '/public/posts/pref_photos', posts: @posts %>
+<!-- =============== 全ユーザの投稿写真一覧ページ =============== -->
+<!-- --------------- ページタイトル -------------- -->
+<div class="page_title">
+  <i class="fas fa-camera fa-2x"></i>
+  <b class="h3">　みんなが旅した日本</b>
 </div>
+
+<!-- --------------- 写真一覧(post/image) -------------- -->
+<%= render '/public/posts/index_photos', posts: @posts %>

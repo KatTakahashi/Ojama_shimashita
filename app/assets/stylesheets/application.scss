@@ -32,6 +32,27 @@
   font-family: 'Noto Serif JP', serif; //google fonts
 }
 
+body{
+  background-color: #f4f4f4;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+b{
+  font-size: 20px
+}
+
+.btn_gray{
+  width: 180px;
+  color: black;
+  background-color: #DDDDDD	;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
 .slider {
   width: 200px;
   height: 126px;

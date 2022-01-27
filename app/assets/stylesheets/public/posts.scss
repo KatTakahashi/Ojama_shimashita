@@ -1,13 +1,28 @@
-/*=============== posts/indexページ用CSS ===============*/
-/*---------------   都道府県別photos ---------------*/
-$margin-1: 50px;
+/*=============== posts用CSS ===============*/
+/*---------------    ---------------*/
+$margin-1: 70px;
 
-.pref_photos{
+//--------------- 全体 ---------------
+.center_post_index, .page_title {
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #F8F8FF;
+}
+
+//--------------- ページタイトル ---------------
+.page_title{
+  padding-top: 30px;
+  text-align: center;
+}
+
+//--------------- メイン：CSS grid---------------
+.grid_post_index{
   display: grid;
   justify-items: center;
   align-items: center;
   text-align: center;
-  margin: 30px;
+  // margin: 30px;
 }
 
 .image_size {
@@ -15,51 +30,51 @@ $margin-1: 50px;
   height: 126px;
 }
 
-.pref_1, .pref_2, .pref_3, .pref_4{
+.grid_post_index .pref_1, .pref_2, .pref_3, .pref_4{
   grid-row: 1/2;
-  margin-bottom: $margin-1;
+  margin: $margin-1 0;
 }
-.pref_5, .pref_6, .pref_7, .pref_8{
+.grid_post_index .pref_5, .pref_6, .pref_7, .pref_8{
   grid-row: 2/3;
   margin-bottom: $margin-1;
 }
-.pref_9, .pref_10,.pref_11, .pref_12{
+.grid_post_index .pref_9, .pref_10,.pref_11, .pref_12{
   grid-row: 3/4;
   margin-bottom: $margin-1;
 }
-.pref_13, .pref_14, .pref_15, .pref_16{
+.grid_post_index .pref_13, .pref_14, .pref_15, .pref_16{
   grid-row: 4/5;
   margin-bottom: $margin-1;
 }
-.pref_17, .pref_18, .pref_19, .pref_20{
+.grid_post_index .pref_17, .pref_18, .pref_19, .pref_20{
   grid-row: 5/6;
   margin-bottom: $margin-1;
 }
-.pref_21, .pref_22, .pref_23, .pref_24{
+.grid_post_index .pref_21, .pref_22, .pref_23, .pref_24{
   grid-row: 6/7;
   margin-bottom: $margin-1;
 }
-.pref_25, .pref_26, .pref_27, .pref_28 {
+.grid_post_index .pref_25, .pref_26, .pref_27, .pref_28 {
   grid-row: 7/8;
   margin-bottom: $margin-1;
 }
-.pref_29, .pref_30,.pref_31, .pref_32 {
+.grid_post_index .pref_29, .pref_30,.pref_31, .pref_32 {
   grid-row: 8/9;
   margin-bottom: $margin-1;
 }
-.pref_33, .pref_34, .pref_35, .pref_36{
+.grid_post_index .pref_33, .pref_34, .pref_35, .pref_36{
   grid-row: 9/10;
   margin-bottom: $margin-1;
 }
-.pref_37, .pref_38, .pref_39, .pref_40{
+.grid_post_index .pref_37, .pref_38, .pref_39, .pref_40{
   grid-row: 10/11;
   margin-bottom: $margin-1;
 }
-.pref_41, .pref_42, .pref_43, .pref_44 {
+.grid_post_index .pref_41, .pref_42, .pref_43, .pref_44 {
   grid-row: 11/12;
   margin-bottom: $margin-1;
 }
-.pref_45, .pref_46, .pref_47{
+.grid_post_index .pref_45, .pref_46, .pref_47{
   grid-row: 12/13;
   margin-bottom: $margin-1;
 }

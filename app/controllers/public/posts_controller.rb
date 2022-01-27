@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
 
 # --------------- 全体：投稿一覧ページ(都道府県別) --------------
   def index_pref
-    @posts = Post.where(prefecture: params[:prefecture_id])
+    @posts = Post.where(prefecture: params[:prefecture_id]).order(city: :desc)
   end
 
 # --------------- 投稿詳細ページ --------------

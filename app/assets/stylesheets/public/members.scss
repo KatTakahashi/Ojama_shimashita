@@ -1,31 +1,13 @@
 $margin-1: 30px;
 
 //--------------- 全体 ---------------
-body{
-  background-color: #f4f4f4;
-}
-
 .center_member_show {
   width: 900px;
   height: auto;
-  background-color: white;
   margin: 0 auto;
 }
 
-a{
-  color: black;
-  text-decoration: none;
-}
-
-.btn_gray{
-  width: 180px;
-  color: black;
-  background-color: #DDDDDD	;
-  border-radius: 0.5rem;
-  text-align: center;
-}
-
-//--------------- 背景画像---------------
+//--------------- ヘッダー画像---------------
 .header_image{
   width: 900px;
   height: 300px;
