@@ -1,109 +1,141 @@
 <!-- =============== 投稿詳細ページ =============== -->
-<!-- --------------- 投稿内容 -------------- -->
-  [ <%= @post.spot_name %> ] に、おじゃましました<br>
+<!-- --------------- grid -------------- -->
+  <div class="center_main">
+    <div class="grid_post_show">
 
-<!-- 投稿画像を表示 -->
-<% if @post.images.attached? %>
-  <% @post.images.each do |image| %>
-    <%= image_tag image, :height => '200' %> <br>
-  <% end %>
-<% end %>
+<!-- --------------- grid：タイトルと投稿写真 -------------- -->
+      <div class="grid_post_show_A">
+        <!--ページタイトル-->
+        <div class="sub_title">
+          <%= "#{@post.prefecture_i18n} #{@post.city}" %>
+        </div>
+        <span class="title">
+          <span>　</span>
+          <%= @post.spot_name %>
+        </span>
+      </div>
 
-カテゴリー：　<%= @post.category_i18n %><br>
-都道府県　：　<%= @post.prefecture_i18n %><br>
-市町村　　：　<%= @post.city %><br>
-スポット名：　<%= @post.spot_name %><br>
-旅のメモ　：　<%= @post.body %><br><br>
+<!-- --------------- grid：いいね機能 -------------- -->
+      <div class="grid_post_show_B">
+        <span class="like">
+          <% if member_signed_in? %>
+            <!-- いいね機能 -->
+            <% unless @post.liked_by?(current_member) %>
+              <%= link_to post_post_likes_path(@post), method: :post do %>
+                ♡<%= @post.post_likes.count %> いいね
+              <% end %>
+            <!-- いいね削除機能 -->
+            <% else %>
+              <%= link_to post_post_likes_path(@post), method: :delete do %>
+                ♥<%= @post.post_likes.count %> いいね
+              <% end %>
+            <% end %>
+          <!-- 管理者 と ログインしていない場合はいいね数のみ表示 -->
+          <% else %>
+            ♡<%= @post.post_likes.count %> いいね
+          <% end %>
+        </span>
+      </div>
 
-<!-- 管理者 と 投稿者 のみ[編集]と[削除]を表示 -->
-<% if member_signed_in? && current_member.id == @post.member_id || admin_signed_in? %>
-  <%= link_to "編集する",edit_post_path(@post.id) %>
-  <%= link_to "削除する", post_path(@post.id), method: :delete %><br><br>
-<% end %>
+<!-- --------------- grid：投稿写真 -------------- -->
+      <div class="grid_post_show_C">
+        <!--投稿写真-->
+        <div class="post_image">
+          <% if @post.images.attached? %>
+            <% @post.images.each do |image| %>
+              <%= image_tag image, :width => '450' %> <br>
+            <% end %>
+          <% end %>
+        </div>
 
-<!-- コメント機能　ここから -->
-コメント件数：<%= @post.post_comments.count %><br>
-<% @post.post_comments.each do |post_comment| %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= post_comment.member.user_name %><br>
-  <%= post_comment.body %><br><br>
-  <% if post_comment.member == current_member %>
-    <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
-  <% end %>
-<% end %>
+        <!-- 管理者 と 投稿者 のみ[編集]と[削除]を表示 -->
+        <% if member_signed_in? && current_member.id == @post.member_id || admin_signed_in? %>
+          <span class="btn_green">
+            <%= link_to edit_post_path(@post.id), class:"white" do %>
+              <span>　</span>
+              <i class="fas fa-pencil-alt white">　編集　　</i>
+            <% end %>
+          </span>
+          <span>　　　</span>
+          <span class="btn_red">
+            <%= link_to post_path(@post.id), method: :delete, class:"white" do %>
+              <span>　</span>
+              <i class="fas fa-trash-alt white">　削除　　</i>
+            <% end %>
+          </span>
+        <% end %>
+      </div>
 
-<!-- ログイン中会員のみコメント投稿フォームを表示 -->
-<% if member_signed_in? %>
-  <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-    <%= f.text_area :body, placeholder: "コメントをここに" %><br>
-    <%= f.submit "送信する" %><br><br>
-  <% end %>
-<% end %>
-<!-- コメント機能　ここまで -->
+<!-- --------------- grid：投稿者アイコン -------------- -->
+      <div class="grid_post_show_D">
+        <div class="profile_image_frame">
+          <% if @member.profile_image.attached? %>
+              <%= image_tag @member.profile_image.variant(resize:'100x100').processed, class:"profile_image" %> <br>
+          <% end %>
+        </div>
+      </div>
 
-<!-- いいね機能　ここから　※ログイン中会員のみ いいね可 -->
-<% if member_signed_in? %>
-  <!-- いいね機能 -->
-  <% unless @post.liked_by?(current_member) %>
-    <%= link_to post_post_likes_path(@post), method: :post do %>
-      ♡<%= @post.post_likes.count %> いいね
-    <% end %>
-  <!-- いいね削除機能 -->
-  <% else %>
-    <%= link_to post_post_likes_path(@post), method: :delete do %>
-      ♥<%= @post.post_likes.count %> いいね
-    <% end %>
-  <% end %>
-<!-- 管理者 と ログインしていない場合はいいね数のみ表示 -->
-<% else %>
-  ♡<%= @post.post_likes.count %> いいね
-<% end %>
-<!-- いいね機能　ここまで -->
+<!-- --------------- grid：投稿内容 -------------- -->
+      <div class="grid_post_show_E">
+        <%= "#{@member.user_name}(#{@member.living_prefecture_i18n})" %><br>
+        <%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %><br>
+        <%= "カテゴリー：#{@post.category_i18n}" %><br>
+        <%= "旅のメモ　：#{@post.body}" %><br><br>
+      </div>
 
+<!-- --------------- grid：google maps -------------- -->
+      <div class="grid_post_show_F">
+        <%= render '/public/posts/spot_map', post: @post %>
+      </div>
 
-<!-- Google Maps機能　ここから -->
+<!-- --------------- grid：コメント -------------- -->
+      <div class="grid_post_show_G">
+        <div class="text_center">
+          <%= "～　コメント　#{@post.post_comments.count}件　～" %>
+        </div>
 
+        <!-- コメント投稿フォーム：ログイン中会員のみ表示 -->
+        <% if member_signed_in? %>
+          <%= form_with(model:[@post, @post_comment], local: true, class:"form") do |f| %>
+            <%= f.text_area :body, placeholder: "コメントをここに", class:"text_area" %>
+            <div class="text_center">
+              <%= f.submit "送信する" %>
+            </div>
 
-<div id='map'></div>
+          <% end %>
+        <% end %>
 
-<style>
-/*mapのサイズを指定*/
-#map {
-  height: 300px;
-  width: 400px;
-}
-</style>
-
-<script>
-  let map
-
-  //mapを初期化
-  function initMap(){
-    geocoder = new google.maps.Geocoder()
-    //変数spotに@postに格納されている投稿内容の緯度経度を代入
-    var spot ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
-
-    //変数mapに{ }のビューに表示する情報を代入
-    map = new google.maps.Map(document.getElementById('map'), {
-      //地図の中心位置を変数spotに代入した位置に設定
-      center: spot,
-      //地図の表示倍率
-      zoom: 8,
-      //地図の種類の選択(false:選択不可)
-      mapTypeControl: false,
-      //ストリートビューの選択(false:選択不可)
-      streetViewControl: false
-    });
-
-    //ピンの位置を指定:変数markerに{ }の情報を代入
-    marker = new google.maps.Marker({
-      //変数spotに代入された位置にピンを設定
-      position:  spot,
-      map: map,
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_KEY']%>&callback=initMap" async defer></script>
+        <!--コメント表示-->
+        <% @post.post_comments.each do |post_comment| %>
+          <div class="grid_post_comment">
+            <div class="grid_comment_A">
+              <% if post_comment.member.profile_image.attached? %>
+                  <%= image_tag post_comment.member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
+              <% end %>
+            </div>
+            <div class="grid_comment_B">
+              <%= post_comment.member.user_name %>
+              <span>　　　</span>
+              <span class="text_small gray">
+                <%= post_comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+              </span>
+            </div>
+            <div class="grid_comment_C">
+              <%= post_comment.body %>
+            </div>
+            <div class="grid_comment_D">
+              <span class="btn_red">
+                <span>　</span>
+                <% if post_comment.member == current_member %>
+                  <i class="fas fa-trash-alt white"></i>
+                  <%= link_to "削除　", post_post_comment_path(post_comment.post, post_comment), method: :delete, class:"white" %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        <% end %>
 
 
-<!-- Google Maps機能　ここまで -->
+      </div>
+    </div>
+  </div>

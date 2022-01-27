@@ -36,23 +36,60 @@ body{
   background-color: #f4f4f4;
 }
 
+//--------------- 文字の配置 ---------------
+.text_center{
+  text-align: center;
+}
+
+.text_right{
+  text-align: right;
+}
+
+//--------------- 文字の色 ---------------
 a{
   color: black;
   text-decoration: none;
 }
 
-b{
+.white{
+  color: white;
+}
+
+.gray{
+  color: gray;
+}
+
+.title{
   font-size: 20px
 }
 
+//--------------- 文字の大きさ ---------------
+.text_small{
+  font-size: small;
+}
+
+//--------------- ボタン ---------------
 .btn_gray{
   width: 180px;
-  color: black;
   background-color: #DDDDDD	;
   border-radius: 0.5rem;
   text-align: center;
 }
 
+.btn_green{
+  background-color: green	;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.btn_red{
+  color: white;
+  background-color: red	;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+//--------------- slider ---------------
 .slider {
   width: 200px;
   height: 126px;

@@ -1,31 +1,34 @@
-<!-- =============== 部分テンプレート：写真一覧(全国) =============== -->
+<!-- =============== 部分テンプレート：写真一覧(全国)　=============== -->
+<!--@posts ⇒ posts-->
 <!-- --------------- slick用リンク --------------- -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  <!-- --------------- grid -------------- -->
-    <div class="center_post_index">
-      <div class="grid_post_index">
+<!-- --------------- grid -------------- -->
+  <div class="center_main">
+    <div class="grid_post_index">
 
 <!-- --------------- grid：47都道府県の画像 --------------- -->
-        <% posts.each.with_index(1) do | posts, index| %>
-          <div class="pref_<%= index %>">
-            <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
-            <% if posts.presence %>
-              <div class="slider">
-                <% posts.each do |post| %>
-                  <% post.images.each do |image| %>
-                    <%= image_tag image, class:"image_size" %>
-                  <% end %>
+      <% posts.each.with_index(1) do | posts, index| %>
+        <!--CSS用にclassを設定-->
+        <div class="post_<%= index %>">
+          <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
+          <% if posts.presence %>
+            <div class="slider">
+              <% posts.each do |post| %>
+                <% post.images.each do |image| %>
+                  <%= image_tag image, class:"image_size" %>
                 <% end %>
-              </div>
-            <% else %>
-              <div class="slider">
-                <%= image_tag "noimage.png", class:"image_size" %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+              <% end %>
+            </div>
+          <!--投稿写真が無い時-->
+          <% else %>
+            <div class="slider">
+              <%= image_tag "noimage.png", class:"image_size" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
