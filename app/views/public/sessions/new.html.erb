@@ -1,30 +1,55 @@
-<h2>Log in</h2>
+<!-- =============== ログインページ =============== -->
+  <div class="page_title">
+    <i class="fas fa-sign-in-alt fa-2x"></i>
+    <span class="title">　  Log in</span>
+  </div>
+
+<!-- --------------- 中央に配置 -------------- -->
+  <div class="center_main">
+
+<!-- --------------- ログインフォーム -------------- -->
 
 <%= form_with model: @member,url: member_session_path, local: true do |f| %>
-  <table>
+  <table class="form_table">
     <tr>
-        <th><%= f.label :メールアドレス %></th>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examole.com",:size => "40" %></td>
+      <th><%= f.label :メールアドレス %></th>
     </tr>
     <tr>
-        <th><%= f.label :パスワード %></th>
-        <td><%= f.password_field :password, autocomplete: "current-password",:size => "40" %></td>
+      <td>
+        <div class="form_element">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examole.com",:size => "40" %>
+        </div>
+      </td>
     </tr>
     <tr>
-        <th></th>
-        <td>
-            <% if devise_mapping.rememberable? %>
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-            <% end %>
-        </td>
+      <th><%= f.label :パスワード %></th>
     </tr>
     <tr>
-        <th></th>
-        <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+      <td>
+        <div class="form_element">
+          <%= f.password_field :password, autocomplete: "current-password",:size => "40" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="form_element">
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        <% end %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="btn_c">
+          <%= f.submit "　ログイン　", class: "btn_green white" %>
+        </div>
+      </td>
     </tr>
   </table>
 <% end %>
 
-
+</div>
 

@@ -9,9 +9,9 @@ ja:
   enums:
     member: #memberモデル
       gender: #genderカラム
-        Male: "男性"
-        Female: "女性"
-        Secret: "秘密"
+        Male: " 男性　"
+        Female: " 女性　"
+        Secret: " 秘密"
 
       living_prefecture: #living_prefectureカラム
         Private: "非公開"

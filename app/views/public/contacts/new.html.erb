@@ -1,14 +1,52 @@
 <!-- =============== お問い合わせページ =============== -->
+  <div class="page_title">
+    <i class="fas fa-pen fa-2x"></i>
+    <span class="title">　  お問い合わせフォーム</span>
+  </div>
+
+<!-- --------------- 中央に配置 -------------- -->
+  <div class="center_main">
+
 <!-- --------------- お問い合わせフォーム -------------- -->
-  <%= form_with model: @contact, local: true do |f| %>
-    <%= f.label :お名前 %>
-    <%= f.text_field :name, autofocus: true %><br>
-
-    <%= f.label :メールアドレス %>
-    <%= f.text_field :email %><br>
-
-    <%= f.label :メッセージ %>
-    <%= f.text_area :message %>
-
-    <%= f.submit '送信' %>
-  <% end %>
+    <%= form_with model: @contact, local: true do |f| %>
+      <table class="form_table">
+        <tr>
+          <th><%= f.label :お名前 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :name, placeholder: "桜木健二", autofocus: true %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :メールアドレス %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :email, placeholder: "sakuragi@kenji.co.jp" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :メッセージ %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_area :message, size: "50x8" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="btn_c">
+              <%= f.submit "　送信　", data: {confirm: "本当に送信してもよろしいでしょうか。"}, class:"btn_green white" %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
