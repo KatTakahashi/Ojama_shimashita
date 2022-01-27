@@ -2,8 +2,7 @@ class Public::PostsController < ApplicationController
 
 # --------------- 全体：投稿一覧ページ --------------
   def index
-    @posts = Post.prefectures.map{ | k,v | Post.where(prefecture: k).order(updated_at: :desc).limit(3)}
-
+    @posts = Post.prefectures.map{ | k,v | Post.where(prefecture: k).order(taken_at: :desc).limit(1)}
   end
 
 # --------------- 全体：投稿一覧ページ(都道府県別) --------------

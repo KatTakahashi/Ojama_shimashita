@@ -15,17 +15,20 @@
         <div class="post_<%= index %>">
           <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
           <% if posts.presence %>
-            <div class="slider">
+            <div>
+              <%= link_to index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
               <% posts.each do |post| %>
                 <% post.images.each do |image| %>
-                  <%= image_tag image, class:"image_size" %>
+                  <%= image_tag image.variant(resize: '190x100') %>
+                  <% break %>
                 <% end %>
+              <% end %>
               <% end %>
             </div>
           <!--投稿写真が無い時-->
           <% else %>
-            <div class="slider">
-              <%= image_tag "noimage.png", class:"image_size" %>
+            <div style="opacity:0.1;">
+              <%= image_tag "noimage.png", size: '200x130' %>
             </div>
           <% end %>
         </div>

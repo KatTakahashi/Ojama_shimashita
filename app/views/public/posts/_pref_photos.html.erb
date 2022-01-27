@@ -1,10 +1,5 @@
 <!-- =============== 部分テンプレート：写真一覧(都道府県別) =============== -->
 <!--@posts ⇒ posts-->
-<!-- --------------- slick用リンク --------------- -->
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <!-- --------------- grid -------------- -->
   <div class="center_main">
     <div class="grid_post_index">
@@ -14,12 +9,15 @@
       <% posts.each.with_index(1) do | post, index| %>
         <!--CSS用にclassを設定-->
         <div class="post_<%= index %>">
-            <%= link_to "(#{post.city})　#{post.spot_name}", post_path(post) %>
-            <div class="slider">
-              <% post.images.each do |image| %>
-                  <%= image_tag image, class:"image_size" %>
-              <% end %>
-            </div>
+            <%= link_to post_path(post) do%>
+              <%= "(#{post.city})　#{post.spot_name}" %>
+              <div>
+                <% post.images.each do |image| %>
+                  <%= image_tag image.variant(resize: '190x100') %>
+                  <% break %>
+                <% end %>
+              </div>
+            <% end %>
         </div>
       <% end %>
       <!--投稿写真が無い時-->
