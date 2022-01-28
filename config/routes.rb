@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'homes#top'
     resources :members, only: [:index, :update]
-    resources :categories, only: [:new, :create]
   end
 
 # =============== 会員用(URLに/public/不要な為、scope module) ===============

@@ -47,6 +47,14 @@ $margin-1: 30px;
   margin: 50px 0 $margin-1 ;
 }
 
+.grid_member_show_B .l{
+  font-size: x-large;
+}
+
+.grid_member_show_B .m{
+  font-size: midium;
+}
+
 // プロフィール編集/フォローボタン
 .grid_member_show_C{
   grid-column: 3/4;   //横
@@ -76,8 +84,14 @@ $margin-1: 30px;
 .grid_member_show_F{
   grid-column: 1/4;   //横
   grid-row: 3/4;  //縦
-  margin-bottom: $margin-1;
+  margin: $margin-1 0;
   text-align: center;
+  }
+
+.grid_member_show_F .border{
+  border: 0.5px dotted gray;
+  margin: 0 auto 40px auto;
+  width: 80%;
 }
 
 //--------------- CSS grid：editページ---------------

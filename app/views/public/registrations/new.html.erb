@@ -8,130 +8,130 @@
   <div class="center_main">
 
 <!-- --------------- 会員登録フォーム -------------- -->
-<%= form_with model: @member, url: member_registration_path, local: true do |f| %>
-  <table class="form_table">
-    <tr>
-      <th><%= f.label :名前（姓） %></th>
-      <th><%= f.label :名前（名） %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "桜木", autofocus: true %>
-        </div>
-      </td>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "健二" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :フリガナ（セイ） %></th>
-      <th><%= f.label :フリガナ（メイ） %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "サクラギ" %>
-        </div>
-      </td>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "ケンジ" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :ユーザーネーム %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :user_name, autocomplete: "user_name", placeholder: "けんちゃん" %>
-        </div>
-      </td>
-    </tr>
+    <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
+      <table class="form_table">
         <tr>
-      <th><%= f.label :性別 %></th>
-      </tr>
-      <tr>
-        <th>
-          <div class="form_element">
-            <%= f.collection_radio_buttons :gender, Member.genders_i18n, :first, :last %>
-          </div>
-        </th>
-      </tr>
-    <tr>
-      <th><%= f.label :誕生日 %></th>
-    </tr>
-    <tr>
-      <th>
-        <div class="form_element">
-          <%= f.date_select :birthday, start_year: (Time.now.year - 100), default: Date.new(1995, 1, 1) %>
-        </div>
-      </th>
-    </tr>
-    <tr>
-      <th><%= f.label :居住地 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :メールアドレス %></th>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="form_element">
-          <%= f.email_field :email, autocomplete: "email", placeholder: "sakuragi@kenji.co.jp", size: 58 %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <div class="form_element">
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-      </th>
-    </tr>
-    <tr>
-      <th><%= f.label :パスワード（確認用） %></th>
-    </tr>
-    <tr>
-      <th>
-        <div class="form_element">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-      </th>
-    </tr>
-    <tr>
-      <th><!-- 会員ステータス --></th>
-    </tr>
-    <tr>
-      <td><%= f.hidden_field :is_deleted %></td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="btn_c">
-           <%= f.submit"　新規登録　", class:"btn_green white" %>
-        </div>
-      </td>
-    </tr>
-  </table>
-<% end %>
-</div>
+          <th><%= f.label :名前（姓） %></th>
+          <th><%= f.label :名前（名） %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "　桜木", autofocus: true %>
+            </div>
+          </td>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "　健二" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :フリガナ（セイ） %></th>
+          <th><%= f.label :フリガナ（メイ） %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "　サクラギ" %>
+            </div>
+          </td>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "　ケンジ" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :ユーザーネーム %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :user_name, autocomplete: "user_name", placeholder: "　けんちゃん" %>
+            </div>
+          </td>
+        </tr>
+            <tr>
+          <th><%= f.label :性別 %></th>
+          </tr>
+          <tr>
+            <th>
+              <div class="form_element">
+                <%= f.collection_radio_buttons :gender, Member.genders_i18n, :first, :last %>
+              </div>
+            </th>
+          </tr>
+        <tr>
+          <th><%= f.label :誕生日 %></th>
+        </tr>
+        <tr>
+          <th>
+            <div class="form_element">
+              <%= f.date_select :birthday, start_year: (Time.now.year - 100), default: Date.new(1995, 1, 1) %>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th><%= f.label :居住地 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :メールアドレス %></th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="form_element">
+              <%= f.email_field :email, autocomplete: "email", placeholder: "　sakuragi@kenji.co.jp", size: 58 %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <div class="form_element">
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th><%= f.label :パスワード（確認用） %></th>
+        </tr>
+        <tr>
+          <th>
+            <div class="form_element">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th><!-- 会員ステータス --></th>
+        </tr>
+        <tr>
+          <td><%= f.hidden_field :is_deleted %></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="btn_c">
+               <%= f.submit"　新規登録　", class:"btn_green white" %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
 
 

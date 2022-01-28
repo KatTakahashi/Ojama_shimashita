@@ -1,20 +1,42 @@
-<h2>Log in</h2>
+<!-- =============== 会員登録ページ =============== -->
+  <div class="page_title">
+    <i class="fas fa-user-plus fa-2x"></i>
+    <span class="title">　  管理者ログイン</span>
+  </div>
 
-  <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-    <table>
-      <tr>
-        <th><%= f.label :メールアドレス %></th>
-        <td><%= f.email_field :email, autofocus: true %></td>
-      </tr>
+<!-- --------------- 中央に配置 -------------- -->
+  <div class="center_main">
 
+<!-- --------------- 会員登録フォーム -------------- -->
+    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+      <table class="form_table">
         <tr>
-        <th><%= f.label :パスワード %></th>
-        <td><%= f.password_field :password %></td>
-      </tr>
-      <tr>
-        <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
-      </tr>
-  </table>
-<% end %>
-
-<%= render "admin/shared/links" %>
+          <th><%= f.label :メールアドレス %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.email_field :email, autofocus: true, placeholder: "　sakuragi@kenji.co.jp" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :パスワード %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.password_field :password %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="btn_c">
+              <%= f.submit "ログイン", class:"btn_green white" %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>

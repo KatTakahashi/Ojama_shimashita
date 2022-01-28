@@ -54,7 +54,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to new_post_path
+    redirect_to member_path(current_member)
   end
 
 # --------------- 検索ページ --------------

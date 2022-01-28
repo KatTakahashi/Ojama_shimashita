@@ -4,7 +4,11 @@
 <!-- =============== 会員詳細ページ =============== -->
 <!-- --------------- 背景写真(member/background_image) -------------- -->
   <div class="header_image">
-    <%= image_tag @member.header_image.variant(resize:'900x900',crop: "900x300+0+150").processed %>
+    <% if @member.header_image.attached? %>
+      <%= image_tag @member.header_image.variant(resize:'900x900',crop: "900x300+0+150").processed %>
+    <% else %>
+      <%= image_tag "sky.jpg", size: '900x300' %>
+    <% end %>
   </div>
 
   <!-- --------------- grid -------------- -->
@@ -15,14 +19,20 @@
       <div class="grid_member_show_A">
         <div class="profile_image_frame">
           <% if @member.profile_image.attached? %>
-              <%= image_tag @member.profile_image.variant(resize:'150x150').processed, class:"profile_image" %> <br>
+            <%= image_tag @member.profile_image.variant(resize:'150x150').processed, class:"profile_image" %> <br>
+          <% else %>
+            <%= image_tag "no_user_image.png", size: '150x150', class:"profile_image"  %>
           <% end %>
         </div>
       </div>
 
 <!-- --------------- grid：プロフィール情報 -------------- -->
       <div class="grid_member_show_B">
-        <h2><%= "#{@member.user_name}  ( #{@member.living_prefecture_i18n} ) " %></h2>
+        <div class="user_name">
+          <span class="l"><%= @member.user_name %></span>
+          <span class="m"><%= "(#{@member.living_prefecture_i18n})" %></span>
+        </div>
+
         <%= "#{@member.favorite_word}" %><br><br>
         <span>　</span>
         <%= link_to "#{@member.follow.count} フォロー中　", follows_member_path %>
@@ -41,9 +51,9 @@
           </div>
         <% elsif member_signed_in? && current_member != @member %>
           <% if current_member.following?(@member) %>
-            <%= link_to '　フォロー外す　', unfollow_path(@member.id), method: :POST, class:"btn-blue" %>
+            <%= link_to '　フォロー外す　', unfollow_path(@member.id), method: :POST, class:"btn_blue" %>
           <% else %>
-            <%= link_to '　フォローする　', follows_path(@member.id), method: :POST, class:"btn-blue" %>
+            <%= link_to '　フォローする　', follows_path(@member.id), method: :POST, class:"btn_blue" %>
           <% end %>
         <% elsif admin_signed_in? %>
           強制退会ボタン
@@ -69,6 +79,7 @@
 
 <!-- --------------- grid：投稿写真ギャラリー(post/images) -------------- -->
       <div class="grid_member_show_F">
+        <div class="border"></div>
         <% @posts.limit(30).each do |post| %>
           <% if post.images.attached? %>
             <% post.images.each do |image| %>

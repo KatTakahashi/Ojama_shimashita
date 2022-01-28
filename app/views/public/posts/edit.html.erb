@@ -9,84 +9,85 @@
 
 <!-- --------------- table：会員情報編集フォーム -------------- -->
 
-<%= form_with model: @post, local: true do |f| %>
-  <table class="form_table">
-    <tr>
-      <th><%= f.label :投稿写真 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.file_field :images, multiple: true %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :撮影日 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.date_field :taken_at %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :カテゴリー %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.select :category, Post.categories_i18n.invert, {prompt: "選択してください"} %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :都道府県 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.select :prefecture, Post.prefectures_i18n.invert, {prompt: "選択してください"} %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :市町村 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :city %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :スポット名 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :spot_name %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :旅のメモ %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_area :body, size: "50x4" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="btn_c">
-          <%= f.submit "　変更を保存　", class:"btn_green white" %>
-        </div>
-      </td>
-    </tr>
-  </table>
-<% end %>
+    <%= form_with model: @post, local: true do |f| %>
+      <table class="form_table">
+        <tr>
+          <th><%= f.label :投稿写真 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.file_field :images, multiple: true %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :撮影日 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.date_field :taken_at %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :カテゴリー %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.select :category, Post.categories_i18n.invert, {prompt: "選択してください"} %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :都道府県 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.select :prefecture, Post.prefectures_i18n.invert, {prompt: "選択してください"} %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :市町村 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :city, placeholder: "　南砺市" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :スポット名 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :spot_name, placeholder: "　相倉合掌集落" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :旅のメモ %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_area :body, size: "50x4" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="btn_c">
+              <%= f.submit "　変更を保存　", class:"btn_green white" %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>

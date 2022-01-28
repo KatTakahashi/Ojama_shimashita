@@ -58,7 +58,7 @@
           </span>
           <span>　　　</span>
           <span class="btn_red">
-            <%= link_to post_path(@post.id), method: :delete, class:"white" do %>
+            <%= link_to post_path(@post.id), method: :delete, class:"white", data: {confirm: "本当に削除しますか？"}  do %>
               <span>　</span>
               <i class="fas fa-trash-alt white">　削除　　</i>
             <% end %>
