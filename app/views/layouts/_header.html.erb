@@ -32,10 +32,10 @@
                 </div>
               </ul>
             </li>
-            <li class="nav_menu_item"><%= link_to "マイページ", member_path(current_member.id) %>
+            <li class="nav_menu_item"><%= link_to "マイページ", member_path(current_member.id), data: { 'turbolinks': false } %>
             <ul class="nav_submenu">
                 <div>
-                <li class="nav_submenu_item"><%= link_to "マイページ", member_path(current_member.id) %></li>
+                <li class="nav_submenu_item"><%= link_to "マイページ", member_path(current_member.id), data: { 'turbolinks': false } %></li>
                 <li class="nav_submenu_item"><%= link_to "マイ写真", post_index_member_path(current_member.id) %></li>
                 <li class="nav_submenu_item"><%= link_to "新規投稿", new_post_path %></li>
                 </div>

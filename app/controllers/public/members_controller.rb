@@ -1,5 +1,4 @@
 class Public::MembersController < ApplicationController
-  before_action :ensure_correct_member, only: [:edit, :update, :confirm, :withdraw]
 
 # --------------- 会員詳細ページ --------------
   def show

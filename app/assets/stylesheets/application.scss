@@ -21,7 +21,8 @@
 // google fonts用
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap');
 
-// slick用
+/*=============== posts用CSS ===============*/
+
 @import "slick-theme";
 @import "slick";
 
@@ -147,25 +148,28 @@ a{
 
 
 //--------------- slider ---------------
-.slider {
-  width: 200px;
-  height: 126px;
-  padding: 0;
+.slider{
+    margin: 10px auto;
+    width: 500px;
 }
-.slider img {
-  width: auto;
-  height: 126px;
+.slider img{
+    height: 300px;
+    width: auto;
+    margin: 0 auto;
 }
-.slider div {
-  margin: 5px;
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
 }
 
-// 画像上の左右ボタン
-// .slider .slick-next {
-//   right: 10px;
-//   z-index: 100;
-// }
-// .slider .slick-prev {
-//   left: 10px;
-//   z-index: 100;
-// }
+.thumb {
+  width: 450px;
+  margin: 20px auto;
+}
+
+.thumb img{
+  height: 50px;
+  width: auto;
+  margin: 0 auto;
+}

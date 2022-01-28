@@ -13,13 +13,16 @@
     <%= csp_meta_tag %>
     <!--レスポンシブデザイン用-->
       <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- gem 'gon用-->
       <%= include_gon %>
+    <!--gem slick用-->
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <!-- japan_map用 -->
       <%= javascript_include_tag 'jquery.japan-map.min.js' %>
+
   </head>
 <!-- =============== 共通：body =============== -->
   <body>
@@ -29,5 +32,8 @@
     <%= yield %>
 <!-- --------------- フッター：コピーライト -------------- -->
     <%= render 'layouts/footer' %>
+<!--gem slick用-->
+<!--    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
   </body>
 </html>

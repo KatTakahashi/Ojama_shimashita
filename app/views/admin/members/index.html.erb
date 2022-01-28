@@ -26,17 +26,17 @@
           <tr>
             <td>
               <% if member.profile_image.attached? %>
-                <%= link_to member_path(member.id) do %>
+                <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
                   <%= image_tag  member.profile_image.variant(resize:'50x50').processed %>
                 <% end %>
               <% else %>
                 <p>―</p>
               <% end %>
             </td>
-            <td><%= link_to member.id, member_path(member.id) %></td>
+            <td><%= link_to member.id, member_path(member.id), data: { 'turbolinks': false } %></td>
             <td>
-              <%= link_to member.last_name_kana + member.first_name_kana, member_path(member.id) %><br>
-              <%= link_to member.last_name + member.first_name, member_path(member.id) %>
+              <%= link_to member.last_name_kana + member.first_name_kana, member_path(member.id), data: { 'turbolinks': false } %><br>
+              <%= link_to member.last_name + member.first_name, member_path(member.id), data: { 'turbolinks': false } %>
             </td>
             <td><%= link_to member.user_name, member_path(member.id) %></td>
             <td><%= member.gender_i18n %></td>

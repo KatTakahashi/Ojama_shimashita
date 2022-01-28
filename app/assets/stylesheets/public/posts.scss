@@ -1,4 +1,5 @@
-/*=============== posts用CSS ===============*/
+
+
 /*--------------- 変数 ---------------*/
 $margin-1: 70px;
 
@@ -81,7 +82,7 @@ $margin-1: 70px;
   display: grid;
   justify-items: center;
   align-items: top;
-  grid-template-columns: 225px 225px 225px 225px;
+  grid-template-columns: 200px 250px 250px 200px;
 }
 
 .grid_post_show .image_size {
@@ -142,7 +143,7 @@ $margin-1: 70px;
   grid-column: 1/3;   //横
   grid-row: 4/5;  //縦
   margin-bottom: $margin-1;
-  justify-self: center;
+  justify-self: end;
 }
 
 // コメント
@@ -151,6 +152,7 @@ $margin-1: 70px;
   grid-row: 4/5;  //縦
   margin-bottom: $margin-1;
   justify-self: center;
+  overflow-wrap: break-word;
 }
 
 .grid_post_show_G .form{

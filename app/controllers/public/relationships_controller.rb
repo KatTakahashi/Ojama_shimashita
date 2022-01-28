@@ -1,5 +1,4 @@
 class Public::RelationshipsController < ApplicationController
- before_action :authenticate_member! only:[:follow, :unfollow]
 
 # --------------- フォロー機能 --------------
  def follow

@@ -18,17 +18,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require("./slick")
+//= require_tree .
 
-$(document).ready(function(){
-  $('.slider').slick({
-    autoplay: true, //自動再生
-    autoplaySpeed: 5000, //再生スピード
-    infinite: true, //スライドのループ有効化
-    dots: false, //ドットのナビゲーションを表示
-    slidesToShow: 1, //表示するスライドの数
-    slidesToScroll: 1, //スクロールで切り替わるスライドの数
+
+$(function() {
+  $('#slick').slick({
+    dots: true,
+    customPaging: function(slider, i) {
+      var thumbSrc = $(slider.$slides[i]).find('img').attr('src');
+      return '<img src="' + thumbSrc + '">';
+    }
   });
 });
-
