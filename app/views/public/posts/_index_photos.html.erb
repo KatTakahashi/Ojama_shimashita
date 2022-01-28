@@ -1,10 +1,5 @@
 <!-- =============== 部分テンプレート：写真一覧(全国)　=============== -->
 <!--@posts ⇒ posts-->
-<!-- --------------- slick用リンク --------------- -->
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <!-- --------------- grid -------------- -->
   <div class="center_main">
     <div class="grid_post_index">
@@ -13,16 +8,31 @@
       <% posts.each.with_index(1) do | posts, index| %>
         <!--CSS用にclassを設定-->
         <div class="post_<%= index %>">
-          <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
+          <% if current_page?(posts_path) %>
+            <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
+          <% else %>
+            <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), post_index_pref_member_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
+          <% end %>
           <% if posts.presence %>
             <div>
-              <%= link_to index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
-              <% posts.each do |post| %>
-                <% post.images.each do |image| %>
-                  <%= image_tag image.variant(resize: '190x100') %>
-                  <% break %>
+              <% if current_page?(posts_path) %>
+                <%= link_to index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
+                  <% posts.each do |post| %>
+                    <% post.images.each do |image| %>
+                      <%= image_tag image.variant(resize: '190x100') %>
+                      <% break %>
+                    <% end %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              <% else %>
+                <%= link_to post_index_pref_member_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
+                  <% posts.each do |post| %>
+                    <% post.images.each do |image| %>
+                      <%= image_tag image.variant(resize: '190x100') %>
+                      <% break %>
+                    <% end %>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           <!--投稿写真が無い時-->

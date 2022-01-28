@@ -1,0 +1,18 @@
+<!-- =============== 個人ユーザの投稿写真一覧ページ(都道府県別) =============== -->
+<!-- --------------- ページタイトル -------------- -->
+  <div class="page_title">
+    <% @posts.each do |post| %>
+      <% if post.presence %>
+        <i class="fas fa-camera fa-2x"></i>
+        <span class="title">
+          <%= "　#{post.member.user_name} が旅した#{post.prefecture_i18n}" %>
+        </span>
+        <% break %>
+      <% end %>
+    <% end %>
+
+
+  </div>
+
+<!-- --------------- 写真一覧(post/image) -------------- -->
+  <%= render '/public/posts/pref_photos', posts: @posts %>

@@ -61,10 +61,14 @@ class Public::MembersController < ApplicationController
 
 # --------------- 個人：投稿一覧ページ --------------
   def post_index
+    @member = Member.find(params[:id])
+    @posts = Post.prefectures.map{ | k,v | Post.where(prefecture: k, member_id: @member.id).order(taken_at: :desc).limit(1)}
   end
 
 # --------------- 個人：投稿一覧ページ(都道府県別) --------------
   def post_index_pref
+    member = Member.find(params[:id])
+    @posts = Post.where(prefecture: params[:prefecture_id], member_id: member.id).order(city: :desc)
   end
 
 
