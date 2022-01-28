@@ -1,6 +1,4 @@
 class Public::PostsController < ApplicationController
-  before_action :ensure_correct_member, only: [:edit, :update, :destroy]
-
 # --------------- 全体：投稿一覧ページ --------------
   def index
     @posts = Post.prefectures.map{ | k,v | Post.where(prefecture: k).order(taken_at: :desc).limit(1)}
@@ -44,7 +42,8 @@ class Public::PostsController < ApplicationController
 # --------------- 投稿内容更新機能 --------------
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
+    if @post.member_id = current_member.id
+      @post.update(post_params)
       redirect_to post_path(@post)
     else
       redirect_to new_post_path
@@ -69,13 +68,5 @@ class Public::PostsController < ApplicationController
 # --------------- ストロングパラメータ --------------
   def post_params
     params.require(:post).permit(:category, :prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at, images: [] )
-  end
-
-  # --------------- ログイン中の会員を定義(before_action用) --------------
-  def ensure_correct_member
-    @member = Member.find(params[:id])
-    unless @member == current_member
-      redirect_to member_path(current_member)
-    end
   end
 end
