@@ -77,7 +77,7 @@
 
 <!-- --------------- grid：投稿内容 -------------- -->
       <div class="grid_post_show_E">
-        <%= "#{@member.user_name}(#{@member.living_prefecture_i18n})" %><br>
+        <%= link_to "#{@member.user_name}(#{@member.living_prefecture_i18n})", member_path(@member.id) %><br>
         <%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %><br>
         <%= "カテゴリー：#{@post.category_i18n}" %><br>
         <%= "旅のメモ　：#{@post.body}" %><br><br>

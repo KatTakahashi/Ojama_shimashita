@@ -50,11 +50,7 @@
             <% end %>
           </div>
         <% elsif member_signed_in? && current_member != @member %>
-          <% if current_member.following?(@member) %>
-            <%= link_to '　フォロー外す　', unfollow_path(@member.id), method: :POST, class:"btn_blue" %>
-          <% else %>
-            <%= link_to '　フォローする　', follows_path(@member.id), method: :POST, class:"btn_blue" %>
-          <% end %>
+          <%= render "public/members/follow", member: @member %>
         <% elsif admin_signed_in? %>
           強制退会ボタン
         <% end %>

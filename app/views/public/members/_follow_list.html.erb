@@ -1,0 +1,41 @@
+<!-- =============== 部分テンプレート：フォロー機能 =============== -->
+ <!-- @members ⇒ members -->
+
+  <% if members.exists? %>
+    <% members.each do |member| %>
+      <table class='follow_list'>
+        <tbody>
+          <tr>
+            <td class="follow_image">
+              <% if member.profile_image.attached? %>
+                <%= link_to member_path(member.id) do %>
+                  <%= image_tag member.profile_image.variant(resize:'50x50').processed %>
+                <% end %>
+              <% else %>
+                <%= link_to member_path(member.id) do %>
+                  <%= image_tag "no_user_image.png", size: '50x50'  %>
+                <% end %>
+              <% end %>
+            </td>
+            <td class="follow_user">
+              <%= link_to member_path(member.id) do %>
+                <div class="text_large"><%= member.user_name %></div>
+                <div class="text_small gray">　<%= member.favorite_word %></div>
+              <% end %>
+            </td>
+            <td class="follow_btn">
+              <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
+                <% if current_member.following?(member) %>
+                  <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
+                <% else %>
+                  <%= link_to '　フォロー　', follows_path(member.id), method: :POST, class:"btn_blue" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+    <p>ユーザーはいません</p>
+  <% end %>

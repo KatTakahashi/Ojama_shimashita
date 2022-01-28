@@ -1,9 +1,7 @@
-  <!-- =============== 部分テンプレート：フォロー機能 =============== -->
-  <!-- @member ⇒ member-->
-    <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
-      <% if current_member.following?(member) %>
-        <%= link_to 'フォロー解除', unfollow_path(member.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォロー', follows_path(member.id), method: :POST %>
-      <% end %>
-    <% end %>
+<!-- =============== 部分テンプレート：フォロー機能 =============== -->
+<!-- @member ⇒ member-->
+  <% if current_member.following?(member) %>
+    <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
+  <% else %>
+    <%= link_to '　フォロー　', follows_path(member.id), method: :POST, class:"btn_blue" %>
+  <% end %>

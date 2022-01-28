@@ -50,11 +50,13 @@ class Public::MembersController < ApplicationController
 # --------------- フォロー一覧画面(GET) --------------
   def follows
     @member = Member.find(params[:id])
+    @members = @member.following_member
   end
 
 # --------------- フォロワー一覧画面(GET) --------------
   def followers
     @member = Member.find(params[:id])
+    @members = @member.follower_member
   end
 
 # --------------- 個人：投稿一覧ページ --------------

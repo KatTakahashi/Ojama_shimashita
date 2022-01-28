@@ -1,13 +1,12 @@
 <!-- =============== フォロー会員一覧ページ =============== -->
+  <div class="page_title">
+    <i class=" fa-2x"></i>
+    <span class="title">　  <%= @member.user_name %> フォロー中</span>
+  </div>
 
-<p>フォロー一覧</p>
-  <% @member.following_member.each do |member| %>
-    <%= link_to member.user_name, member_path(member) %>
-    <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
-      <% if current_member.following?(member) %>
-        <%= link_to 'フォロー外す', unfollow_path(member.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follows_path(member.id), method: :POST %>
-      <% end %>
-    <% end %>
-  <% end %>
+<!-- --------------- 中央に配置 -------------- -->
+  <div class="center_main">
+
+<!-- --------------- 会員一覧表 -------------- -->
+<%= render "public/members/follow_list", members: @members %>
+  </div>
