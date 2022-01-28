@@ -1,18 +1,19 @@
 class Post < ApplicationRecord
 
+  #active strage(画像アップロード)用
+  has_many_attached :images
+
   #アソシエーション
   belongs_to :member
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
 
   #バリデーション
+  validate :image_type, :image_size, :image_length
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :spot_name, presence: true
   validates :taken_at, presence: true
-
-  #active strage(画像アップロード)用
-  has_many_attached :images
 
   #いいね機能用メソッド
   def liked_by?(member)
@@ -64,4 +65,33 @@ class Post < ApplicationRecord
     Other:41
   }
 
+  private
+
+  # バリデーション用：Active_storageのファイルの種類
+  def image_type
+    images.each do |image|
+      if !image.blob.content_type.in?(%('image/jpg image/jpeg image/png'))
+        image.purge
+        errors.add(:images, "はjpg, jpegまたはpng形式でアップロードしてください")
+      end
+    end
+  end
+
+  # バリデーション用：Active_storageの添付ファイル容量
+  def image_size
+    images.each do |image|
+      if image.blob.byte_size > 8.megabytes
+        avatar.purge
+        errors.add(:images, "1ファイル8MB以内にしてください")
+      end
+    end
+  end
+
+  # バリデーション用：Active_storageの添付可能枚数
+  def image_length
+    if images.length > 5
+      images.purge
+      errors.add(:images, "5枚まで投稿可能です")
+    end
+  end
 end
