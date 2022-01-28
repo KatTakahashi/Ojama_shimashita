@@ -17,24 +17,7 @@
 
 <!-- --------------- grid：いいね機能 -------------- -->
       <div class="grid_post_show_B">
-        <span class="like">
-          <% if member_signed_in? %>
-            <!-- いいね機能 -->
-            <% unless @post.liked_by?(current_member) %>
-              <%= link_to post_post_likes_path(@post), method: :post do %>
-                ♡<%= @post.post_likes.count %> いいね
-              <% end %>
-            <!-- いいね削除機能 -->
-            <% else %>
-              <%= link_to post_post_likes_path(@post), method: :delete do %>
-                ♥<%= @post.post_likes.count %> いいね
-              <% end %>
-            <% end %>
-          <!-- 管理者 と ログインしていない場合はいいね数のみ表示 -->
-          <% else %>
-            ♡<%= @post.post_likes.count %> いいね
-          <% end %>
-        </span>
+        <%= render "public/posts/favorite", post: @post %>
       </div>
 
 <!-- --------------- grid：投稿写真 -------------- -->
