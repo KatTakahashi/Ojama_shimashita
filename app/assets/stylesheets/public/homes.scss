@@ -8,11 +8,20 @@
     line-height: 1;
   }
 
-  #main_visual_img{
+  #main_visual_1{
     width: 100%;
   }
 
-/*--------------- ナビゲーションメニュー ---------------*/
+  #about_bg_img{
+    width: 100%;
+    height: 90vh;
+    background-image: url(main_visual_2.jpg);
+    background-size:  cover;
+    background-position: center;
+    opacity: 0.5;
+  }
+
+/*--------------- Top：ナビゲーションメニュー ---------------*/
   #grid_top{
     display: grid;
     margin: 70px 150px;
@@ -63,7 +72,7 @@
     height: 200px;
   }
 
-/*--------------- フッター ---------------*/
+/*--------------- Top：フッター ---------------*/
   .footer_top {
     width: 100%;
     position: absolute;
@@ -71,28 +80,54 @@
     line-height:0;
   }
 
+/*--------------- About：紹介文 ---------------*/
+  #about_text{
+    width: 50%;
+    margin: 150px auto;
+    padding: 50px 0;
+    text-align: center;
+    background-color: #D9E5FF;
+    border-radius: 50px;
+    opacity: 0.9;
+  }
+
+  #about_text p{
+    color: black;
+    line-height: 2.5;
+    font-size: large;
+
+  }
+
+  #about_link{
+    width: 30%;
+    margin: 0 auto;
+    line-height: 2.5;
+    background-color: #FFC7AF;
+    border-radius: 50px;
+  }
+
 /*=============== レスポンシブ：homes/topページ用 ===============*/
 @media screen and (max-width:768px){
 
-/*--------------- メインビジュアル ---------------*/
+/*--------------- Top：メインビジュアル ---------------*/
   #main_visual{
     position: relative;
     top: 0;
     width: 100%;
     line-height: 1;
   }
-  
+
   #main_visual_img{
     width: 100%;
   }
 
-/*--------------- ナビゲーションメニュー ---------------*/
+/*--------------- Top：ナビゲーションメニュー ---------------*/
   #nav_top{
     witdh: 100%;
     margin: 0 auto;
     text-align: center;
   }
-  
+
   #grid_top{
     margin: 50px auto;
     display: grid;
@@ -100,36 +135,36 @@
     justify-items: center;
     align-items: center;
   }
-  
+
   #grid_top_A{
     grid-column: 1/3;
     grid-row: 1/2;
   }
-  
+
   #grid_top_B{
     grid-column: 4/6;
     grid-row: 1/2;
   }
-  
+
   #grid_top_C{
     grid-column: 1/6;
     grid-row: 2/3;
   }
-  
+
   #grid_top_D{
     grid-column: 1/3;
     grid-row: 3/4;
   }
-  
+
   #grid_top_E{
     grid-column: 4/6;
     grid-row: 3/4;
   }
-  
+
   li{
     text-align: center;
   }
-  
+
   .logo{
     width: 100px;
     height: 100px;

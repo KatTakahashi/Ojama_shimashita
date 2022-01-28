@@ -1,14 +1,16 @@
-<!-- =============== 概要ページ =============== -->
+<!-- =============== Aboutページ =============== -->
+<!-- --------------- メインビジュアル -------------- -->
+  <div id="about_bg_img">
+    <div id="about_text">
+      <p>「おじゃましました」へようこそ。</p>
+      <p>本サイトは旅の写真を共有するだけでなく、</p>
+      <p>訪れた都道府県を日本地図で塗り分けて記録することができます。</p>
+      <p>自慢の写真を共有することはもちろん、</p>
+      <p>皆様から投稿されている写真から次の旅先のヒントを得て頂けます。</p>
+      <p>人生は旅の連続。</p>
+      <p>“All we have to decide is what to do with the time that is given us.”</p>
+      <p>(by J.R.R. Tolkien)</p><br>
+      <div id="about_link"><%= link_to "旅の思い出", posts_path %></div>
+    </div>
+  </div>
 
-    <% if member_signed_in? %>
-      名：<%= current_member.last_name %><br>
-      ID:<%= current_member.id %><br>
-      <%= link_to "Member_Log_out", destroy_member_session_path, method: :delete %><br><br>
-    <% elsif admin_signed_in? %>
-      <%= link_to "Admin_Log_out", destroy_admin_session_path, method: :delete %><br><br>
-    <% end %>
-    <br>
-
-    <%= link_to image_tag("logo_1.png", :size =>"50x50"), root_path %><br>
-
-    <%= link_to "Admin_Log_in", new_admin_session_path %><br>
