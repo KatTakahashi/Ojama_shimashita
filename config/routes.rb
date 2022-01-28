@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root 'homes#top'
     resources :members, only: [:index, :update]
   end
 

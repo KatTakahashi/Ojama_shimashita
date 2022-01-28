@@ -24,20 +24,10 @@
 <!-- =============== 共通：body =============== -->
   <body>
 <!-- --------------- ヘッダー：ナビゲーションメニュー -------------- -->
-    <!--ログイン中であれば表示-->
-    <% if member_signed_in? %>
-      <!--homes/top.html以外に適用-->
-      <% unless current_page?(root_path) %>
-        <%= render 'public/header' %>
-      <% end %>
-    <% end %>
+    <%= render 'layouts/header' %>
 <!-- --------------- 各ビューファイルの内容 -------------- -->
-    <div class="main">
-      <%= yield %>
-    </div>
+    <%= yield %>
 <!-- --------------- フッター：コピーライト -------------- -->
-    <footer>
-      <p class="copyright"><%= link_to "©おじゃましました", new_admin_session_path, class:"gray" %> All rights reserved</p>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
