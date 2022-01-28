@@ -1,4 +1,5 @@
 class Public::PostLikesController < ApplicationController
+  before_action :authenticate_member! only:[:create, :destroy]
 
 # --------------- いいね機能 --------------
   def create

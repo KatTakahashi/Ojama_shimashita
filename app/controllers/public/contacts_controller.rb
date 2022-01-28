@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  before_action :authenticate_member! only:[:new, :create]
   
 # --------------- お問い合わせページ --------------
   def new

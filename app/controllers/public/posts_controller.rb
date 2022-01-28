@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :ensure_correct_member, only: [:edit, :update, :destroy]
 
 # --------------- 全体：投稿一覧ページ --------------
   def index
@@ -69,4 +70,11 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:category, :prefecture, :city, :spot_name, :body, :latitude, :longtitude, :taken_at, images: [] )
   end
+  
+  # --------------- ログイン中の会員を定義(before_action用) --------------
+  def ensure_correct_member
+    @member = Member.find(params[:id])
+    unless @member == current_member
+      redirect_to member_path(current_member)
+    end
 end
