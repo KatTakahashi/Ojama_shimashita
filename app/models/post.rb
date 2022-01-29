@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 
+  default_scope -> { order(taken_at: :desc) }
+
   #active strage(画像アップロード)用
   has_many_attached :images
 
@@ -70,7 +72,7 @@ class Post < ApplicationRecord
   # バリデーション用：Active_storageのファイルの種類
   def image_type
     images.each do |image|
-      if !image.blob.content_type.in?(%('image/jpg image/jpeg image/png'))
+      if !image.blob.content_type.in?(%('image/jpg image/jpeg image/png image/heic'))
         image.purge
         errors.add(:images, "はjpg, jpegまたはpng形式でアップロードしてください")
       end
