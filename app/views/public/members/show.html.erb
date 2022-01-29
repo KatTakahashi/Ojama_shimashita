@@ -66,9 +66,15 @@
         <h3><%= link_to "～　#{@member.user_name} の軌跡　～", post_index_member_path %></h3><br>
         <%= "おじゃました都道府県： #{@visiteds.count} / 47" %><br>
         <%= "　これまでの投稿数　： #{@posts.distinct.count} 件" %><br><br>
-        <div class="btn_gray">
           <%= link_to post_index_member_path do %>
-            <i class="fas fa-camera">　投稿写真一覧</i>
+            <div class="btn_emerald">
+              <i class="fas fa-camera">　投稿写真一覧</i>
+            </div>
+          <% end %>
+        <div>　</div>
+        <div class="btn_emerald">
+          <%= link_to new_post_path do %>
+            <i class="fas fa-plus-circle">　　新規投稿　</i>
             <% end %>
         </div>
       </div>

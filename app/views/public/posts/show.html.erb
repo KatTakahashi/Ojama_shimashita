@@ -70,12 +70,12 @@
 
 <!-- --------------- grid：投稿内容 -------------- -->
       <div class="grid_post_show_E">
-        <div class="text_large">
-          <%= link_to "#{@member.user_name}(#{@member.living_prefecture_i18n})", member_path(@member.id) %><br>
+        <div class="margin_b">
+          <%= link_to "#{@member.user_name}(#{@member.living_prefecture_i18n})", member_path(@member.id) %>
         </div>
-        <%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %><br>
-        <%= "カテゴリー：#{@post.category_i18n}" %><br>
-        <%= "旅のメモ　：#{@post.body}" %><br><br>
+        <div class="margin_l"><%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %></div>
+        <div class="margin_l"><%= "カテゴリー：#{@post.category_i18n}" %></div>
+        <div class="margin_l"><%= "旅のメモ　：#{@post.body}" %></div>
       </div>
 
 <!-- --------------- grid：google maps -------------- -->
@@ -105,11 +105,13 @@
           <div class="grid_post_comment">
             <div class="grid_comment_A">
               <% if post_comment.member.profile_image.attached? %>
+                <%= link_to member_path(post_comment.member.id) do %>
                   <%= image_tag post_comment.member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
+                <% end %>
               <% end %>
             </div>
             <div class="grid_comment_B">
-              <%= post_comment.member.user_name %>
+              <%= link_to  post_comment.member.user_name, member_path(post_comment.member.id) %>
               <span>　　　</span>
               <span class="text_small gray">
                 <%= post_comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
@@ -133,6 +135,7 @@
     </div>
   </div>
 
+<!-- --------------- slick:画面スライダー -------------- -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script type="text/javascript">

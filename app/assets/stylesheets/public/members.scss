@@ -20,7 +20,7 @@ $margin-1: 30px;
   align-items: center;  //アイテムの縦方向の配置
   grid-template-columns: 300px 300px 300px;
   grid-template-rows: 200px 200px auto;
-  margin: 250px 0 30px 0;
+  margin: 250px 0 0 0;
 }
 
 // プロフィール写真
@@ -55,6 +55,10 @@ $margin-1: 30px;
   font-size: midium;
 }
 
+.grid_member_show_B a {
+  color: 	#005500;
+}
+
 // プロフィール編集/フォローボタン
 .grid_member_show_C{
   grid-column: 3/4;   //横
@@ -78,6 +82,15 @@ $margin-1: 30px;
   margin-bottom: $margin-1;
   justify-self: start;
   margin-left: 100px;
+}
+
+.grid_member_show_E a{
+  color: #005500;
+}
+
+.grid_member_show_E .btn_gray{
+  background-color: #66CCCC;
+  opacity: 0.7;
 }
 
 // 投稿写真ギャラリー

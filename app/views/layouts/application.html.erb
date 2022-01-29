@@ -29,7 +29,18 @@
 <!-- --------------- ヘッダー：ナビゲーションメニュー -------------- -->
     <%= render 'layouts/header' %>
 <!-- --------------- 各ビューファイルの内容 -------------- -->
-    <%= yield %>
+    <% if member_signed_in? %>
+      <% if current_member.header_image.attached? %>
+        <%= image_tag current_member.header_image, class:"background_image" %>
+      <% end %>
+    <% elsif member_signed_in? %>
+      <%= image_tag "admin_bg.png", class:"admin_background_image" %>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+
+
 <!-- --------------- フッター：コピーライト -------------- -->
     <%= render 'layouts/footer' %>
 <!--gem slick用-->

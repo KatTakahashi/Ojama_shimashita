@@ -20,14 +20,3 @@
 //= require turbolinks
 //= require("./slick")
 //= require_tree .
-
-
-$(function() {
-  $('#slick').slick({
-    dots: true,
-    customPaging: function(slider, i) {
-      var thumbSrc = $(slider.$slides[i]).find('img').attr('src');
-      return '<img src="' + thumbSrc + '">';
-    }
-  });
-});

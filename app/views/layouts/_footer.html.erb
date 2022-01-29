@@ -1,4 +1,10 @@
 <!-- =============== 部分テンプレート：フッター =============== -->
-  <footer>
-    <p class="copyright"><%= link_to "©おじゃましました", new_admin_session_path, class:"gray" %> All rights reserved</p>
-  </footer>
+  <% if current_page?(root_path)||current_page?(homes_about_path) %>
+    <footer class="transparent">
+      <p class="copyright"><%= link_to "©おじゃましました", new_admin_session_path %> All rights reserved</p>
+    </footer>
+  <% else %>
+    <footer class="footer">
+      <p class="copyright"><%= link_to "©おじゃましました", new_admin_session_path %> All rights reserved</p>
+    </footer>
+  <% end %>

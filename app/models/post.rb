@@ -1,7 +1,5 @@
 class Post < ApplicationRecord
 
-  default_scope -> { order(taken_at: :asc) }
-
   #active strage(画像アップロード)用
   has_many_attached :images
 

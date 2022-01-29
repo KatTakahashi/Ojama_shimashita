@@ -9,18 +9,18 @@ $margin-1: 40px;
   text-align: center;
 }
 
-.page_sub_title{
-
+.like a{
+  color: #FF0461;
 }
 
 //--------------- post/index, index_prefページ---------------
 .grid_post_index{
   display: grid;
   justify-items: center;
-  align-items: center;
+  align-items: top;
   grid-template-columns: 225px 225px 225px 225px;
   text-align: center;
-  // margin: 30px;
+  min-height: 100vh;
 }
 
 .grid_post_index .image_size {
@@ -134,7 +134,6 @@ $margin-1: 40px;
   width: 100px;
   height: 100px;
   border-radius: 50%; //枠を円にする
-  // border: solid 2px black; //円の輪郭線
   background-color: white;
 }
 
@@ -144,6 +143,20 @@ $margin-1: 40px;
   grid-row: 3/4;  //縦
   margin-bottom: $margin-1;
   justify-self: start;
+}
+
+.grid_post_show_E a{
+  color: #005500;
+  font-size: large;
+  font-weight: bold;
+  }
+
+.grid_post_show_E .margin_b{
+  margin-bottom: 10px;
+}
+
+.grid_post_show_E .margin_l{
+  margin-left: 20px;
 }
 
 // google maps
@@ -198,11 +211,24 @@ $margin-1: 40px;
   margin-top: 10px;
 }
 
+.grid_comment_A .profile_image{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; //枠を円にする
+  background-color: white;
+}
+
 .grid_comment_B{
   grid-column: 2/3;   //横
   grid-row: 1/2;  //縦
   justify-self: start;
 }
+
+.grid_comment_B a{
+  color: #005500;
+  font-weight: bold;
+}
+
 .grid_comment_C{
   grid-column: 2/3;   //横
   grid-row: 2/3;  //縦
