@@ -1,7 +1,7 @@
 <!-- =============== トップページ =============== -->
 <!-- --------------- メインビジュアル -------------- -->
   <div id="top_main_visual">
-    <%= image_tag 'main_visual_1.png', id:"main_visual_1" %>
+    <%= image_tag "main_visual_1.png", id:"main_visual_1" %>
   </div>
 
 <!-- --------------- ナビゲーションメニュー -------------- -->
@@ -11,27 +11,27 @@
         <%= link_to homes_about_path do %>
           <i class="fas fa-book-open fa-3x faa-bounce animated-hover"></i><br>
         <% end %>
-        <%= link_to image_tag("nav_1.png"), homes_about_path %>
+        <%= link_to image_tag "nav_1.png", homes_about_path %>
       </li>
       <li id="grid_top_B">
         <%= link_to posts_path do %>
           <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
         <% end %>
-        <%= link_to image_tag("nav_2.png"), posts_path %>
+        <%= link_to image_tag "nav_2.png", posts_path %>
       </li>
       <li id="grid_top_C">
-        <%= link_to image_tag("logo_1.png", class:"logo"), root_path %>
+        <%= link_to image_tag "logo_1.png", class:"logo"), root_path %>
       </li>
       <li id="grid_top_D">
         <% if member_signed_in? %>
           <%= link_to member_path(current_member) do %>
             <i class="far fa-user-circle fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag("nav_5.png") %>
+            <%= image_tag "nav_5.png" %>
           <% end %>
         <% else %>
           <%= link_to new_member_registration_path do %>
             <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag("nav_3.png") %>
+            <%= image_tag "nav_3.png" %>
           <% end %>
         <% end %>
       </li>
@@ -39,12 +39,12 @@
         <% if member_signed_in? %>
           <%= link_to destroy_member_session_path, method: :delete do %>
             <i class="fas fa-sign-out-alt fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag("nav_6.png") %>
+            <%= image_tag "nav_6.png" %>
           <% end %>
         <% else %>
           <%= link_to new_member_session_path do %>
             <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag("nav_4.png") %>
+            <%= image_tag "nav_4.png" %>
           <% end %>
         <% end %>
 
