@@ -21,7 +21,9 @@
       </li>
       <li id="grid_top_C">
         <div class="logo">
-          <%= link_to image_tag "logo_1.png", root_path %>
+          <%= link_to root_path do %>
+            <%= image_tag "logo_1.png" %>
+          <% end %>
         </div>
       </li>
       <li id="grid_top_D">
