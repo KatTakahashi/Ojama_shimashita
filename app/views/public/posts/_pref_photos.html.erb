@@ -9,7 +9,7 @@
       <% posts.each.with_index(1) do | post, index| %>
         <!--CSS用にclassを設定-->
         <div class="post_<%= index %>">
-            <%= link_to post_path(post), data: { 'turbolinks': false } do%>
+            <%= link_to post_path(post),data: {"turbolinks"=>false}  do%>
               <div class="text_left">
                 <div class="text_small"><%= "(#{post.city})" %></div>
                 <div><%= "　#{post.spot_name}" %></div>

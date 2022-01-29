@@ -62,13 +62,17 @@
         <div class="profile_image_frame">
           <% if @member.profile_image.attached? %>
               <%= image_tag @member.profile_image.variant(resize:'100x100').processed, class:"profile_image" %> <br>
+          <% else %>
+            <%= image_tag "no_user_image.png", size: '100x100', class:"profile_image"  %>
           <% end %>
         </div>
       </div>
 
 <!-- --------------- grid：投稿内容 -------------- -->
       <div class="grid_post_show_E">
-        <%= link_to "#{@member.user_name}(#{@member.living_prefecture_i18n})", member_path(@member.id) %><br>
+        <div class="text_large">
+          <%= link_to "#{@member.user_name}(#{@member.living_prefecture_i18n})", member_path(@member.id) %><br>
+        </div>
         <%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %><br>
         <%= "カテゴリー：#{@post.category_i18n}" %><br>
         <%= "旅のメモ　：#{@post.body}" %><br><br>
