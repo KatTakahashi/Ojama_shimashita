@@ -116,8 +116,8 @@
             </div>
             <div class="grid_comment_D">
               <span class="btn_red">
-                <span>　</span>
                 <% if post_comment.member == current_member %>
+                  <span>　</span>
                   <i class="fas fa-trash-alt white"></i>
                   <%= link_to "削除　", post_post_comment_path(post_comment.post, post_comment), method: :delete, class:"white" %>
                 <% end %>

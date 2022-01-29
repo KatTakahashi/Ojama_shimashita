@@ -15,10 +15,10 @@
   #about_bg_img{
     width: 100%;
     height: 90vh;
-    background-image: url(main_visual_2.jpg);
+    background-image: image-url("main_visual_2.jpg");
     background-size:  cover;
     background-position: center;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
 /*--------------- Top：ナビゲーションメニュー ---------------*/
@@ -95,15 +95,18 @@
     color: black;
     line-height: 2.5;
     font-size: large;
-
   }
 
   #about_link{
-    width: 30%;
+    width: 20%;
     margin: 0 auto;
     line-height: 2.5;
     background-color: #FFC7AF;
     border-radius: 50px;
+  }
+
+  #about_link a{
+    color: red;
   }
 
 /*=============== レスポンシブ：homes/topページ用 ===============*/

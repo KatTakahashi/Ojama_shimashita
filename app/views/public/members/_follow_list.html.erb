@@ -24,7 +24,7 @@
               <% end %>
             </td>
             <td class="follow_btn">
-              <% unless member_signed_in? && current_member == member || admin_signed_in?  %>
+              <% if member_signed_in? && current_member == member %>
                 <% if current_member.following?(member) %>
                   <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
                 <% else %>
