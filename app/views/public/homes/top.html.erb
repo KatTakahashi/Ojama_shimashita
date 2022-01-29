@@ -19,7 +19,11 @@
           <%= image_tag "nav_2.png" %>
         <% end %>
       </li>
-
+      <li id="grid_top_C">
+        <div class="logo">
+          <%= link_to image_tag "logo_1.png", root_path %>
+        </div>
+      </li>
       <li id="grid_top_D">
         <% if member_signed_in? %>
           <%= link_to member_path(current_member) do %>
