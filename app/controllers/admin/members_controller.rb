@@ -1,5 +1,4 @@
 class Admin::MembersController < ApplicationController
-  before_action :authenticate_admin!, only: [:index, :withdraw]
   
 # --------------- 会員詳細ページ --------------
   def index
