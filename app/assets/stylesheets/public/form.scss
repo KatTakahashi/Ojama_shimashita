@@ -1,0 +1,87 @@
+
+.form_title_box{
+  width: 900px;
+  margin: 0 auto;
+  padding-top: 60px;
+  text-align: center;
+  background-color:#F8F8FF;
+}
+
+.form_title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+//--------------- フォーム用テーブル ---------------
+.form_table{
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form_table .form_element{
+  margin: 3px 0 18px 10px;
+}
+
+.form_table .btn_l{
+  text-align: right;
+  margin-right: 40px;
+}
+
+.form_table .btn_r{
+  text-align: left;
+}
+
+.form_table .btn_c{
+  text-align: center;
+}
+
+
+
+/*=============== レスポンシブ：フォーム用テーブル ===============*/
+@media screen and (max-width:820px){
+
+  .form_table{
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: left;
+    width: 80vw;
+  }
+
+  .form_table .form_element{
+    margin: 15px 0 15px 0;
+  }
+
+  .form_table,
+  .form_table td,
+  .form_table th {
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .form_table th {
+    margin-top: 10px;
+    padding: 4px 12px;
+    display: block;
+    width: 100%
+  }
+
+  .form_table td {
+    padding: 0 12px;
+    display: block;
+    width: 100%;
+  }
+
+  // 左側
+  .form_table .btn_l{
+    text-align: center;
+    // margin-right: 0;
+    margin: 5px auto;
+  }
+
+  // 右側
+  .form_table .btn_r{
+    text-align: center;
+    margin: 30px auto;
+    font-size: small;
+  }
+}

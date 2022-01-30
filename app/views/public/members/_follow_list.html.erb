@@ -1,6 +1,6 @@
 <!-- =============== 部分テンプレート：フォロー機能 =============== -->
  <!-- @members ⇒ members -->
-
+  <div class="follow_list_box">
   <% if members.exists? %>
     <% members.each do |member| %>
       <table class='follow_list'>
@@ -39,3 +39,4 @@
   <% else %>
     <p>ユーザーはいません</p>
   <% end %>
+  </div>

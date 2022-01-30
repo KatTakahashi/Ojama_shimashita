@@ -1,5 +1,11 @@
 /*=============== members/followページ用CSS ===============*/
 //--------------- テーブル：フォロー/フォロワー ---------------
+.follow_list_box{
+  width: 900px;
+  min-height: 84vh;
+  background-color: #F8F8FF;
+}
+
 .follow_list{
   margin: 0 auto;
   width: 500px;

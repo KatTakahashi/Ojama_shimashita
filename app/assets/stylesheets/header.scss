@@ -1,65 +1,49 @@
 /*=============== ヘッダー用CSS ===============*/
 /*--------------- ナビゲーションメニュー ---------------*/
-  $cor-1: black;
-  $cor-2: grey;
-  $cor-3: white;
 
-  .header {
-    width: 100%;
-    height: 45px;
-    background: $cor-1;
-    text-align: center;
-    z-index: 5;
-  }
+.gnav {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  top: 0;
+  z-index: 998;
+  background-color: black;
+}
 
-  .nav {
-    margin: 0 auto;
-    background: $cor-1;
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    a {
-      display: block;
-      width: 150px;
-      // padding: 0 30px;
-      line-height: inherit;
-      cursor: pointer;
-      text-decoration: none;
-      color: $cor-3;
-    }
-     &_menu {
-       line-height: 45px;
-       font-weight: 700;
-       text-transform: uppercase;
-       &_item {
-         display: inline-block;
-         position: relative;
+.gnav_logo {
+  width: auto;
+  height: 53px;
+  position: fixed;
+  z-index: 999;
+  margin-left: 5vw;
+}
 
-         &:hover {
-           background-color: $cor-1;
 
-           .nav_submenu {
-             display: block;
-           }
-         }
-       }
 
-     }
-    &_submenu {
-      font-weight: 300;
-      text-transform: none;
-      display: none;
-      position: absolute;
-      width: 150px;
-      background-color: $cor-1;
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  // margin-bottom: 40px;
+  text-align: center;
+  justify-content: center;
+}
 
-      &_item {
-        &:hover {
-          background: $cor-2;
-        }
-      }
-    }
-  }
+
+
+li a {
+  text-decoration: none;
+  color: white;
+
+}
+
+a:hover {
+  color: white;
+}
+
+nav ul li {
+  font-size: 18px;
+  padding: 10px 30px;
+  display: inline-block;
+}
