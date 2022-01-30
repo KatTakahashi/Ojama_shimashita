@@ -1,17 +1,15 @@
 <!-- =============== 全ユーザの投稿写真一覧ページ(都道府県別) =============== -->
 <!-- --------------- ページタイトル -------------- -->
-  <div class="page_title">
+  <div class="index_title_box">
     <% @posts.each do |post| %>
       <% if post.presence %>
         <i class="fas fa-camera fa-2x"></i>
-        <span class="title">
+        <span class="index_title">
           <%= "　みんなが旅した#{post.prefecture_i18n}" %>
         </span>
         <% break %>
       <% end %>
     <% end %>
-
-
   </div>
 
 <!-- --------------- 写真一覧(post/image) -------------- -->

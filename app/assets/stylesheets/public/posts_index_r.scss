@@ -4,12 +4,25 @@
 /*--------------- posts/index用変数/背景画像 ---------------*/
   $margin-1: 20px;
 
+//--------------- posts/index/タイトル ---------------
+  .index_title_box{
+    width: 98vw;
+    margin: 15px 0;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .index_title{
+    font-size: large;
+  }
+
+
 //--------------- CSS grid：posts/index ---------------
   .grid_post_index{
     display: grid;
     justify-items: center;
     align-items: top;
-    grid-template-columns: 48vw 48vw;
+    grid-template-columns: 47vw 47vw;
     text-align: center;
     min-height: 50vh;
   }

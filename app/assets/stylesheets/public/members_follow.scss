@@ -1,0 +1,24 @@
+/*=============== members/followページ用CSS ===============*/
+//--------------- テーブル：フォロー/フォロワー ---------------
+.follow_list{
+  margin: 0 auto;
+  width: 500px;
+  text-align: left;
+}
+
+.follow_list td{
+  padding: 0 10px;
+}
+
+.follow_image{
+  width: 60px;
+}
+
+.follow_user{
+  wdth: 300px;
+  vertical-align: top;
+}
+
+.follow_btn{
+  width: 140px;
+}

@@ -1,6 +1,18 @@
 //--------------- 変数 ---------------
 $margin-1: 40px;
 
+//--------------- posts/index/タイトル ---------------
+  .index_title_box{
+    width: 900px;
+    margin:  0 auto;
+    padding-top: 50px;
+    text-align: center;
+    background-color:#F8F8FF;
+  }
+
+  .index_title{
+    font-size: x-large;
+  }
 
 
 //--------------- post/index, index_prefページ---------------
