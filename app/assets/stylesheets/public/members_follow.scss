@@ -13,10 +13,11 @@
 }
 
 .follow_list td{
+  width: 150px;
   padding: 0 10px;
 }
 
-.follow_image{
+td .follow_image{
   width: 60px;
 }
 
@@ -26,5 +27,5 @@
 }
 
 .follow_btn{
-  width: 140px;
+  width: 100%;
 }
