@@ -10,13 +10,13 @@
       <li id="grid_top_A">
         <%= link_to homes_about_path do %>
           <i class="fas fa-book-open fa-3x faa-bounce animated-hover"></i><br>
-          <%= image_tag "nav_1.png" %>
+          <%= image_tag "nav_1_about.png" %>
         <% end %>
       </li>
       <li id="grid_top_B">
         <%= link_to posts_path do %>
           <i class="far fa-images fa-3x faa-bounce animated-hover"></i><br>
-          <%= image_tag "nav_2.png" %>
+          <%= image_tag "nav_2_all_p.png" %>
         <% end %>
       </li>
       <li id="grid_top_C">
@@ -28,12 +28,12 @@
         <% if member_signed_in? %>
           <%= link_to member_path(current_member) do %>
             <i class="far fa-user-circle fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag "nav_5.png" %>
+            <%= image_tag "nav_8_my.png" %>
           <% end %>
         <% else %>
           <%= link_to new_member_registration_path do %>
             <i class="fas fa-file-signature fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag "nav_3.png" %>
+            <%= image_tag "nav_3_sign.png" %>
           <% end %>
         <% end %>
       </li>
@@ -41,12 +41,12 @@
         <% if member_signed_in? %>
           <%= link_to destroy_member_session_path, method: :delete do %>
             <i class="fas fa-sign-out-alt fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag "nav_6.png" %>
+            <%= image_tag "nav_11_logout.png" %>
           <% end %>
         <% else %>
           <%= link_to new_member_session_path do %>
             <i class="fas fa-sign-in-alt fa-3x faa-bounce animated-hover"></i><br>
-            <%= image_tag "nav_4.png" %>
+            <%= image_tag "nav_4_log.png" %>
           <% end %>
         <% end %>
       </li>

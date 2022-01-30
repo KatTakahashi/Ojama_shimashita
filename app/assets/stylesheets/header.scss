@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   z-index: 998;
-  background-color: black;
+  background-color: #777777;
 }
 
 .gnav_logo {
@@ -30,12 +30,9 @@ nav ul {
   justify-content: center;
 }
 
-
-
 li a {
   text-decoration: none;
   color: white;
-
 }
 
 a:hover {
@@ -44,6 +41,6 @@ a:hover {
 
 nav ul li {
   font-size: 18px;
-  padding: 10px 30px;
+  padding: 0 30px;
   display: inline-block;
 }

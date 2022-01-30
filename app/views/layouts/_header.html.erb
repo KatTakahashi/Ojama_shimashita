@@ -8,10 +8,10 @@
     <% if admin_signed_in? %>
         <nav>
           <ul>
-            <li><%= link_to "ホーム", root_path %></li>
-            <li><%= link_to "会員一覧", admin_members_path %></li>
-            <li><%= link_to "投稿一覧", posts_path %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to root_path do %><%= image_tag "nav_5_top.png", size: '84x44' %><% end %></li>
+            <li><%= link_to admin_members_path do %><%= image_tag "nav_6_all_m.png", size: '84x44' %><% end %></li>
+            <li><%= link_to posts_path do %><%= image_tag "nav_nav_7_all_p.png", size: '84x44' %><% end %></li>
+            <li><%= link_to destroy_admin_session_path, method: :delete do %><%= image_tag "nav_11_logout.png", size: '84x44' %><% end %></li>
           </ul>
         </nav>
 
@@ -21,24 +21,21 @@
         <div class="gnav_logo"><%= link_to root_path do %><%= image_tag "logo_w.png", size: '92x45' %><% end %></div>
         <nav class="gnav">
           <ul class="gnav_menu">
-            <li class="gnav_menu-item"><%= link_to "マイページ", member_path(current_member.id), data: { 'turbolinks': false } %></li>
-            <li class="gnav_menu-item"><%= link_to "新規投稿", new_post_path %></li>
-            <li class="gnav_menu-item"><%= link_to "みんなの写真", posts_path %></li>
-            <li class="gnav_menu-item"><%= link_to "お問い合わせ", new_contact_path %></li>
+            <li class="gnav_menu-item"><%= link_to member_path(current_member.id), data: { 'turbolinks': false } do %><%= image_tag "nav_8_my.png", size: '84x44' %><% end %></li>
+            <li class="gnav_menu-item"><%= link_to new_post_path do %><%= image_tag "nav_9_new.png", size: '84x44' %><% end %></li>
+            <li class="gnav_menu-item"><%= link_to posts_path do %><%= image_tag "nav_2_all_p.png", size: '84x44' %><% end %></li>
+            <li class="gnav_menu-item"><%= link_to new_contact_path do %><%= image_tag "nav_10_contact.png", size: '84x44' %><% end %></li>
           </ul>
         </nav>
       </header>
-
-
-
   <!-- --------------- ログインしていない場合に表示 -------------- -->
     <% else %>
         <nav>
           <ul>
-            <li><%= link_to "ホーム", root_path %></li>
-            <li><%= link_to "概要ページ", homes_about_path %></li>
-            <li><%= link_to "みんなの写真", posts_path %></li>
-            <li><%= link_to "会員登録", new_member_registration_path %></li>
+            <li><%= link_to "アバウト", homes_about_path do %><%= image_tag "nav_1_about.png", size: '84x44' %><% end %></li>
+            <li><%= link_to "みんなの写真", posts_path do %><%= image_tag "nav_2_all_p.png", size: '84x44' %><% end %></li>
+            <li><%= link_to "会員登録", new_member_registration_path do %><%= image_tag "nav_3_sgin.png", size: '84x44' %><% end %></li>
+            <li><%= link_to "ログイン", new_member_session_path do %><%= image_tag "nav_4_log.png", size: '84x44' %><% end %></li>
           </ul>
         </nav>
     <% end %>
