@@ -72,4 +72,21 @@
     width: 100px;
     height: 100px;
   }
+
+/*--------------- Top：フッター背景 ---------------*/
+  .footer_top {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    line-height:0;
+  }
+
+  .footer_top .footer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    margin: auto auto 0 auto;
+    text-align: center;
+    z-index: 10;
+  }
 }

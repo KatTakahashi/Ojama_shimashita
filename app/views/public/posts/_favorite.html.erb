@@ -20,6 +20,6 @@
   <!-- 管理者 と ログインしていない場合はいいね数のみ表示 -->
   <% else %>
     <span class="like">
-      ♥<%= post.post_likes.count %> いいね
+      <p>♥<%= post.post_likes.count %> いいね</p>
     </span>
   <% end %>
