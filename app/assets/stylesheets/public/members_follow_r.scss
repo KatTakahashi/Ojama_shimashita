@@ -1,0 +1,29 @@
+/*=============== レスポンシブ：members/followページ用CSS ===============*/
+@media screen and (max-width:820px){
+//--------------- テーブル：フォロー/フォロワー ---------------
+  .follow_list{
+    margin: 0 auto;
+    width: 95vw;
+    text-align: center;
+  }
+
+  .follow_list td{
+    padding: 0 10px;
+  }
+
+  .follow_image{
+    width: 60px;
+    text-align: right;
+  }
+
+  .follow_user{
+    width: 40vw;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .follow_btn{
+    width: 40vw;
+    text-align: left;
+  }
+}
