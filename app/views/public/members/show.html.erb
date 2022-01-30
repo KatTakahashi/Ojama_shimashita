@@ -72,11 +72,13 @@
             </div>
           <% end %>
         <div>　</div>
-        <div class="btn_emerald">
-          <%= link_to new_post_path do %>
-            <i class="fas fa-plus-circle">　　新規投稿　</i>
-            <% end %>
-        </div>
+        <% if member_signed_in? && current_member == @member %>
+          <div class="btn_emerald">
+            <%= link_to new_post_path do %>
+              <i class="fas fa-plus-circle">　　新規投稿　</i>
+              <% end %>
+          </div>
+        <% end %>
       </div>
 
 <!-- --------------- grid：投稿写真ギャラリー(post/images) -------------- -->

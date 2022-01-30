@@ -38,7 +38,6 @@ $margin-1: 30px;
   width: 150px;
   height: 150px;
   border-radius: 50%; //枠を円にする
-  // border: solid 2px black; //円の輪郭線
   background-color: white;
 }
 
@@ -106,5 +105,5 @@ $margin-1: 30px;
 .grid_member_show_F .border{
   border: 0.5px dotted gray;
   margin: 0 auto 40px auto;
-  width: 80%;
+  width: 50vw;
 }

@@ -28,18 +28,22 @@
     justify-content: center;
     justify-items: center; //アイテムの横方向の配置
     align-items: center;  //アイテムの縦方向の配置
-    grid-template-columns: 25vw 25vw 25vw 25vw;
-    grid-template-rows: 20vh 15vh 30vh auto;
-    margin: 29vh 0 0 0;
+    grid-template-columns: 80vw;
+    grid-template-rows: auto auto auto auto auto auto;
+    margin: 25vh 0 0 0;
   }
 
   // プロフィール写真
   .grid_member_show_A{
-    grid-column: 1/3;   //横
+    grid-column: 1/2;   //横
     grid-row: 1/2;  //縦
-    margin-bottom: $margin-1;
-    justify-self: end;
+    margin-bottom: 0;
+    justify-self: center;
     z-index: 2;
+  }
+
+  .grid_member_show_A .profile_image_frame{
+    margin-left: 0;
   }
 
   .grid_member_show_A .profile_image{
@@ -51,9 +55,10 @@
 
   // プロフィール情報
   .grid_member_show_B{
-    grid-column: 3/5;   //横
-    grid-row: 1/2;  //縦
-    margin: 50px 0 $margin-1 ;
+    grid-column: 1/2;   //横
+    grid-row: 2/3;  //縦
+    margin: 0;
+    text-align: center;
   }
 
   .grid_member_show_B .l{
@@ -70,42 +75,41 @@
 
   // プロフィール編集/フォローボタン
   .grid_member_show_C{
-    grid-column: 3/5;   //横
-    grid-row: 2/3;  //縦
-    margin: 30px 0 $margin-1 40px;
-    justify-self: start;
+    grid-column: 1/2;   //横
+    grid-row: 3/4;  //縦
+    margin: 15px 0;
+    justify-self: center;
   }
 
   // japan_map
   .grid_member_show_D{
-    grid-column: 1/3;   //横
-    grid-row: 3/4;  //縦
+    grid-column: 1/2;   //横
+    grid-row: 4/5;  //縦
     margin: $margin-1 0;
-    justify-self: end;
+    justify-self: center;
   }
 
   // 投稿等の情報+投稿一覧へのリンク
   .grid_member_show_E{
-    grid-column: 3/5;   //横
-    grid-row: 3/4;  //縦
+    grid-column: 1/2;   //横
+    grid-row: 5/6;  //縦
     margin-bottom: $margin-1;
-    justify-self: start;
-    margin-left: 100px;
+    justify-self: center;
+    margin-left: 0;
   }
 
   .grid_member_show_E a{
     color: #005500;
   }
 
-  .grid_member_show_E .btn_gray{
-    background-color: #66CCCC;
-    opacity: 0.7;
+  .grid_member_show_E div.btn_emerald{
+    margin: 0 auto;
   }
 
   // 投稿写真ギャラリー
   .grid_member_show_F{
-    grid-column: 1/5;   //横
-    grid-row: 4/5;  //縦
+    grid-column: 1/2;   //横
+    grid-row: 6/7;  //縦
     margin: $margin-1 0;
     text-align: center;
     }
@@ -113,6 +117,11 @@
   .grid_member_show_F .border{
     border: 0.5px dotted gray;
     margin: 0 auto 40px auto;
-    width: 80%;
+    width: 80vw;
+  }
+
+  .grid_member_show_F img{
+    width: 80px;
+    height: auto;
   }
 }
