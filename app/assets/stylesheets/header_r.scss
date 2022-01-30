@@ -1,5 +1,5 @@
 /*=============== レスポンシブ：ヘッダー用CSS ===============*/
-@media screen and (max-width:768px){
+@media screen and (max-width:820px){
 
 /*--------------- ナビゲーションメニュー ---------------*/
   .nav{
@@ -9,7 +9,7 @@
     /*ナビのスタート位置と形状*/
     top: -120%;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;/*ナビの高さ*/
     background: #999;
     /*動き*/

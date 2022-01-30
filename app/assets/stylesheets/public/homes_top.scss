@@ -1,0 +1,72 @@
+/*=============== homes/topページ用CSS ===============*/
+/*--------------- Topメインビジュアル ---------------*/
+  #main_visual{
+    display: grid;
+    grid-template-columns: 1fr;
+    top: 0;
+    width: 100%;
+    line-height: 1;
+  }
+
+  #main_visual_1{
+    width: 100%;
+  }
+
+  
+
+/*--------------- Top：ナビゲーションメニュー ---------------*/
+  #grid_top{
+    display: grid;
+    margin: 70px 150px;
+    list-style: none;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #grid_top_A{
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  #grid_top_B{
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  #grid_top_C{
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+
+  #grid_top_D{
+    grid-column: 4/5;
+    grid-row: 1/2;
+  }
+
+  #grid_top_E{
+    grid-column: 5/6;
+    grid-row: 1/2;
+  }
+
+  li {
+    text-align: center;
+  }
+
+  .icon{
+    height: 60px;
+  }
+
+  .fas, .far{
+    color: black;
+  }
+
+/*--------------- Top：フッター背景 ---------------*/
+  .footer_top {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    line-height:0;
+  }
+
+
+

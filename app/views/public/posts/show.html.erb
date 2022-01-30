@@ -6,12 +6,11 @@
 <!-- --------------- grid：タイトルと投稿写真 -------------- -->
       <div class="grid_post_show_A">
         <!--ページタイトル-->
-        <div class="sub_title">
-          <%= "#{@post.prefecture_i18n} #{@post.city}" %>
+        <div class="show_pref_title">
+          <p><%= "#{@post.prefecture_i18n} #{@post.city}" %></p>
         </div>
-        <span class="title">
-          <span>　</span>
-          <%= @post.spot_name %>
+        <span class="show_spot_title">
+          <h2>　<%= @post.spot_name %></h2>
         </span>
       </div>
 

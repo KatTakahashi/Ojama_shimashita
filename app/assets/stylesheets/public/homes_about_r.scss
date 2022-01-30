@@ -1,0 +1,51 @@
+/*=============== レスポンシブ：homes/aboutページ用CSS ===============*/
+@media screen and (max-width:820px){
+
+/*--------------- homes/about/背景画像 ---------------*/
+  #about_bg_img{
+    width: 100vw;
+    height: 100vh;
+    background-image: image-url("main_visual_2.jpg");
+    background-size:  cover;
+    background-position: center;
+    position: fixed;
+    opacity: 0.7;
+    z-idex: 2;
+  }
+
+/*--------------- homes/about/紹介文 ---------------*/
+  #about_box{
+    width: 100vw;
+    height: 90vh;
+  }
+
+  #about_text{
+    width: 80vw;
+    margin: 15% auto;
+    // padding: auto;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #D9E5FF;
+    border-radius: 50px;
+    opacity: 0.9;
+  }
+
+  #about_text p{
+    color: black;
+    line-height: 2.5;
+    font-size: small;
+  }
+
+  #about_link{
+    width: 50%;
+    margin: 0 auto;
+    line-height: 1.5;
+    background-color: #FFC7AF;
+    border-radius: 50px;
+  }
+
+  #about_link a{
+    color: red;
+  }
+
+}

@@ -21,8 +21,7 @@
 // google fonts用
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap');
 
-/*=============== posts用CSS ===============*/
-
+// slick(画像スライダー)用
 @import "slick-theme";
 @import "slick";
 
@@ -55,26 +54,30 @@ main{
   min-height: 86vh;
 }
 
+//--------------- 変数 ---------------
+$margin-1: 40px;
+
+
 //--------------- 背景画像 ---------------
 .background_image{
   width: 100vw;
   height: 100vh;
   background-size:  cover;
   background-position: center;
-  position: fixed;;
+  position: fixed;
   opacity: 0.2;
   z-index: 1;
 }
 
-admin_background_image{
+.admin_background_image{
   width: 100vw;
   height: 100vh;
-  background-size:20px 20px;
-  position: fixed;;
+  background-position: left;
+  background-size:  cover;
+  position: fixed;
   opacity: 0.2;
   z-index: 1;
 }
-
 
 //--------------- 文字の配置 ---------------
 .text_left{
@@ -119,6 +122,12 @@ a{
 .title{
   font-size: 20px;
   font-weight: bold;
+}
+
+//--------------- ページタイトル ---------------
+.page_title{
+  padding-top: 30px;
+  text-align: center;
 }
 
 //--------------- ボタン ---------------
@@ -186,30 +195,24 @@ a{
 }
 
 
+/*=============== レスポンシブ：全体用CSS ===============*/
+@media screen and (max-width:820px){
+  body{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #F8F8FF;
+  }
 
-//--------------- slider ---------------
-.slider{
-    margin: 10px auto;
-    width: 500px;
-}
-.slider img{
-    height: 300px;
-    width: auto;
+  .center_main, .page_title {
+    width: 95vw;
+    height: auto;
     margin: 0 auto;
-}
-/*slick setting*/
-.slick-prev:before,
-.slick-next:before {
-    color: #000;
-}
+    background-color: #F8F8FF;
+  }
 
-.thumb {
-  width: 450px;
-  margin: 20px auto;
-}
-
-.thumb img{
-  height: 50px;
-  width: auto;
-  margin: 0 auto;
+  .center_main{
+    min-height: 6vh;
+  }
 }
