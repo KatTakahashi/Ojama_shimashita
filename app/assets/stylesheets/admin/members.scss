@@ -1,20 +1,44 @@
 //--------------- 会員一覧テーブル ---------------
-.members_index{
+.admin_table, .admin_table th, .admin_table td{
+  border: solid 1px gray;
+}
+
+.admin_table{
   margin: 0 auto;
   text-align: center;
   border-collapse: collapse;
-  font-size: small;
 }
 
-.members_index thead{
-  background-color: #DDFFFF;
-}
+/*=============== レスポンシブ：admin用CSS ===============*/
+@media screen and (max-width:820px){
+  .admin_table, .admin_table th, .admin_table td{
+    border: none;
+  }
 
-.members_index th, .members_index td{
-  border: solid 1px gray;
-  padding: 10px;
-}
+  .admin_table{
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: left;
+    width: 80vw;
+  }
 
-.members_index th{
-  margin-top: 30px;
+  .admin_table,
+  .admin_table td,
+  .admin_table th {
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .admin_table th {
+    margin-top: 10px;
+    padding: 4px 12px;
+    display: block;
+    width: 100%
+  }
+
+  .admin_table td {
+    padding: 0 12px;
+    display: block;
+    width: 100%;
+  }
 }
