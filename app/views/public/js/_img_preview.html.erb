@@ -1,0 +1,28 @@
+<!-- =============== 部分テンプレート：フォームの画像プレビュー機能　=============== -->
+<!----------------- 画像投稿フォーム No. 1(id="preview_1") ----------------->
+  <script>
+    // フォームの画像プレビュー機能
+    function loadImage_1(obj){
+      for (i = 0; i < obj.files.length; i++) {
+      	var fileReader = new FileReader();
+      	fileReader.onload = (function (e) {
+      		document.getElementById('preview_1').innerHTML += '<img src="' + e.target.result + '">';
+      	});
+    	fileReader.readAsDataURL(obj.files[i]);
+      }
+    }
+  </script>
+
+  <!----------------- 画像投稿フォーム No. 2(id="preview_2") ----------------->
+  <script>
+    // フォームの画像プレビュー機能
+    function loadImage_2(obj){
+      for (i = 0; i < obj.files.length; i++) {
+      	var fileReader = new FileReader();
+      	fileReader.onload = (function (e) {
+      		document.getElementById('preview_2').innerHTML += '<img src="' + e.target.result + '">';
+      	});
+    	fileReader.readAsDataURL(obj.files[i]);
+      }
+    }
+  </script>

@@ -8,125 +8,127 @@
   <div class="center_main">
 
 <!-- --------------- table：会員情報編集フォーム -------------- -->
-
-<%= form_with model: @member, url: member_path, local: true do |f| %>
-  <table class="form_table">
-    <tr>
-      <th><%= f.label :背景画像 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.file_field :header_image %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :プロフィール画像 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.file_field :profile_image %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :好きな旅の言葉 %></th>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="form_element">
-          <%= f.text_field :favorite_word, autocomplete: "favorite_word", autofocus: true %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :名前（姓） %></th>
-      <th><%= f.label :名前（名） %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :last_name, autocomplete: "last_name" %>
-        </div>
-      </td>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :first_name, autocomplete: "first_name" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :フリガナ（セイ） %></th>
-      <th><%= f.label :フリガナ（メイ） %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
-        </div>
-      </td>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :ユーザーネーム %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.text_field :user_name, autocomplete: "user_name" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :居住地 %></th>
-    </tr>
-    <tr>
-      <td>
-        <div class="form_element">
-          <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :メールアドレス %></th>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="form_element">
-          <%= f.email_field :email, autocomplete: "email", placeholder: "sakuragi@kenji.co.jp" %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><!-- 会員ステータス --></th>
-    </tr>
-    <tr>
-      <td><%= f.hidden_field :is_deleted %></td>
-    </tr>
-    <tr>
-      <td>
-        <div class="btn_l">
-           <%= f.submit"　編集内容を保存　", class:"btn_green white" %>
-        </div>
-      </td>
-      <td>
-        <div class="btn_r">
-          <span class="btn_red">
-            <%= link_to confirm_members_path, data: {confirm: "本当に退会してもよろしいでしょうか。"}, class: "white" do %>
-              <span>　</span>
-              <i class="fas fa-user-slash white">　退会する　</i>
-            <% end %>
-          </span>
-        </div>
-      </td>
-    </tr>
-  </table>
-<%end%>
-
-</div>
+    <%= form_with model: @member, url: member_path, local: true do |f| %>
+      <table class="form_table">
+        <tr>
+          <th><%= f.label :背景画像 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.file_field :header_image, onchange: "loadImage_1(this);" %>
+              <div id="preview_1"></div>
+              <%= render "public/js/img_preview" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :プロフィール画像 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.file_field :profile_image, onchange: "loadImage_2(this);" %>
+              <div id="preview_2"></div>
+              <%= render "public/js/img_preview" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :好きな旅の言葉 %></th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="form_element">
+              <%= f.text_field :favorite_word, autocomplete: "favorite_word", autofocus: true %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :名前（姓） %></th>
+          <th><%= f.label :名前（名） %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :last_name, autocomplete: "last_name" %>
+            </div>
+          </td>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :first_name, autocomplete: "first_name" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :フリガナ（セイ） %></th>
+          <th><%= f.label :フリガナ（メイ） %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
+            </div>
+          </td>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :ユーザーネーム %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.text_field :user_name, autocomplete: "user_name" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :居住地 %></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="form_element">
+              <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :メールアドレス %></th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="form_element">
+              <%= f.email_field :email, autocomplete: "email", placeholder: "sakuragi@kenji.co.jp" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><!-- 会員ステータス --></th>
+        </tr>
+        <tr>
+          <td><%= f.hidden_field :is_deleted %></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="btn_l">
+               <%= f.submit"　編集内容を保存　", class:"btn_green white" %>
+            </div>
+          </td>
+          <td>
+            <div class="btn_r">
+              <span class="btn_red">
+                <%= link_to confirm_members_path, data: {confirm: "本当に退会してもよろしいでしょうか。"}, class: "white" do %>
+                  <span>　</span>
+                  <i class="fas fa-user-slash white">　退会する　</i>
+                <% end %>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <%end%>
+  </div>

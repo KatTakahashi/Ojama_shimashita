@@ -16,7 +16,9 @@
         <tr>
           <td>
             <div class="form_element">
-              <%= f.file_field :images, multiple: true %>
+              <%= f.file_field :images, multiple: true, onchange: "loadImage_1(this);" %>
+              <div id="preview_1"></div>
+              <%= render "public/js/img_preview" %>
             </div>
           </td>
         </tr>
