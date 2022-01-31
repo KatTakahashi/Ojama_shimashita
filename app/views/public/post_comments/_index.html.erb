@@ -1,0 +1,37 @@
+<!-- =============== 部分テンプレート：コメント一覧(非同期通信)　=============== -->
+<!--@post ⇒ post -->
+
+  <% post.post_comments.each do |post_comment| %>
+    <div class="grid_post_comment">
+      <!--コメント投稿者のアイコン-->
+      <div class="grid_comment_A">
+        <% if post_comment.member.profile_image.attached? %>
+          <%= link_to member_path(post_comment.member.id) do %>
+            <%= image_tag post_comment.member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
+          <% end %>
+        <% end %>
+      </div>
+      <!--コメント投稿者-->
+      <div class="grid_comment_B">
+        <%= link_to  post_comment.member.user_name, member_path(post_comment.member.id) %>
+        <span>　　　</span>
+        <span class="text_small gray">
+          <%= post_comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+        </span>
+      </div>
+      <!--コメント本文-->
+      <div class="grid_comment_C">
+        <%= post_comment.body %>
+      </div>
+      <!--コメント削除機能：コメント投稿者本人のみ表示-->
+      <div class="grid_comment_D">
+        <% if post_comment.member == current_member %>
+          <span class="btn_red">
+            <span>　</span>
+            <i class="fas fa-trash-alt white"></i>
+            <%= link_to "削除　", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class:"white" %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>

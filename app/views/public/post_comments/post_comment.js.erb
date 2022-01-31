@@ -1,0 +1,5 @@
+<!-- =============== 非同期通信：コメント機能 ===============-->
+
+  $(".comment_index").html("<%= j(render '/public/post_comments/index', post: @post, comment: @comment) %>");
+  $("textarea").val('');
+

@@ -1,0 +1,11 @@
+<!-- =============== 部分テンプレート：コメント投稿機能(非同期通信)　=============== -->
+<!--@post ⇒ post , poist_comment ⇒ post_comment-->
+
+  <% if member_signed_in? %>
+    <%= form_with(model:[post, comment], class:"form") do |f| %>
+      <%= f.text_area :body, placeholder: "コメントをここに", class:"text_area" %>
+      <div class="text_center">
+        <%= f.submit "送信する" %>
+      </div>
+    <% end %>
+  <% end %>

@@ -14,7 +14,7 @@
         </span>
       </div>
 
-<!-- --------------- grid：いいね機能 -------------- -->
+<!-- --------------- grid：いいね機能(非同期通信) -------------- -->
       <div class="grid_post_show_B favorite_btn_<%= @post.id %>">
         <%= render "public/post_likes/favorite", post: @post %>
       </div>
@@ -82,54 +82,21 @@
         <%= render '/public/posts/spot_map', post: @post %>
       </div>
 
-<!-- --------------- grid：コメント -------------- -->
+<!-- --------------- grid：コメント(非同期通信) -------------- -->
       <div class="grid_post_show_G">
         <div class="text_center">
           <%= "～　コメント　#{@post.post_comments.count}件　～" %>
         </div>
 
         <!-- コメント投稿フォーム：ログイン中会員のみ表示 -->
-        <% if member_signed_in? %>
-          <%= form_with(model:[@post, @post_comment], local: true, class:"form") do |f| %>
-            <%= f.text_area :body, placeholder: "コメントをここに", class:"text_area" %>
-            <div class="text_center">
-              <%= f.submit "送信する" %>
-            </div>
+        <div class="comment_create">
+          <%= render "public/post_comments/form", post: @post, comment: @comment %>
+        </div>
 
-          <% end %>
-        <% end %>
-
-        <!--コメント表示-->
-        <% @post.post_comments.each do |post_comment| %>
-          <div class="grid_post_comment">
-            <div class="grid_comment_A">
-              <% if post_comment.member.profile_image.attached? %>
-                <%= link_to member_path(post_comment.member.id) do %>
-                  <%= image_tag post_comment.member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
-                <% end %>
-              <% end %>
-            </div>
-            <div class="grid_comment_B">
-              <%= link_to  post_comment.member.user_name, member_path(post_comment.member.id) %>
-              <span>　　　</span>
-              <span class="text_small gray">
-                <%= post_comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
-              </span>
-            </div>
-            <div class="grid_comment_C">
-              <%= post_comment.body %>
-            </div>
-            <div class="grid_comment_D">
-              <span class="btn_red">
-                <% if post_comment.member == current_member %>
-                  <span>　</span>
-                  <i class="fas fa-trash-alt white"></i>
-                  <%= link_to "削除　", post_post_comment_path(post_comment.post, post_comment), method: :delete, class:"white" %>
-                <% end %>
-              </span>
-            </div>
-          </div>
-        <% end %>
+        <!--コメント一覧表示-->
+        <div class="comment_index">
+          <%= render "public/post_comments/index", post: @post %>
+        </div>
       </div>
     </div>
   </div>
