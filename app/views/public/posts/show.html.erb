@@ -36,6 +36,7 @@
             <% end %>
           <% end %>
         </div>
+        <%= render "/public/js/img_slider" %>
 
 
         <!-- 管理者 と 投稿者 のみ[編集]と[削除]を表示 -->
@@ -79,7 +80,7 @@
 
 <!-- --------------- grid：google maps -------------- -->
       <div class="grid_post_show_F">
-        <%= render '/public/posts/spot_map', post: @post %>
+        <%= render '/public/js/spot_map', post: @post %>
       </div>
 
 <!-- --------------- grid：コメント(非同期通信) -------------- -->
@@ -102,17 +103,3 @@
   </div>
 
 <!-- --------------- slick:画面スライダー -------------- -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-  <script type="text/javascript">
-    $('.slider').slick({
-        arrows:false,
-        asNavFor:'.thumb',
-    });
-    $('.thumb').slick({
-        asNavFor:'.slider',
-        focusOnSelect: true,
-        slidesToShow:4,
-        slidesToScroll:1
-    });
-  </script>
