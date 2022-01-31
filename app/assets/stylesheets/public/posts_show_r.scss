@@ -92,10 +92,27 @@
     font-size: x-small;
   }
 
-  // ----- google maps -----
+  // ----- 投稿情報(旅のメモ) -----
   .grid_post_show_F{
     grid-column: 1/5;   //横
     grid-row: 4/5;  //縦
+    margin: 0 20px $margin-1;
+  }
+
+  .grid_post_show_F h3{
+    font-size: medium;
+    margin-bottom: 10px;
+  }
+
+  .grid_post_show_F p{
+    font-size: small;
+    margin-left: 10px;
+  }
+
+  // ----- google maps -----
+  .grid_post_show_G{
+    grid-column: 1/5;   //横
+    grid-row: 5/6;  //縦
     margin-bottom: $margin-1;
     justify-self: center;
   }
@@ -106,24 +123,24 @@
   }
 
   // ----- コメント -----
-  .grid_post_show_G{
+  .grid_post_show_H{
     grid-column: 1/5;   //横
-    grid-row: 5/6;  //縦
+    grid-row: 6/7;  //縦
     margin-bottom: $margin-1;
     justify-self: center;
     overflow-wrap: break-word;
   }
 
-  .grid_post_show_G .form{
+  .grid_post_show_H .form{
     width: 400px;
   }
 
-  .grid_post_show_G .text_area{
+  .grid_post_show_H .text_area{
     width: 300px;
     margin: 5px 50px;
   }
 
-  .grid_post_show_G .comment_content{
+  .grid_post_show_H .comment_content{
     width: 250px;
     text-align: left;
     background-color: gray;

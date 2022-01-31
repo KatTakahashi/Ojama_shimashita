@@ -75,16 +75,23 @@
         </div>
         <div class="margin_l"><%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %></div>
         <div class="margin_l"><%= "カテゴリー：#{@post.category_i18n}" %></div>
-        <div class="margin_l"><%= "旅のメモ　：#{@post.body}" %></div>
+      </div>
+
+<!-- --------------- grid：投稿内容 -------------- -->
+      <div class="grid_post_show_F">
+        <% if @post.body.present? %>
+          <h3>旅のメモ</h3>
+          <p><%= @post.body %></p>
+        <% end %>
       </div>
 
 <!-- --------------- grid：google maps -------------- -->
-      <div class="grid_post_show_F">
+      <div class="grid_post_show_G">
         <%= render '/public/js/spot_map', post: @post %>
       </div>
 
 <!-- --------------- grid：コメント(非同期通信) -------------- -->
-      <div class="grid_post_show_G">
+      <div class="grid_post_show_H">
         <div class="text_center">
           <%= "～　コメント　#{@post.post_comments.count}件　～" %>
         </div>
@@ -102,4 +109,3 @@
     </div>
   </div>
 
-<!-- --------------- slick:画面スライダー -------------- -->

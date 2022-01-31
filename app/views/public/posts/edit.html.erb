@@ -11,12 +11,12 @@
     <%= form_with model: @post, local: true do |f| %>
       <table class="form_table">
         <tr>
-          <th><%= f.label :投稿写真 %></th>
+          <th><% f.label :投稿写真 %></th>
         </tr>
         <tr>
           <td>
             <div class="form_element">
-              <%= f.file_field :images, multiple: true, onchange: "loadImage_1(this);" %>
+              <% f.file_field :images, multiple: true, onchange: "loadImage_1(this);" %>
               <div id="preview_1"></div>
               <%= render "public/js/img_preview" %>
             </div>
