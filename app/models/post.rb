@@ -27,10 +27,15 @@ class Post < ApplicationRecord
   end
 
   #geocoding用
+    #複数のカラムからgeocodingするための定義(変数addressにprefecture,city, spot_nameカラムを代入)
+    def address
+      [self.prefecture_i18n, self.city, self.spot_name].compact.join()
+    end
+
     #postテーブルのcityカラムとspot_nameカラムのデータから緯度経度算出
-    geocoded_by :city&&:spot_name
+    geocoded_by :address
     # #postテーブルの投稿内容変更時にも緯度経度算出
-    after_validation :geocode, :if => :city||:spot_name_changed?
+    after_validation :geocode, :if => :prefecture||:city||:spot_name_changed?
 
   #enum 投稿用(都道府県)
   enum prefecture: {
