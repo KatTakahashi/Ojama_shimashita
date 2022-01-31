@@ -1,0 +1,3 @@
+// =============== 非同期通信：いいね機能(取り消し) ===============
+
+$(".favorite_btn_<%= @post.id %>").html("<%= j(render '/public/post_likes/favorite', post: @post )%>")

@@ -6,5 +6,4 @@ class PostLike < ApplicationRecord
 
   #バリデーション
 
-
 end

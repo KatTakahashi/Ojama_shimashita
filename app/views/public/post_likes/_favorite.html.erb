@@ -1,0 +1,23 @@
+<!-- =============== 部分テンプレート：いいね機能(非同期通信)　=============== -->
+<!--@post ⇒ post -->
+
+  <!-- いいね(取り消し)機能：ログイン中 + いいね済みの場合 -->
+  <% if  member_signed_in? && post.liked_by?(current_member) %>
+    <span class="like">
+      <%= link_to post_post_likes_path(post), method: :delete, remote: true do %>
+        ♥<%= post.post_likes.count %> いいね
+      <% end %>
+    </span>
+  <!-- いいね機能 ：ログイン中 + いいねをまだしていない場合-->
+  <% elsif member_signed_in? %>
+    <span class="like">
+      <%= link_to post_post_likes_path(post), method: :post, remote: true do %>
+        ♡<%= post.post_likes.count %> いいね
+      <% end %>
+    </span>
+  <!-- いいね表示のみ：管理者 と ログインしていない場合 -->
+  <% else %>
+    <span class="like">
+      <p>♥<%= post.post_likes.count %> いいね</p>
+    </span>
+  <% end %>

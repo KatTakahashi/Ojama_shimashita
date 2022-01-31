@@ -15,8 +15,8 @@
       </div>
 
 <!-- --------------- grid：いいね機能 -------------- -->
-      <div class="grid_post_show_B">
-        <%= render "public/posts/favorite", post: @post %>
+      <div class="grid_post_show_B favorite_btn_<%= @post.id %>">
+        <%= render "public/post_likes/favorite", post: @post %>
       </div>
 
 <!-- --------------- grid：投稿写真 -------------- -->
