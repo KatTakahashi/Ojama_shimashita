@@ -20,6 +20,8 @@
 // --------------- top, aboutページのみ ---------------
 .transparent{
     width: 100vw;
+    position: absolute;
+    bottom: 0;
     margin: auto auto 0 auto;
     text-align: center;
     z-index: 10;
