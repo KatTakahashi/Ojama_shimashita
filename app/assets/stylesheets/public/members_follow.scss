@@ -1,31 +1,36 @@
 /*=============== members/followページ用CSS ===============*/
 //--------------- テーブル：フォロー/フォロワー ---------------
-.follow_list_box{
-  width: 900px;
-  min-height: 84vh;
-  background-color: #F8F8FF;
-}
+  .follow_list_box{
+    width: 900px;
+    min-height: 84vh;
+    background-color: #F8F8FF;
+  }
 
-.follow_list{
-  margin: 0 auto;
-  width: 500px;
-  text-align: left;
-}
+  .follow_list{
+    margin: 0 auto;
+  }
 
-.follow_list td{
-  width: 150px;
-  padding: 0 10px;
-}
+  .follow_list tbody tr td{
+    padding: 0 10px;
+  }
 
-td .follow_image{
-  width: 60px;
-}
+  .follow_list tbody tr .follow_image{
+    width: 60px;
+  }
 
-.follow_user{
-  width: 300px;
-  vertical-align: top;
-}
+  .follow_image .profile_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; //枠を円にする
+    background-color: white;
+  }
 
-.follow_btn{
-  width: 100%;
-}
+  .follow_list tbody tr .follow_user{
+    width: 350px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .follow_list tbody tr .follow_user a .follow_btn{
+    margin-left: 100px;
+  }

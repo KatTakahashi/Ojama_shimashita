@@ -1,6 +1,7 @@
 <!-- =============== 部分テンプレート：コメント一覧(非同期通信)　=============== -->
 <!--@post ⇒ post -->
 
+<% if post.post_comments.present? %>
   <% post.post_comments.each do |post_comment| %>
     <div class="grid_post_comment">
       <!--コメント投稿者のアイコン-->
@@ -45,3 +46,6 @@
       </div>
     </div>
   <% end %>
+<% else %>
+  <br><p>コメントをお待ちしております。</p>
+<% end %>

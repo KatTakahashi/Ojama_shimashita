@@ -2,34 +2,37 @@
 @media screen and (max-width:820px){
 //--------------- テーブル：フォロー/フォロワー ---------------
   .follow_list_box{
-    width: 100vw;
-    min-height: 80vh;
+    width: 97vw;
+    min-height: 88vh;
     background-color: #F8F8FF;
   }
 
   .follow_list{
     margin: 0 auto;
-    width: 98vw;
-    text-align: center;
   }
 
-  .follow_list td{
+  .follow_list tbody tr td{
     padding: 0 10px;
   }
 
-  .follow_image{
-    width: 30px;
-    text-align: right;
+  .follow_list tbody tr .follow_image{
+    width: 60px;
   }
 
-  .follow_user{
-    width: 40vw;
+  .follow_image .profile_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; //枠を円にする
+    background-color: white;
+  }
+
+  .follow_list tbody tr .follow_user{
+    width: 70vw;
     vertical-align: top;
-    text-align: center;
+    text-align: left;
   }
 
-  .follow_btn{
-    width: 20vw;
-    text-align: left;
+  .follow_list tbody tr .follow_user a .follow_btn{
+    margin-left: 50px;
   }
 }
