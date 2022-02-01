@@ -14,7 +14,6 @@ $margin-1: 40px;
     font-size: x-large;
   }
 
-
 //--------------- post/index, index_prefページ---------------
 .grid_post_index{
   display: grid;
@@ -25,9 +24,16 @@ $margin-1: 40px;
   min-height: 100vh;
 }
 
-.grid_post_index .image_size {
-  width: 110px;
-  height: 126px;
+.index_img_frame{
+  width: 180px;
+  height: 137px;
+}
+
+.grid_post_index .index_image_size div a img,
+.grid_post_index .index_image_size a div img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .post_1, .post_2, .post_3, .post_4{

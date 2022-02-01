@@ -8,13 +8,13 @@
       <% if posts.presence %>
       <% posts.each.with_index(1) do | post, index| %>
         <!--CSS用にclassを設定-->
-        <div class="post_<%= index %>">
+        <div class="post_<%= index %> index_image_size">
             <%= link_to post_path(post),data: {"turbolinks"=>false}  do%>
               <div class="text_left">
                 <div class="text_small"><%= "(#{post.city})" %></div>
                 <div><%= "　#{post.spot_name}" %></div>
               </div>
-              <div>
+              <div class="index_img_frame">
                 <% post.images.each do |image| %>
                   <%= image_tag image.variant(resize: '190x100') %>
                   <% break %>

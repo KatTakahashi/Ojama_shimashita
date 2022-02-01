@@ -7,14 +7,14 @@
 <!-- --------------- grid：47都道府県の画像 --------------- -->
       <% posts.each.with_index(1) do | posts, index| %>
         <!--CSS用にclassを設定-->
-        <div class="post_<%= index %>">
+        <div class="post_<%= index %> index_image_size">
           <% if current_page?(posts_path) %>
             <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
           <% else %>
             <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), post_index_pref_member_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
           <% end %>
           <% if posts.presence %>
-            <div>
+            <div class="index_img_frame">
               <% if current_page?(posts_path) %>
                 <%= link_to index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
                   <% posts.each do |post| %>
