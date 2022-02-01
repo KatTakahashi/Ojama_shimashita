@@ -66,6 +66,9 @@
             <%= image_tag "no_user_image.png", size: '100x100', class:"profile_image"  %>
           <% end %>
         </div>
+        <% if member_signed_in? && current_member != @member %>
+          <%= render "public/members/follow", member: @member %>
+        <% end %>
       </div>
 
 <!-- --------------- grid：投稿内容 -------------- -->
@@ -75,6 +78,7 @@
         </div>
         <div class="margin_l"><%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %></div>
         <div class="margin_l"><%= "カテゴリー：#{@post.category_i18n}" %></div>
+
       </div>
 
 <!-- --------------- grid：投稿内容 -------------- -->

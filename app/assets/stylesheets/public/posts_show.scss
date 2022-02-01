@@ -46,8 +46,11 @@ span.like, span.like a{
   grid-column: 2/3;   //横
   grid-row: 3/4;  //縦
   margin-bottom: $margin-1;
-  justify-self: end;
-  padding-right: 50px;
+  text-align: center;
+}
+
+.grid_post_show_D .profile_image_frame{
+  margin: 0 auto;
 }
 
 .grid_post_show_D .profile_image{
