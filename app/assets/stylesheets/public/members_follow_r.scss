@@ -27,9 +27,13 @@
   }
 
   .follow_list tbody tr .follow_user{
-    width: 70vw;
+    width: 150px;
     vertical-align: top;
     text-align: left;
+  }
+
+  .follow_list tbody tr .follow_user a .text_large{
+    font-size: medium;
   }
 
   .follow_list tbody tr .follow_user a .follow_btn{

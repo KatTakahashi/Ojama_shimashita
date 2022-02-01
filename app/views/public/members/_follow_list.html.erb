@@ -6,7 +6,7 @@
       <table class='follow_list'>
         <tbody>
           <tr>
-            <td class="follow_image">
+            <td rowspan="2" class="follow_image">
               <% if member.profile_image.attached? %>
                 <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
                   <%= image_tag member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
@@ -20,23 +20,24 @@
             <td class="follow_user">
               <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
                 <span class="text_large"><%= member.user_name %></span>
-                <span class="follow_btn">
-                  <% if member_signed_in? && current_member != member && current_member.following?(member) %>
-                    <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
-                  <% elsif member_signed_in? && current_member != member %>
-                    <%= link_to '　フォロー　', follows_path(member.id), method: :POST, class:"btn_blue" %>
-                  <% end %>
-                </span>
-
-
-                <div class="text_small gray">　<%= member.favorite_word %></div>
               <% end %>
+            </td>
+            <td class="follow_btn">
+              <% if member_signed_in? && current_member != member && current_member.following?(member) %>
+                <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
+              <% elsif member_signed_in? && current_member != member %>
+                <%= link_to '　フォロー　', follows_path(member.id), method: :POST, class:"btn_blue" %>
+              <% end %>
+            </td>
+          <tr>
+            <td colspan="2">
+              <div class="text_small gray"><%= member.favorite_word %>　</div>
             </td>
           </tr>
         </tbody>
       </table>
     <% end %>
   <% else %>
-    <p>ユーザーはいません</p>
+    <p class="text_center">ユーザーはいません</p>
   <% end %>
   </div>
