@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :members, only: [:index, :update]
+    resources :members, only: [:index, :edit, :update, :destroy]
   end
 
 # =============== 会員用(URLに/public/不要な為、scope module) ===============
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'
-    resources :members, only: [:show, :edit, :update] do
+    resources :members, only: [:show, :edit, :update, :destroy] do
       member do
         get 'follows' => 'members#follows'
         get 'followers' => 'members#followers'
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       end
       collection do
         get 'confirm' => 'members#confirm'
-        patch 'withdraw' => 'members#withdraw'
       end
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do

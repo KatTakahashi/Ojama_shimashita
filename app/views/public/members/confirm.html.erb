@@ -1,1 +1,17 @@
-confirm.html.erb
+<!-- =============== 退会確認ページ =============== -->
+  <div class="confirm_box">
+    <div class="confirm_title">本当に退会しますか？</div>
+    <% if member_signed_in? && @member.id == current_member.id %>
+      <span class="btn_green btn_confirm">
+        <%= link_to "　　退会しない　　", member_path(current_member.id), class:"white" %>
+      </span>
+
+      <span class="btn_red btn_confirm">
+        <%= link_to member_path(current_member.id), method: :delete, data: {confirm: "最終確認：データの復元はできませんが、よろしいでしょうか。"} do %>
+        <span>　</span>
+        <i class="fas fa-user-slash white">　退会する　</i>
+        <% end %>
+      </span>
+
+    <% end %>
+  </div>

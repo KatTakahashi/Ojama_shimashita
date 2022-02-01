@@ -13,7 +13,6 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = PostComment.new
-    @c
     #Google Map Api用(gonはRailsからJSに変数を渡すためのgem)
       gon.post = @post
     @member = @post.member

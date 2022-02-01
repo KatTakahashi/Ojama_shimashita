@@ -6,16 +6,16 @@ class Member < ApplicationRecord
 
   #アソシエーション
   has_many :posts, dependent: :destroy
-  has_many :post_comments
-  has_many :post_likes
+  has_many :post_comments #退会してもコメントは残す
+  has_many :post_likes, dependent: :destroy
   #フォローする人(=follow)
   has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
   #フォローされる人(=followed)
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   #自分がフォローしている会員(=following_member)
-  has_many :following_member, through: :follow, source: :followed
+  has_many :following_member, through: :follow, source: :followed, dependent: :destroy
   #自分をフォローしている会員(follower_member)
-  has_many :follower_member, through: :followed, source: :follow
+  has_many :follower_member, through: :followed, source: :follow, dependent: :destroy
 
   # フォローする機能
   def follows(member_id)
@@ -45,10 +45,6 @@ class Member < ApplicationRecord
   validates :email, presence: true
   validates :living_prefecture, presence: true
 
-  #退会済みの場合、ログイン不可機能
-  def active_for_authentication?
-    super && (self.is_deleted == false)
-  end
 
   #フォロー機能
 

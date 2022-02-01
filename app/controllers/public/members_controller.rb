@@ -32,18 +32,17 @@ class Public::MembersController < ApplicationController
     redirect_to member_path(current_member)
   end
 
-# --------------- 退会確認ページ --------------
-  def confirm
+# --------------- 投稿内容削除機能 --------------
+  def destroy
+    @member = Member.find(params[:id])
+    if @member.destroy
+      redirect_to root_path
+    end
   end
 
-# --------------- 退会用アクション(PATCH(=論理削除)) --------------
-  def withdraw
-    @member = current_member
-    # is_deletedカラムをtrue(=退会)にupdateする
-      @member.update(is_deleted: true)
-    # session(ページ遷移しても以前入力した情報を保持する機能)をリセットし、ログアウト
-      reset_session
-    redirect_to root_path
+# --------------- 退会確認ページ --------------
+  def confirm
+    @member = Member.find(current_member.id)
   end
 
 # --------------- フォロー一覧画面(GET) --------------

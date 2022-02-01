@@ -19,7 +19,6 @@
           <th>生年月日</th>
           <th>居住地</th>
           <th>メールアドレス</th>
-          <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
@@ -34,7 +33,7 @@
                 <p>―</p>
               <% end %>
             </td>
-            <td><%= link_to member.id, member_path(member.id), data: { 'turbolinks': false } %></td>
+            <td><%= link_to member.id, edit_admin_member_path(member.id), data: { 'turbolinks': false } %></td>
             <td>
               <%= link_to member.last_name_kana + member.first_name_kana, member_path(member.id), data: { 'turbolinks': false } %><br>
               <%= link_to member.last_name + member.first_name, member_path(member.id), data: { 'turbolinks': false } %>
@@ -44,11 +43,6 @@
             <td><%= member.birthday.strftime('%Y年%m月%d日') %></td>
             <td><%= member.living_prefecture_i18n %></td>
             <td><%= member.email %></td>
-            <% if member.is_deleted == true %>
-              <td><span class="btn_red white">　退会　</span></td>
-            <%else%>
-              <td><span class="btn_green white">　有効　</span></td>
-            <%end%>
           </tr>
         <% end %>
       </tbody>
