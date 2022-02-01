@@ -14,11 +14,13 @@
     left: 0;
     right: 0;
     z-index: 1;
+
   }
 
   .header_image img{
     width: 100vw;
     height: 33vh;
+    object-fit: cover;
   }
 
 
