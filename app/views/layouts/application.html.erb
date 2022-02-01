@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>OjamaShimashita</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <!--font-awesome用-->
       <script src="https://kit.fontawesome.com/d7ba2cc884.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.css" type="text/css" media="all" />
@@ -9,27 +11,17 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+
     <!--レスポンシブデザイン用-->
       <meta name="viewport" content="width=device-width,initial-scale=1.0">
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- gem 'gon用-->
       <%= include_gon %>
-    <!--gem slick用-->
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <!-- japan_map用 -->
-      <!--<%#= javascript_include_tag 'jquery.japan-map.min.js' %>-->
-    <!--非同期通信用  -->
-      <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>-->
   </head>
 <!-- =============== 共通：body =============== -->
   <body>
-<!-- --------------- ヘッダー：ナビゲーションメニュー -------------- -->
-    <%= render 'layouts/header' %>
-<!-- --------------- 各ビューファイルの内容 -------------- -->
+<!-- --------------- メインビジュアル：トップページと管理者ログイン以外 -------------- -->
     <% unless current_page?(root_path) %>
       <% if member_signed_in?&&current_member.header_image.attached? %>
           <%= image_tag current_member.header_image, class:"background_image" %>
@@ -37,15 +29,16 @@
         <%= image_tag "main_visual_2.jpg", class:"admin_background_image" %>
       <% end %>
     <% end %>
+
+<!-- --------------- ヘッダー：ナビゲーションメニュー -------------- -->
+    <%= render 'layouts/header' %>
+
+<!-- --------------- メイン：各HTMLファイル -------------- -->
     <main>
       <%= yield %>
     </main>
 
-
 <!-- --------------- フッター：コピーライト -------------- -->
     <%= render 'layouts/footer' %>
-<!--gem slick用-->
-<!--    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
   </body>
 </html>
