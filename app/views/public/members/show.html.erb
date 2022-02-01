@@ -59,45 +59,6 @@
 <!-- --------------- grid：japan_map -------------- -->
       <div class="grid_member_show_D">
         <%= render '/public/js/visited_map' %>
-
-        <!-- =============== 部分テンプレート：google maps(スポット)　=============== -->
-<!--@post ⇒ posts->
-<!-- --------------- google maps用リンク --------------- -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_KEY']%>&callback=initMap" async defer></script>
-
-<!-- --------------- google mapsを表示 --------------- -->
-  <div id='map'></div>
-
-<!-- --------------- google mapsの設定 --------------- -->
-  <script>
-    let map
-
-    //mapを初期化
-    function initMap(){
-      geocoder = new google.maps.Geocoder()
-      //変数spotに@postに格納されている投稿内容の緯度経度を代入
-      var spot ={lat: <%= post.latitude %>, lng: <%= post.longitude %>};
-
-      //変数mapに{ }のビューに表示する情報を代入
-      map = new google.maps.Map(document.getElementById('map'), {
-        //地図の中心位置を変数spotに代入した位置に設定
-        center: spot,
-        //地図の表示倍率
-        zoom: 8,
-        //地図の種類の選択(false:選択不可)
-        mapTypeControl: false,
-        //ストリートビューの選択(false:選択不可)
-        streetViewControl: false
-      });
-
-      //ピンの位置を指定:変数markerに{ }の情報を代入
-      marker = new google.maps.Marker({
-        //変数spotに代入された位置にピンを設定
-        position:  spot,
-        map: map,
-      });
-    }
-  </script>
       </div>
 
 <!-- --------------- grid：投稿等の情報+投稿一覧へのリンク -------------- -->
