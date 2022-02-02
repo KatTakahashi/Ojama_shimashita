@@ -11,7 +11,7 @@
     <%= form_with model: @contact, local: true do |f| %>
       <table class="form_table">
         <tr>
-          <th><%= f.label :お名前 %></th>
+          <th><%= f.label :お名前　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -22,7 +22,7 @@
           </td>
         </tr>
         <tr>
-          <th><%= f.label :メールアドレス %></th>
+          <th><%= f.label :メールアドレス　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -33,7 +33,7 @@
           </td>
         </tr>
         <tr>
-          <th><%= f.label :メッセージ %></th>
+          <th><%= f.label :メッセージ　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>

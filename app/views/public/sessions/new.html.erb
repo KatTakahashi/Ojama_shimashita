@@ -12,7 +12,7 @@
 <%= form_with model: @member,url: member_session_path, local: true do |f| %>
   <table class="form_table">
     <tr>
-      <th><%= f.label :メールアドレス %></th>
+      <th><%= f.label :メールアドレス　%><span class="required">　必須　</span></th>
     </tr>
     <tr>
       <td>
@@ -22,7 +22,7 @@
       </td>
     </tr>
     <tr>
-      <th><%= f.label :パスワード %></th>
+      <th><%= f.label :パスワード　%><span class="required">　必須　</span></th>
     </tr>
     <tr>
       <td>

@@ -11,8 +11,8 @@
     <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
       <table class="form_table">
         <tr>
-          <th><%= f.label :名前（姓） %></th>
-          <th><%= f.label :名前（名） %></th>
+          <th><%= f.label :名前（姓） %><span class="required">　必須　</span></th>
+          <th><%= f.label :名前（名） %><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -29,8 +29,8 @@
           </td>
         </tr>
         <tr>
-          <th><%= f.label :フリガナ（セイ） %></th>
-          <th><%= f.label :フリガナ（メイ） %></th>
+          <th><%= f.label :フリガナ（セイ） %><span class="required">　必須　</span></th>
+          <th><%= f.label :フリガナ（メイ） %><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -47,7 +47,7 @@
           </td>
         </tr>
         <tr>
-          <th><%= f.label :ユーザーネーム %></th>
+          <th><%= f.label :ユーザーネーム　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -58,7 +58,7 @@
           </td>
         </tr>
             <tr>
-          <th><%= f.label :性別 %></th>
+          <th><%= f.label :性別　%><span class="required">　必須　</span></th>
           </tr>
           <tr>
             <th>
@@ -69,7 +69,7 @@
             </th>
           </tr>
         <tr>
-          <th><%= f.label :誕生日 %></th>
+          <th><%= f.label :誕生日　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <th>
@@ -80,7 +80,7 @@
           </th>
         </tr>
         <tr>
-          <th><%= f.label :居住地 %></th>
+          <th><%= f.label :居住地　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td>
@@ -91,7 +91,7 @@
           </td>
         </tr>
         <tr>
-          <th><%= f.label :メールアドレス %></th>
+          <th><%= f.label :メールアドレス　%><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <td colspan="2">
@@ -103,10 +103,11 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :パスワード %>
+            <%= f.label :パスワード%>
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> 文字以上)</em>
             <% end %>
+            <span class="required">　必須　</span>
           </th>
         </tr>
         <tr>
@@ -118,7 +119,7 @@
           </th>
         </tr>
         <tr>
-          <th><%= f.label :パスワード（確認用） %></th>
+          <th><%= f.label :パスワード（確認用） %><span class="required">　必須　</span></th>
         </tr>
         <tr>
           <th>

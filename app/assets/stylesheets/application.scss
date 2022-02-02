@@ -192,6 +192,16 @@ a{
   white-space: nowrap;
 }
 
+.required{
+  background-color: #FF367F;
+  color: white;
+  font-size: x-small;
+  font-weight: 100;
+  border-radius: 0.7rem;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
 .validation_message{
   color: red;
   font-size: small;
