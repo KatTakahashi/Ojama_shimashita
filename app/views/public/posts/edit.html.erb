@@ -29,6 +29,7 @@
           <td>
             <div class="form_element">
               <%= f.date_field :taken_at %>
+              <p class="validation_message"><%= @post.errors.full_messages_for(:taken_at).first %>
             </div>
           </td>
         </tr>
@@ -39,6 +40,7 @@
           <td>
             <div class="form_element">
               <%= f.select :category, Post.categories_i18n.invert, {prompt: "選択してください"} %>
+              <p class="validation_message"><%= @post.errors.full_messages_for(:category).first %>
             </div>
           </td>
         </tr>
@@ -49,6 +51,7 @@
           <td>
             <div class="form_element">
               <%= f.select :prefecture, Post.prefectures_i18n.invert, {prompt: "選択してください"} %>
+              <p class="validation_message"><%= @post.errors.full_messages_for(:prefecture).first %>
             </div>
           </td>
         </tr>
@@ -59,6 +62,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :city, placeholder: "　南砺市" %>
+              <p class="validation_message"><%= @post.errors.full_messages_for(:city).first %>
             </div>
           </td>
         </tr>
@@ -69,6 +73,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :spot_name, placeholder: "　相倉合掌集落" %>
+              <p class="validation_message"><%= @post.errors.full_messages_for(:spot_name).first %>
             </div>
           </td>
         </tr>

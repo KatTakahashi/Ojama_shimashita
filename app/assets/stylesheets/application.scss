@@ -192,6 +192,11 @@ a{
   white-space: nowrap;
 }
 
+.validation_message{
+  color: red;
+  font-size: small;
+}
+
 /*=============== レスポンシブ：全体用CSS ===============*/
 @media screen and (max-width:820px){
   body{

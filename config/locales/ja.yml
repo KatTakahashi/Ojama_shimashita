@@ -1,5 +1,35 @@
 ja:
-  date:
+  activerecord: #バリデーションメッセージ用
+    models:
+      member: 会員
+    attributes:
+      admin:
+        email: メールアドレス
+      member:
+        last_name: 苗字
+        last_name_kana: カナ(姓)
+        first_name: 名前
+        first_name_kana: カナ(名)
+        user_name: ユーザーネーム
+        gender: 性別
+        birthday: 誕生日
+        living_prefecture: 居住地
+        favorite_word: 好きな旅の言葉
+        password: パスワード(6文字以上)
+        email: メールアドレス
+      post:
+        taken_at: 撮影日
+        category: カテゴリー
+        prefecture: 都道府県
+        city: 市町村
+        spot_name: スポット名
+        body: 旅のメモ
+      contact:
+        name: 氏名
+        email: メールアドレス
+        message: お問い合わせ本文
+
+  date: #日付選択フォーム用
     month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     order:
       - :year

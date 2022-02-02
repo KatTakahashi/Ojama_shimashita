@@ -28,8 +28,11 @@ class Public::MembersController < ApplicationController
 # --------------- 会員情報更新機能 --------------
   def update
     @member = Member.find(current_member.id)
-    @member.update(member_params)
-    redirect_to member_path(current_member)
+    if @member.update(member_params)
+      redirect_to member_path(current_member)
+    else
+      render "edit"
+    end
   end
 
 # --------------- 投稿内容削除機能 --------------

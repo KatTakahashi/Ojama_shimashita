@@ -13,8 +13,11 @@ class Admin::MembersController < ApplicationController
 # --------------- 会員情報更新機能 --------------
   def update
     @member = Member.find(params[:id])
-    @member.update(member_params)
-    redirect_to admin_members_path
+    if @member.update(member_params)
+      redirect_to admin_members_path
+    else
+      render "edit"
+    end
   end
 
 # --------------- 強制退会機能 --------------

@@ -17,6 +17,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :name, placeholder: "　桜木健二", autofocus: true %>
+              <p class="validation_message"><%= @contact.errors.full_messages_for(:name).first %>
             </div>
           </td>
         </tr>
@@ -27,6 +28,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :email, placeholder: "　sakuragi@kenji.co.jp" %>
+              <p class="validation_message"><%= @contact.errors.full_messages_for(:email).first %>
             </div>
           </td>
         </tr>
@@ -37,6 +39,7 @@
           <td>
             <div class="form_element">
               <%= f.text_area :message, size: "27x8" %>
+              <p class="validation_message"><%= @contact.errors.full_messages_for(:message).first %>
             </div>
           </td>
         </tr>

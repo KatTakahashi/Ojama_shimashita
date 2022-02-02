@@ -18,11 +18,13 @@
           <td>
             <div class="form_element">
               <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "　桜木", autofocus: true %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:last_name).first %>
             </div>
           </td>
           <td>
             <div class="form_element">
               <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "　健二" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:first_name).first %>
             </div>
           </td>
         </tr>
@@ -34,11 +36,13 @@
           <td>
             <div class="form_element">
               <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "　サクラギ" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:last_name_kana).first %>
             </div>
           </td>
           <td>
             <div class="form_element">
               <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "　ケンジ" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:first_name_kana).first %>
             </div>
           </td>
         </tr>
@@ -49,6 +53,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :user_name, autocomplete: "user_name", placeholder: "　けんちゃん" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:user_name).first %>
             </div>
           </td>
         </tr>
@@ -59,6 +64,7 @@
             <th>
               <div class="form_element">
                 <%= f.collection_radio_buttons :gender, Member.genders_i18n, :first, :last %>
+                <p class="validation_message"><%= @member.errors.full_messages_for(:gender).first %>
               </div>
             </th>
           </tr>
@@ -69,6 +75,7 @@
           <th>
             <div class="form_element">
               <%= f.date_select :birthday, start_year: (Time.now.year - 100), default: Date.new(1995, 1, 1) %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:birthday).first %>
             </div>
           </th>
         </tr>
@@ -79,6 +86,7 @@
           <td>
             <div class="form_element">
               <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:living_prefecture).first %>
             </div>
           </td>
         </tr>
@@ -89,6 +97,7 @@
           <td colspan="2">
             <div class="form_element">
               <%= f.email_field :email, autocomplete: "email", placeholder: "　sakuragi@kenji.co.jp" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:email).first %>
             </div>
           </td>
         </tr>
@@ -104,6 +113,7 @@
           <th>
             <div class="form_element">
               <%= f.password_field :password, autocomplete: "new-password" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:password).first %>
             </div>
           </th>
         </tr>
@@ -114,6 +124,7 @@
           <th>
             <div class="form_element">
               <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:password).first %>
             </div>
           </th>
         </tr>

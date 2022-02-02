@@ -52,11 +52,13 @@
           <td>
             <div class="form_element">
               <%= f.text_field :last_name, autocomplete: "last_name" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:last_name).first %>
             </div>
           </td>
           <td>
             <div class="form_element">
               <%= f.text_field :first_name, autocomplete: "first_name" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:first_name).first %>
             </div>
           </td>
         </tr>
@@ -68,11 +70,13 @@
           <td>
             <div class="form_element">
               <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:last_name_kana).first %>
             </div>
           </td>
           <td>
             <div class="form_element">
               <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:first_name_kana).first %>
             </div>
           </td>
         </tr>
@@ -83,6 +87,7 @@
           <td>
             <div class="form_element">
               <%= f.text_field :user_name, autocomplete: "user_name" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:user_name).first %>
             </div>
           </td>
         </tr>
@@ -93,6 +98,7 @@
           <td>
             <div class="form_element">
               <%= f.select :living_prefecture, Member.living_prefectures_i18n.invert, {prompt: "選択してください"} %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:living_prefecture).first %>
             </div>
           </td>
         </tr>
@@ -103,6 +109,7 @@
           <td colspan="2">
             <div class="form_element">
               <%= f.email_field :email, autocomplete: "email", placeholder: "sakuragi@kenji.co.jp" %>
+              <p class="validation_message"><%= @member.errors.full_messages_for(:email).first %>
             </div>
           </td>
         </tr>

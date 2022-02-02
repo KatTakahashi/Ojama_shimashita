@@ -1,10 +1,10 @@
 class Public::ContactsController < ApplicationController
-  
+
 # --------------- お問い合わせページ --------------
   def new
     @contact = Contact.new
   end
-  
+
 # --------------- お問い合わせ送信機能 ---------------
   def create
     @contact = Contact.new(contact_params)
@@ -12,7 +12,7 @@ class Public::ContactsController < ApplicationController
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to root_path
     else
-      render "public/homws/about"
+      render "new"
     end
   end
 
@@ -21,5 +21,5 @@ class Public::ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:email, :name, :message)
   end
-  
+
 end
