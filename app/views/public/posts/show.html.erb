@@ -78,13 +78,15 @@
         </div>
         <div class="margin_l"><%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %></div>
         <div class="margin_l"><%= "カテゴリー：#{@post.category_i18n}" %></div>
-        <div class="margin_l">
-          <span>タグ　　　：</span>
-          <% @translations.each do |tag| %>
-            <%= tag %>
-          <% end %>
-        </div>
-        <div class="margin_l"><p class="text_xsmall red">　※タグはAI機能により自動で付与されます。</p></div>
+        <% if @translations.present? %>
+          <div class="margin_l">
+            <span>タグ　　　：</span>
+            <% @translations.each do |tag| %>
+              <%= tag %>
+            <% end %>
+          </div>
+          <div class="margin_l"><p class="text_xsmall red">　※タグはAI機能により自動で付与されます。</p></div>
+        <% end %>
       </div>
 
 <!-- --------------- grid：投稿内容 -------------- -->
