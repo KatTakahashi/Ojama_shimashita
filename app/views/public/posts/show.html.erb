@@ -21,6 +21,9 @@
 
 <!-- --------------- grid：投稿写真 -------------- -->
       <div class="grid_post_show_C">
+        <% @post.tags.each do |tag| %>
+          <span class="label"><%= tag.name %></span>
+        <% end %>
         <!--投稿写真-->
         <div class="slider">
           <% if @post.images.attached? %>

@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   belongs_to :member
   has_many :post_comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   #バリデーション
   validate :image_type, :image_size, :image_length

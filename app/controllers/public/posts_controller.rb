@@ -28,6 +28,12 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     if @post.save(post_params)
+      @post.images.each do |image|
+        tags = Vision.get_image_data(image)
+        tags.each do |tag|
+          @post.tags.create(name: tag)
+        end
+      end
       redirect_to post_path(@post)
     else
       render "new"
