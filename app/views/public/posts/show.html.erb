@@ -21,9 +21,6 @@
 
 <!-- --------------- grid：投稿写真 -------------- -->
       <div class="grid_post_show_C">
-        <% @post.tags.each do |tag| %>
-          <span class="label"><%= tag.name %></span>
-        <% end %>
         <!--投稿写真-->
         <div class="slider">
           <% if @post.images.attached? %>
@@ -81,6 +78,13 @@
         </div>
         <div class="margin_l"><%= "撮影日　　：#{@post.taken_at.strftime('%Y年%m月%d日')}" %></div>
         <div class="margin_l"><%= "カテゴリー：#{@post.category_i18n}" %></div>
+        <div class="margin_l">
+          <span>タグ　　　：</span>
+          <% @translations.each do |tag| %>
+            <%= tag %>
+          <% end %>
+        </div>
+        <div class="margin_l"><p class="text_xsmall red">　※タグはAI機能により自動で付与されます。</p></div>
       </div>
 
 <!-- --------------- grid：投稿内容 -------------- -->

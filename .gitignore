@@ -32,3 +32,6 @@
 
 #.envファイルをGitHubにアップしないため(.envは環境変数管理のgem "dotenv-rails"で使用)
 /.env
+
+; Google Translate API用のjsonファイルをGitHubにアップしないため
+/config/google_cloud.json

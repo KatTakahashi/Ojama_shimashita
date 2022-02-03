@@ -94,6 +94,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'gmaps4rails'
 #google map API用(住所の情報から緯度経度を数値に変換)
   gem 'geocoder'
+#google translate API用
+  gem 'google-cloud'
+  gem 'google-cloud-translate'
 #GitHubにAPI keyなどの個人情報をアップしない用
   gem 'dotenv-rails'
 

@@ -16,6 +16,12 @@ class Public::PostsController < ApplicationController
     #Google Map Api用(gonはRailsからJSに変数を渡すためのgem)
       gon.post = @post
     @member = @post.member
+    #Google Translate API用(Googlt Vision Apiのタグ日本語化)
+      project_id = ENV["CLOUD_PROJECT_ID"]
+      translate   = Google::Cloud::Translate.new version: :v2, project_id: project_id
+      texts = @post.tags.pluck(:name)
+      target = "ja"
+      @translations = translate.translate texts, to: target
   end
 
 # --------------- 新規投稿ページ --------------
