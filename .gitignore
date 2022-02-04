@@ -21,6 +21,9 @@
 /storage/*
 !/storage/.keep
 
+# Google Vision APIを導入の際、アップロード先変更(/storage/ to /public/uploads/)
+/public/uploads/*
+
 /node_modules
 /yarn-error.log
 
@@ -33,5 +36,5 @@
 #.envファイルをGitHubにアップしないため(.envは環境変数管理のgem "dotenv-rails"で使用)
 /.env
 
-; Google Translate API用のjsonファイルをGitHubにアップしないため
+# Google Translate API用のjsonファイルをGitHubにアップしないため
 /config/google_cloud.json

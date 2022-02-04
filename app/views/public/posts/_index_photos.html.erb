@@ -13,7 +13,7 @@
           <% else %>
             <%= link_to I18n.t("enums.post.prefecture.#{Post.prefectures.keys[index-1]}"), post_index_pref_member_path(prefecture_id: Post.prefectures.keys[index-1]), class:"pref_title" %>
           <% end %>
-          <% if posts.presence %>
+          <% if posts.present? %>
             <div class="index_img_frame">
               <% if current_page?(posts_path) %>
                 <%= link_to index_pref_posts_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
@@ -24,7 +24,7 @@
                     <% end %>
                   <% end %>
                 <% end %>
-              <% else %>
+              <% elsif Post.present? %>
                 <%= link_to post_index_pref_member_path(prefecture_id: Post.prefectures.keys[index-1]) do %>
                   <% posts.each do |post| %>
                     <% post.images.each do |image| %>
