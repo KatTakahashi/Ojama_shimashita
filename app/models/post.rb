@@ -78,7 +78,7 @@ class Post < ApplicationRecord
     images.each do |image|
       if !image.blob.content_type.in?(%('image/jpg image/jpeg image/png image/heic'))
         image.purge
-        errors.add(:images, "はjpg, jpegまたはpng形式でアップロードしてください")
+        errors.add(:images, "はjpg, jpeg, pngまたはheic形式でアップロードしてください")
       end
     end
   end
@@ -95,9 +95,9 @@ class Post < ApplicationRecord
 
   # バリデーション用：Active_storageの添付可能枚数
   def image_length
-    if images.length > 5
+    if images.length > 3
       images.purge
-      errors.add(:images, "5枚まで投稿可能です")
+      errors.add(:images, "3枚まで投稿可能です")
     end
   end
 end
