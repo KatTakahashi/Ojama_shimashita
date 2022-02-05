@@ -11,6 +11,7 @@ class Post < ApplicationRecord
 
   #バリデーション
   validate :image_type, :image_size, :image_length
+  validates :genre, presence: true
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :spot_name, presence: true
