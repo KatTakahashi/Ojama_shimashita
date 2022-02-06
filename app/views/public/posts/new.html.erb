@@ -11,7 +11,9 @@
     <%= form_with model: @post, local: true do |f| %>
       <table class="form_table">
         <tr>
-          <th><%= f.label :投稿写真　%><span class="required">　必須　</span></th>
+          <th>
+            <%= f.label :投稿写真　%><span class="required">　必須　</span>
+            <div class="gray text_xsmall"><p>　※8MB以下の画像を3枚まで投稿可能です。</p></div></th>
         </tr>
         <tr>
           <td>
