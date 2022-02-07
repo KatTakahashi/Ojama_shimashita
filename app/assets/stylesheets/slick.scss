@@ -21,8 +21,9 @@
     }
 
     .thumb img{
-      height: 50px;
+      height: 70px;
       width: auto;
+      max-width: 120px;
       margin: 0 auto;
     }
 
@@ -52,9 +53,9 @@
     }
 
     .thumb img{
-        height: 40px;
+        height: 60px;
         width: auto;
-        max-width: 16vw;
+        max-width: 25vw;
         margin: 0 auto;
     }
 }
