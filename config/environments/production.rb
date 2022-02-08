@@ -65,7 +65,31 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Ojama_shimashita_#{Rails.env}"
 
+  #メール送信失敗時のエラー　※development.rbから引用
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.perform_caching = false
+
+  #メール送信方法　※development.rbから引用
+  config.action_mailer.delivery_method = :smtp
+
+  #SMTPの詳細設定　※development.rbから引用
+  config.action_mailer.smtp_settings = {
+    #SMTPサーバのポート番号
+    port:                 587,
+    #SMTPサーバのホスト名
+    address:              'smtp.gmail.com',
+    #HELOドメイン
+    domain:               'gmail.com',
+    #メール送信に使用するgmailアカウント(環境変数で保護)
+    user_name:            ENV['SMTP_USERNAME'],
+    #メール送信に使用するgmailパスワード(環境変数で)
+    password:             ENV['SMTP_PASSWORD'],
+    #認証方法
+    authentication:       'login',
+    #メール送信にTLS認証を使用するか
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
