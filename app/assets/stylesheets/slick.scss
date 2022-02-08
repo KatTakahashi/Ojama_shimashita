@@ -1,12 +1,12 @@
 // --------------- 追加：posts/show/画像スライダー ---------------
     .slider{
         margin: 10px auto;
-        width: 500px;
+        width: 620px;
     }
     .slider img{
         height: 350px;
         width: auto;
-        max-width: 500px;
+        max-width: 620px;
         margin: 0 auto;
     }
     /*slick setting*/
@@ -35,10 +35,11 @@
     }
 
     .slider img{
-        height: 30vh;
+        height: 33vh;
         width: auto;
         max-width: 90vw;
         margin: 0 auto;
+        object-fit: scale-down;
     }
 
     /*slick setting*/

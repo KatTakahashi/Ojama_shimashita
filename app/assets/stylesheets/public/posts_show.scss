@@ -7,7 +7,7 @@ $margin-1: 40px;
   display: grid;
   justify-items: center;
   align-items: top;
-  grid-template-columns: 200px 250px 250px 200px;
+  grid-template-columns: 140px 310px 310px 140px;
 }
 
 // ----- 投稿のスポット名 -----
@@ -25,7 +25,7 @@ $margin-1: 40px;
   grid-row: 1/2;  //縦
   justify-self: end;
   align-self: end;
-  margin: 30px 0 10px 0;
+  margin: 30px 50px 10px 0;
 }
 
 span.like, span.like a{
@@ -45,8 +45,9 @@ span.like, span.like a{
 .grid_post_show_D{
   grid-column: 2/3;   //横
   grid-row: 3/4;  //縦
-  margin-bottom: $margin-1;
+  margin: 0 50px $margin-1 0;
   text-align: center;
+  justify-self: end;
 }
 
 .grid_post_show_D .profile_image_frame{

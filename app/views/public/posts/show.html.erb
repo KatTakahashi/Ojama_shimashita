@@ -25,14 +25,14 @@
         <div class="slider">
           <% if @post.images.attached? %>
             <% @post.images.each do |image| %>
-              <div><%= image_tag image, :width => '450' %></div>
+              <div><%= image_tag image, :width => '620' %></div>
             <% end %>
           <% end %>
         </div>
         <div class="thumb">
           <% if @post.images.attached? %>
             <% @post.images.each do |image| %>
-              <div><%= image_tag image, :width => '450' %></div>
+              <div><%= image_tag image %></div>
             <% end %>
           <% end %>
         </div>
