@@ -1,47 +1,97 @@
 <!-- =============== 部分テンプレート：ヘッダー =============== -->
   <!--homes/top.html以外に適用-->
   <% unless current_page?(root_path) %>
+    <header class="site-header">
+      <div class="gnav_logo"><%= link_to root_path do %><%= image_tag "logo_w.png", size: '92x45' %><% end %></div>
+      <nav class="gnav">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+        <ul class="menu__box">
 <!-- --------------- 管理者ログイン中に表示 -------------- -->
-    <% if admin_signed_in? %>
-      <header class="site-header">
-        <div class="gnav_logo"><%= link_to root_path do %><%= image_tag "logo_w.png", size: '92x45' %><% end %></div>
-        <nav class="gnav">
-          <ul>
-            <li><%= link_to root_path do %><%= image_tag "nav_5_top.png", size: '84x44' %><% end %></li>
-            <li><%= link_to admin_members_path do %><%= image_tag "nav_6_all_m.png", size: '84x44' %><% end %></li>
-            <li><%= link_to posts_path do %><%= image_tag "nav_7_all_p.png", size: '84x44' %><% end %></li>
-            <li><%= link_to destroy_admin_session_path, method: :delete do %><%= image_tag "nav_11_logout.png", size: '84x44' %><% end %></li>
-          </ul>
-        </nav>
-      </header>
-
+          <% if admin_signed_in? %>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fas fa-home menu__item white">　ホーム</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_members_path do %>
+                <i class="fas fa-user-friends menu__item white">　会員一覧</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to posts_path do %>
+                <i class="fas fa-images white menu__item">　みんなの投稿</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt white menu__item">　ログアウト</i>
+              <% end %>
+            </li>
 <!-- --------------- 会員ログイン中に表示 -------------- -->
-    <% elsif member_signed_in? %>
-      <header class="site-header">
-        <div class="gnav_logo"><%= link_to root_path do %><%= image_tag "logo_w.png", size: '92x45' %><% end %></div>
-        <nav class="gnav">
-          <ul class="gnav_menu">
-            <li><%= link_to member_path(current_member.id), data: { 'turbolinks': false } do %><%= image_tag "nav_8_my.png", size: '84x44' %><% end %></li>
-            <li><%= link_to new_post_path do %><%= image_tag "nav_9_new.png", size: '84x44' %><% end %></li>
-            <li><%= link_to posts_path do %><%= image_tag "nav_2_all_p.png", size: '84x44' %><% end %></li>
-            <li><%= link_to new_contact_path do %><%= image_tag "nav_10_contact.png", size: '84x44' %><% end %></li>
-          </ul>
-        </nav>
-      </header>
+          <% elsif member_signed_in? %>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fas fa-home menu__item white">　ホーム</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to member_path(current_member.id), data: { 'turbolinks': false } do %>
+                <i class="fas fa-user white menu__item">　マイページ</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_post_path do %>
+                <i class="fas fa-file-upload white menu__item">　新規投稿</i>
+              <% end %>
+              </li>
+            <li>
+              <%= link_to posts_path do %>
+                <i class="fas fa-images white menu__item">　みんなの投稿</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_contact_path do %>
+                <i class="fas fa-envelope white menu__item">　お問い合わせ</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_member_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt white menu__item">　ログアウト</i>
+              <% end %>
+            </li>
   <!-- --------------- ログインしていない場合に表示 -------------- -->
-    <% else %>
-      <header class="site-header">
-        <div class="gnav_logo"><%= link_to root_path do %><%= image_tag "logo_w.png", size: '92x45' %><% end %></div>
-        <nav class="gnav">
-          <ul>
-            <li><%= link_to homes_about_path do %><%= image_tag "nav_1_about.png", size: '84x44' %><% end %></li>
-            <li><%= link_to posts_path do %><%= image_tag "nav_2_all_p.png", size: '84x44' %><% end %></li>
-            <li><%= link_to new_member_registration_path do %><%= image_tag "nav_3_sign.png", size: '84x44' %><% end %></li>
-            <li><%= link_to new_member_session_path do %><%= image_tag "nav_4_log.png", size: '84x44' %><% end %></li>
-          </ul>
-        </nav>
-      </header>
-    <% end %>
+          <% else %>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fas fa-home menu__item white">　ホーム</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to homes_about_path do %>
+              <i class="fas fa-book-open white menu__item">　概要</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to posts_path do %>
+                <i class="fas fa-images white menu__item white menu__item">　みんなの投稿</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_member_registration_path do %>
+                <i class="fas fa-user-plus white menu__item">　会員登録</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_member_session_path do %>
+                <i class="fas fa-sign-in-alt white menu__item">　ログイン</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
   <% end %>
-
-
