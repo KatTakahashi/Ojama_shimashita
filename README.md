@@ -1,4 +1,4 @@
-# おじゃましました
+# [おじゃましました](http://35.73.174.23/)
 
 ## サイト概要
 
@@ -40,7 +40,7 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 
 ## テーマを選んだ理由
 
-私は**旅人の困りごとを解決したい**と考え、**"写真×ロケーション"**をメインとするSNSサイトを制作しました。<br>
+私は**旅人の困りごとを解決したい**と考え、**写真×ロケーション**をメインとするSNSサイトを制作しました。<br>
 <br>
 旅人の困りごととして、<br>
 
@@ -77,18 +77,10 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 
 ## 設計書
 
-- ER 図
-  https://drive.google.com/file/d/1f8rDCpcNX5yB_fTpJLpLy-pi9UeVeVS9/view?usp=sharing
-
-- テーブル定義書
-  https://docs.google.com/spreadsheets/d/1GHDrrrNDTbnDPb5r9J5Q64BH85m4yRP2p5KE62_ha3o/edit?usp=sharing
-
-- アプリケーション詳細設計
-  https://docs.google.com/spreadsheets/d/1GKj1Exwbbu9O79ZJDDnX1TkQnsfOCkVR6Lvgje0Nx2Y/edit?usp=sharing
-
-## チャレンジ要素一覧
-
-https://docs.google.com/spreadsheets/d/1rL7TU7FfH4DY7jqnJUelITTu5emBVGkwSn4JwT_KDIg/edit?usp=sharing
+- [ER 図](https://drive.google.com/file/d/1f8rDCpcNX5yB_fTpJLpLy-pi9UeVeVS9/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1GHDrrrNDTbnDPb5r9J5Q64BH85m4yRP2p5KE62_ha3o/edit?usp=sharing)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1GKj1Exwbbu9O79ZJDDnX1TkQnsfOCkVR6Lvgje0Nx2Y/edit?usp=sharing)
+- [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1rL7TU7FfH4DY7jqnJUelITTu5emBVGkwSn4JwT_KDIg/edit?usp=sharing)
 
 ## 開発環境
 
