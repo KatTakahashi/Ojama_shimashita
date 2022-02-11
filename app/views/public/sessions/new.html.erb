@@ -12,22 +12,29 @@
 <%= form_with model: @member,url: member_session_path, local: true do |f| %>
   <table class="form_table">
     <tr>
-      <th><%= f.label :メールアドレス　%><span class="required">　必須　</span></th>
+      <th>
+        <%= f.label :メールアドレス　%><span class="required">　必須　</span>
+      </th>
     </tr>
     <tr>
       <td>
         <div class="form_element">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examole.com" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "　test@user.com" %>
+          <div class="gray text_small">テストユーザ：test@user.com</div>
         </div>
       </td>
     </tr>
     <tr>
-      <th><%= f.label :パスワード　%><span class="required">　必須　</span></th>
+      <th>
+        <%= f.label :パスワード　%><span class="required">　必須　</span>
+
+      </th>
     </tr>
     <tr>
       <td>
         <div class="form_element">
           <%= f.password_field :password, autocomplete: "current-password" %>
+          <div class="gray text_small">テストユーザ：test_user</div>
         </div>
       </td>
     </tr>

@@ -127,13 +127,19 @@ a{
   color: navy;
 }
 
+::placeholder {
+  color: #CCCCCC;
+}
+
 //--------------- 文字の大きさ ---------------
 .text_xsmall{
   font-size: x-small;
+  font-weight: normal;
 }
 
 .text_small{
   font-size: small;
+  font-weight: normal;
 }
 
 .text_large{
