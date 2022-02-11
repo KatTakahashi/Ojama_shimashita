@@ -8,17 +8,17 @@
           <tr>
             <td rowspan="2" class="follow_image">
               <% if member.profile_image.attached? %>
-                <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
+                <%= link_to member_path(member.id) do %>
                   <%= image_tag member.profile_image.variant(resize:'50x50').processed, class:"profile_image" %>
                 <% end %>
               <% else %>
-                <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
+                <%= link_to member_path(member.id) do %>
                   <%= image_tag "no_user_image.png", size: '50x50', class:"profile_image"  %>
                 <% end %>
               <% end %>
             </td>
             <td class="follow_user">
-              <%= link_to member_path(member.id), data: { 'turbolinks': false } do %>
+              <%= link_to member_path(member.id) do %>
                 <span class="text_large"><%= member.user_name %></span>
               <% end %>
             </td>
