@@ -1,0 +1,17 @@
+<!-- =============== 部分テンプレート：無限スクロール機能　=============== -->
+<!-- --------------- jscroll用リンク --------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+<!-- --------------- 無限スクロールの設定 --------------- -->
+  <script type="text/javascript">
+    $(window).on('scroll', function() {
+        scrollHeight = $(document).height();
+        scrollPosition = $(window).height() + $(window).scrollTop();
+        if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+              $('.jscroll').jscroll({
+                contentSelector: '.scroll-list',
+                nextSelector: 'span.next:last a'
+              });
+        }
+    });
+  </script>

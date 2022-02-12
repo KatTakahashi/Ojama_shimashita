@@ -84,15 +84,21 @@
 <!-- --------------- grid：投稿写真ギャラリー(post/images) -------------- -->
       <div class="grid_member_show_F">
         <div class="border"></div>
-        <% @posts.limit(30).each do |post| %>
-          <% if post.images.attached? %>
-            <% post.images.each do |image| %>
-              <%= link_to post_path(post) do %>
-                <%= image_tag image, :height => '150' %>
+        <div class="scroll_box">
+          <div class="scroll-list jscroll">
+            <% @posts_scroll.each do |post| %>
+              <% if post.images.attached? %>
+                <% post.images.each do |image| %>
+                  <%= link_to post_path(post) do %>
+                    <%= image_tag image, class:"scroll_img", :height => '100' %>
+                  <% end %>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-        <% end %>
+            <%= paginate @posts_scroll %>
+          </div>
+          <%= render '/public/js/img_scroll' %>
+        </div>
       </div>
     </div>
   </div>
