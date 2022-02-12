@@ -4,7 +4,7 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = Post.where(member_id: params[:id]).order(taken_at: :desc)
-    @posts_scroll = Kaminari.paginate_array(@posts).page(params[:page]).per(1)
+    @posts_scroll = Kaminari.paginate_array(@posts).page(params[:page]).per(5)
     @posts_count = Post.where(member_id: @member.id)
     @visiteds = Post.where(member_id: @member.id).select(:prefecture).distinct.order('prefecture').map { |i| Post.prefectures[i.prefecture] }
     gon.visiteds = @visiteds
