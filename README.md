@@ -77,7 +77,7 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 
 ## 設計書
 
-- [ER 図](https://drive.google.com/file/d/1f8rDCpcNX5yB_fTpJLpLy-pi9UeVeVS9/view?usp=sharing)
+![er_ojama](https://user-images.githubusercontent.com/92353507/153739833-f34391ce-1755-4dd3-b0e4-f64e15ef1362.png)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1GHDrrrNDTbnDPb5r9J5Q64BH85m4yRP2p5KE62_ha3o/edit?usp=sharing)
 - [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1GKj1Exwbbu9O79ZJDDnX1TkQnsfOCkVR6Lvgje0Nx2Y/edit?usp=sharing)
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1rL7TU7FfH4DY7jqnJUelITTu5emBVGkwSn4JwT_KDIg/edit?usp=sharing)
