@@ -22,7 +22,7 @@
 <!-- =============== 共通：body =============== -->
   <body>
 <!-- --------------- メインビジュアル：トップページと管理者ログイン以外 -------------- -->
-    <% if current_page?(root_path) %>
+    <% if current_page?(root_path) || current_page?(homes_about_path) %>
     <% elsif member_signed_in?&&current_member.header_image.attached? %>
       <%= image_tag current_member.header_image, class:"background_image" %>
       <div class="background_center"></div>
