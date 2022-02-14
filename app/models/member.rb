@@ -4,7 +4,11 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #アソシエーション
+# --------------- active strage(画像アップロード)用 --------------
+  has_one_attached :profile_image
+  has_one_attached :header_image
+
+# --------------- アソシエーション --------------
   has_many :posts, dependent: :destroy
   has_many :post_comments #退会してもコメントは残す
   has_many :post_likes, dependent: :destroy
@@ -17,6 +21,18 @@ class Member < ApplicationRecord
   #自分をフォローしている会員(follower_member)
   has_many :follower_member, through: :followed, source: :follow, dependent: :destroy
 
+# --------------- バリデーション --------------
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :user_name, presence: true
+  validates :gender, presence: true
+  validates :birthday, presence: true
+  validates :email, presence: true
+  validates :living_prefecture, presence: true
+
+# --------------- メソッド --------------
   # フォローする機能
   def follows(member_id)
    follow.create(followed_id: member_id)
@@ -30,30 +46,13 @@ class Member < ApplicationRecord
    following_member.include?(member)
   end
 
-  #active strage(画像アップロード)用
-  has_one_attached :profile_image
-  has_one_attached :header_image
-
-  #バリデーション
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :last_name_kana, presence: true
-  validates :first_name_kana, presence: true
-  validates :user_name, presence: true
-  validates :gender, presence: true
-  validates :birthday, presence: true
-  validates :email, presence: true
-  validates :living_prefecture, presence: true
-
-
-  #フォロー機能
-
-  #enum 性別
+# --------------- enum --------------
+  #性別
   enum gender: {
     Male:1, Female:2, Secret:3
   }
 
-  #enum 会員登録用(都道府県)
+  #会員登録用(都道府県)
   enum living_prefecture: {
     Private:0,
     #北海道・東北地方
@@ -73,5 +72,4 @@ class Member < ApplicationRecord
     Fukuoka:40, Saga:41, Nagasaki:42, Kumamoto:43, Oita:44, Miyazaki:45, Kagoshima:46,
     Okinawa:47
   }
-
 end

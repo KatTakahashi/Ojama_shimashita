@@ -1,10 +1,9 @@
 class PostComment < ApplicationRecord
   
-  #アソシエーション
+# --------------- アソシエーション --------------
   belongs_to :member
   belongs_to :post
   
-  #バリデーション
+# --------------- バリデーション --------------
   validates :body, presence: true
-  
 end

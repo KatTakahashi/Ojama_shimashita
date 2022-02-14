@@ -1,4 +1,5 @@
 class Tag < ApplicationRecord
-  #アソシエーション
+  
+# --------------- アソシエーション --------------
   belongs_to :post
 end

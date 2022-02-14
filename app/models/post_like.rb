@@ -1,9 +1,6 @@
 class PostLike < ApplicationRecord
-
-  #アソシエーション
+  
+# --------------- アソシエーション --------------
   belongs_to :member
   belongs_to :post
-
-  #バリデーション
-
 end
