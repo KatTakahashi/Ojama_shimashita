@@ -94,6 +94,10 @@
     font-size: x-small;
   }
 
+  .grid_post_show_E table tbody tr th{
+    min-width: 60px;
+  }
+
   // ----- 投稿情報(旅のメモ) -----
   .grid_post_show_F{
     grid-column: 1/5;   //横

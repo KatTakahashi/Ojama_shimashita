@@ -83,6 +83,10 @@ span.like, span.like a{
   margin-left: 20px;
 }
 
+.grid_post_show_E table tbody tr th{
+    min-width: 120px;
+  }
+
 // ----- 投稿情報(旅のメモ) -----
 .grid_post_show_F{
   grid-column: 2/4;   //横
