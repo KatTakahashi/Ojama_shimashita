@@ -20,7 +20,6 @@
       <td>
         <div class="form_element">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "　test@user.com" %>
-          <div class="gray text_small">テストユーザ：test@user.com</div>
         </div>
       </td>
     </tr>
@@ -34,7 +33,6 @@
       <td>
         <div class="form_element">
           <%= f.password_field :password, autocomplete: "current-password" %>
-          <div class="gray text_small">テストユーザ：test_user</div>
         </div>
       </td>
     </tr>
@@ -56,6 +54,10 @@
       </td>
     </tr>
   </table>
+<% end %>
+
+<%= link_to members_guest_sign_in_path, method: :post  do%>
+  <div class="btn_black btn_c guest"><p class="text_small">ゲストログイン</p></div>
 <% end %>
 
 </div>

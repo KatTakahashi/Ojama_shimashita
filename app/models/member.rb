@@ -46,6 +46,22 @@ class Member < ApplicationRecord
    following_member.include?(member)
   end
 
+  # ゲストログイン機能
+  def self.guest
+    find_or_create_by!(email: 'guest@user.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.last_name = "げすと"
+      member.first_name = "ゆーざー"
+      member.last_name_kana = "ゲスト"
+      member.first_name_kana = "ユーザー"
+      member.user_name ="ゲストユーザー"
+      member.gender = 3
+      member.birthday = "1995-01-01"
+      member.living_prefecture = 1
+      member.favorite_word = "旅はawesome"
+    end
+  end
+
 # --------------- enum --------------
   #性別
   enum gender: {

@@ -26,6 +26,13 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+# --------------- ゲストログイン機能 --------------
+  def new_guest
+    member = Member.guest
+    sign_in member   # ユーザーをログインさせる
+    redirect_to member_path(current_member)
+  end
+
   protected
 # --------------- ログイン後の遷移先を定義 --------------
   def after_sign_in_path_for(resouce)

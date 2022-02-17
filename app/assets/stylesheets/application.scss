@@ -162,6 +162,15 @@ a{
 }
 
 //--------------- ボタン ---------------
+.btn_black{
+  background-color: black	;
+  color: white;
+  border-radius: 0.7rem;
+  text-align: center;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
 .btn_gray{
   width: 200px;
   background-color: #DDDDDD	;
