@@ -35,9 +35,9 @@
 
         <%= "#{@member.favorite_word}" %><br><br>
         <span>　</span>
-        <%= link_to "#{@member.follow.count} フォロー中　", follows_member_path %>
+        <%= link_to "#{@member.follow.count} フォロー中　", follows_member_path, class: "nowrap" %>
         <span>　</span>
-        <%= link_to "#{@member.followed.count} フォロワー", followers_member_path %>
+        <%= link_to "#{@member.followed.count} フォロワー", followers_member_path, class: "nowrap" %>
       </div>
 
 <!-- --------------- grid：プロフィール編集/フォローボタン -------------- -->

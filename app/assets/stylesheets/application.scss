@@ -109,6 +109,11 @@ main{
   vertical-align: text-top;
 }
 
+// 文字の折り返ししない
+.nowrap{
+  white-space: nowrap;
+}
+
 //--------------- 文字の色 ---------------
 a{
   color: black;
