@@ -90,7 +90,7 @@
               <% if post.images.attached? %>
                 <% post.images.each do |image| %>
                   <%= link_to post_path(post) do %>
-                    <%= image_tag image, class:"scroll_img", :height => '100' %>
+                    <%= image_tag image, class:"scroll_img" %>
                   <% end %>
                 <% end %>
               <% end %>
