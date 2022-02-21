@@ -57,6 +57,8 @@ group :development do
   #デバッグ用
     gem 'pry-byebug'
     gem 'pry-rails'
+  #N+1問題対策用
+    gem 'bullet'
 end
 
 group :test do
