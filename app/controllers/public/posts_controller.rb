@@ -6,12 +6,12 @@ class Public::PostsController < ApplicationController
 
 # --------------- 全体：投稿一覧ページ(都道府県別) --------------
   def index_pref
-    @posts = Post.where(prefecture: params[:prefecture_id]).order(city: :desc)
+    @posts = Post.with_attached_images.where(prefecture: params[:prefecture_id]).order(city: :desc)
   end
 
 # --------------- 投稿詳細ページ --------------
   def show
-    @post = Post.find(params[:id])
+    @post = Post.with_attached_images.find(params[:id])
     @comment = PostComment.new
     #Google Map Api用(gonはRailsからJSに変数を渡すためのgem)
       gon.post = @post
