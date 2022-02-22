@@ -13,30 +13,32 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 投稿者が訪れた都道府県を見える化することを目的としています。
 
 ### ＜機能＞
-- 会員登録、ログイン機能(devise)
-- 投稿機能
-  - 画像投稿機能(Active Storage)
-  - 都道府県選択機能(enum)
-  - 位置情報取得機能(geocoder)
-- いいね機能(Ajax)
-- コメント機能(Ajax)
-- フォロー機能
-- お問い合わせ機能(Action Mailer)
-- 訪問済み/未訪問 都道府県の色分け機能(Japan Map)<br>
-- 環境変数(dotenv)
-- デバッグ(pry-byebug)
-- バリデーションメッセージの日本語化(rails-i18n)
-- レイアウト/レスポンシブ対応(主にCSS Grid Layout)
+| gem | 機能 |
+| --- | :--- |
+| devise | 会員登録、ログイン機能 |
+| geocoder | 位置情報取得機能 |
+| rails-i18n | バリデーションメッセージの日本語化 |
+| pry-byebug | デバッグ |
+| bullet | N+1問題検知用 |
+| detenv | 環境変数 |
 
-#### [API 関連]
-- Maps JavaScript API
-  - 投稿内容の位置情報をGoogle Mapsに表示するために利用
-- Geocoding API
-  - 投稿内容の位置情報取得精度向上のために利用
-- Cloud Vision API
-  - 投稿写真へのタグ付け機能のために利用(AI機能)
-- Cloud Translation API
-  - Cloud Vision APIにより生成されたタグ(英語)の日本語化のために利用
+| API | 機能 |
+| --- | :--- |
+| Maps JavaScript API | 投稿内容の位置情報をGoogle Mapsに表示 |
+| Geocoding API | 投稿内容の位置情報取得精度向上 |
+| Cloud Vision API | 投稿写真へのタグ付け機能 |
+| Cloud Translation API | Cloud Vision APIにより生成されたタグ(英語)の日本語化 |
+
+| JavaScript | 機能 |
+| --- | :--- |
+| Ajax | いいね機能、コメント機能 |
+| Japan Map | 訪問済み/未訪問 都道府県の色分け機能 |
+
+| その他 | 機能 |
+| --- | :--- |
+| Active Storage | 画像投稿機能 |
+| enum | フォームでの性別や都道府県選択機能 |
+| CSS Grid Layout | レイアウト |
 
 ## テーマを選んだ理由
 
@@ -84,11 +86,11 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 
 ## 開発環境
 
-- OS：Linux(CentOS)
-- 言語：HTML, CSS, JavaScript, Ruby 2.6.3
-- フレームワーク：Ruby on Rails 5.2.6
-- データベース：MySQL 5.7(本番環境), SQLite 3.7.17(開発環境)
-- Webサーバ：Nginx 1.20.0
-- インフラ：AWS(EC2, RDS)
-- JS ライブラリ：jQuery
-- IDE：Cloud9
+| OS | Linux(CentOS) |
+| 言語 | HTML, CSS, JavaScript, Ruby 2.6.3 |
+| フレームワーク | Ruby on Rails 5.2.6 |
+| データベース| MySQL 5.7(本番環境), SQLite 3.7.17(開発環境) |
+| Webサーバ | Nginx 1.20.0 |
+| インフラ | AWS(EC2, RDS) |
+| JS ライブラリ | jQuery |
+| IDE | Cloud9 |
