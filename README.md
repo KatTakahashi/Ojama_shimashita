@@ -15,29 +15,29 @@ Google Maps の活用により投稿写真のロケーションが一目でわ�
 
 ### ＜機能＞
 
-|        **gem**        | **機能**                                              |
-| :-------------------: | :---------------------------------------------------- |
-|        devise         | 会員登録、ログイン機能                                |
-|       geocoder        | 位置情報取得機能                                      |
-|      rails-i18n       | バリデーションメッセージの日本語化                    |
-|      pry-byebug       | デバッグ                                              |
-|        bullet         | N+1 問題検知用                                        |
-|        detenv         | 環境変数                                              |
+| **gem**               | **機能**                                              |
+| :-------------------- | :---------------------------------------------------- |
+| devise                | 会員登録、ログイン機能                                |
+| geocoder              | 位置情報取得機能                                      |
+| rails-i18n            | バリデーションメッセージの日本語化                    |
+| pry-byebug            | デバッグ                                              |
+| bullet                | N+1 問題検知用                                        |
+| detenv                | 環境変数                                              |
 |                       |                                                       |
-|        **API**        | **機能**                                              |
-|  Maps JavaScript API  | 投稿内容の位置情報を Google Maps に表示               |
-|     Geocoding API     | 投稿内容の位置情報取得精度向上                        |
-|   Cloud Vision API    | 投稿写真へのタグ付け機能                              |
+| **API**               |                                                       |
+| Maps JavaScript API   | 投稿内容の位置情報を Google Maps に表示               |
+| Geocoding API         | 投稿内容の位置情報取得精度向上                        |
+| Cloud Vision API      | 投稿写真へのタグ付け機能                              |
 | Cloud Translation API | Cloud Vision API により生成されたタグ(英語)の日本語化 |
 |                       |                                                       |
-|    **JavaScript**     | **機能**                                              |
-|         Ajax          | いいね機能、コメント機能                              |
-|       Japan Map       | 訪問済み/未訪問 都道府県の色分け機能                  |
+| **JavaScript**        |                                                       |
+| Ajax                  | いいね機能、コメント機能                              |
+| Japan Map             | 訪問済み/未訪問 都道府県の色分け機能                  |
 |                       |                                                       |
-|      **その他**       | **機能**                                              |
-|    Active Storage     | 画像投稿機能                                          |
-|         enum          | フォームでの性別や都道府県選択機能                    |
-|    CSS Grid Layout    | レイアウト                                            |
+| **その他**            |                                                       |
+| Active Storage        | 画像投稿機能                                          |
+| enum                  | フォームでの性別や都道府県選択機能                    |
+| CSS Grid Layout       | レイアウト                                            |
 
 ## テーマを選んだ理由
 
@@ -86,13 +86,13 @@ Google Maps の活用により投稿写真のロケーションが一目でわ�
 
 ## 開発環境
 
-|                |                                              |
-| :------------: | :------------------------------------------- |
-|       OS       | Linux(CentOS)                                |
-|      言語      | HTML, CSS, JavaScript, Ruby 2.6.3            |
-| フレームワーク | Ruby on Rails 5.2.6                          |
-|  データベース  | MySQL 5.7(本番環境), SQLite 3.7.17(開発環境) |
-|   Web サーバ   | Nginx 1.20.0                                 |
-|    インフラ    | AWS(EC2, RDS)                                |
-| JS ライブラリ  | jQuery                                       |
-|      IDE       | Cloud9                                       |
+|                    |                                              |
+| :----------------: | :------------------------------------------- |
+|       **OS**       | Linux(CentOS)                                |
+|      **言語**      | HTML, CSS, JavaScript, Ruby 2.6.3            |
+| **フレームワーク** | Ruby on Rails 5.2.6                          |
+|  **データベース**  | MySQL 5.7(本番環境), SQLite 3.7.17(開発環境) |
+|   **Web サーバ**   | Nginx 1.20.0                                 |
+|    **インフラ**    | AWS(EC2, RDS)                                |
+| **JS ライブラリ**  | jQuery                                       |
+|      **IDE**       | Cloud9                                       |
