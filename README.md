@@ -2,51 +2,50 @@
 
 ## サイト概要
 
-日本各地の魅力を共有する写真投稿型SNSです。<br>
-投稿詳細ページにて投稿された写真が撮影されたスポットをGoogle Mapsにてご確認頂けます。<br>
+日本各地の魅力を共有する写真投稿型 SNS です。<br>
+投稿詳細ページにて投稿された写真が撮影されたスポットを Google Maps にてご確認頂けます。<br>
 機能面だけに注力するのではなく、気持ち良くご覧頂けるようデザインもこだわっております。<br>
 レスポンシブ対応しておりますので、スマートフォンからもご利用頂けます。
 
 ### ＜目的＞
+
 投稿内容を都道府県別に記録して共有すること、<br>
-Google Mapsの活用により投稿写真のロケーションが一目でわかること、<br>
+Google Maps の活用により投稿写真のロケーションが一目でわかること、<br>
 投稿者が訪れた都道府県を見える化することを目的としています。
 
 ### ＜機能＞
-| gem | 機能 |
-| --- | :--- |
-| devise | 会員登録、ログイン機能 |
-| geocoder | 位置情報取得機能 |
-| rails-i18n | バリデーションメッセージの日本語化 |
-| pry-byebug | デバッグ |
-| bullet | N+1問題検知用 |
-| detenv | 環境変数 |
 
-| API | 機能 |
-| --- | :--- |
-| Maps JavaScript API | 投稿内容の位置情報をGoogle Mapsに表示 |
-| Geocoding API | 投稿内容の位置情報取得精度向上 |
-| Cloud Vision API | 投稿写真へのタグ付け機能 |
-| Cloud Translation API | Cloud Vision APIにより生成されたタグ(英語)の日本語化 |
-
-| JavaScript | 機能 |
-| --- | :--- |
-| Ajax | いいね機能、コメント機能 |
-| Japan Map | 訪問済み/未訪問 都道府県の色分け機能 |
-
-| その他 | 機能 |
-| --- | :--- |
-| Active Storage | 画像投稿機能 |
-| enum | フォームでの性別や都道府県選択機能 |
-| CSS Grid Layout | レイアウト |
+| **gem**               | **機能**                                              |
+| --------------------- | :---------------------------------------------------- |
+| devise                | 会員登録、ログイン機能                                |
+| geocoder              | 位置情報取得機能                                      |
+| rails-i18n            | バリデーションメッセージの日本語化                    |
+| pry-byebug            | デバッグ                                              |
+| bullet                | N+1 問題検知用                                        |
+| detenv                | 環境変数                                              |
+|                       |                                                       |
+| **API**               | **機能**                                              |
+| Maps JavaScript API   | 投稿内容の位置情報を Google Maps に表示               |
+| Geocoding API         | 投稿内容の位置情報取得精度向上                        |
+| Cloud Vision API      | 投稿写真へのタグ付け機能                              |
+| Cloud Translation API | Cloud Vision API により生成されたタグ(英語)の日本語化 |
+|                       |                                                       |
+| **JavaScript**        | **機能**                                              |
+| Ajax                  | いいね機能、コメント機能                              |
+| Japan Map             | 訪問済み/未訪問 都道府県の色分け機能                  |
+|                       |                                                       |
+| **その他**            | **機能**                                              |
+| Active Storage        | 画像投稿機能                                          |
+| enum                  | フォームでの性別や都道府県選択機能                    |
+| CSS Grid Layout       | レイアウト                                            |
 
 ## テーマを選んだ理由
 
-私は**旅人の困りごとを解決したい**と考え、**写真×ロケーション**をメインとするSNSサイトを制作しました。<br>
+私は**旅人の困りごとを解決したい**と考え、**写真 × ロケーション**をメインとする SNS サイトを制作しました。<br>
 <br>
 旅人の困りごととして、<br>
 
-- 情報収集源である主要SNSの投稿にどこで撮影したかの位置情報が無いことが多い
+- 情報収集源である主要 SNS の投稿にどこで撮影したかの位置情報が無いことが多い
 - 位置情報があったとしても土地勘の無い場所ではその場所を検索する手間が発生
 - 自身の過去の投稿を時系列でしか遡れない　※検索機能を除く
 - 自身が訪れていない都道府県を手軽に知りたい<br>
@@ -56,7 +55,7 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 当サイトでは下記の機能により**旅人の困りごとを解消**できます。<br>
 
 - 投稿時に"都道府県", "市町村名", "スポット名"を入力するフォームを設け、<br>
-  その場所を投稿詳細ページにGoogle Maps で表示することでロケーションの把握に貢献
+  その場所を投稿詳細ページに Google Maps で表示することでロケーションの把握に貢献
 - 都道府県別の一覧ページを設け、興味ある都道府県の投稿を探しやすくすることに貢献
 - 会員別にも都道府県別の一覧ページを設けることで、会員の「あの場所どこだっけ?」を<br>
   過去の投稿を時系列で遡るより解決しやすくすることに貢献
@@ -80,6 +79,7 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 ## 設計書
 
 ![er_ojama](https://user-images.githubusercontent.com/92353507/153739833-f34391ce-1755-4dd3-b0e4-f64e15ef1362.png)
+
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1GHDrrrNDTbnDPb5r9J5Q64BH85m4yRP2p5KE62_ha3o/edit?usp=sharing)
 - [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1GKj1Exwbbu9O79ZJDDnX1TkQnsfOCkVR6Lvgje0Nx2Y/edit?usp=sharing)
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1rL7TU7FfH4DY7jqnJUelITTu5emBVGkwSn4JwT_KDIg/edit?usp=sharing)
@@ -89,8 +89,9 @@ Google Mapsの活用により投稿写真のロケーションが一目でわか
 | OS | Linux(CentOS) |
 | 言語 | HTML, CSS, JavaScript, Ruby 2.6.3 |
 | フレームワーク | Ruby on Rails 5.2.6 |
-| データベース| MySQL 5.7(本番環境), SQLite 3.7.17(開発環境) |
-| Webサーバ | Nginx 1.20.0 |
+| データベース | MySQL 5.7(本番環境), SQLite 3.7.17(開発環境) |
+| Web サーバ | Nginx 1.20.0 |
 | インフラ | AWS(EC2, RDS) |
 | JS ライブラリ | jQuery |
 | IDE | Cloud9 |
+| -------------- | :------------------------------------------- |
