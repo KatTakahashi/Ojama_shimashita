@@ -24,7 +24,7 @@
             </td>
             <td class="follow_btn">
               <% if member_signed_in? && current_member != member && current_member.following?(member) %>
-                <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :POST, class:"btn_blue" %>
+                <%= link_to '　フォロー解除　', unfollow_path(member.id), method: :DELETE, class:"btn_blue" %>
               <% elsif member_signed_in? && current_member != member %>
                 <%= link_to '　フォロー　', follows_path(member.id), method: :POST, class:"btn_blue" %>
               <% end %>
