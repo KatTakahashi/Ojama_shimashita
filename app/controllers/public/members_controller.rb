@@ -36,7 +36,7 @@ class Public::MembersController < ApplicationController
     end
   end
 
-# --------------- 投稿内容削除機能 --------------
+# --------------- アカウント削除機能 --------------
   def destroy
     @member = Member.find(params[:id])
     if @member.destroy

@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       resource :post_likes, only: [:create, :destroy]
     end
     post 'follows/:id' => 'relationships#follow', as: 'follows'
-    post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+    delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
     resources :contacts, only: [:new, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
